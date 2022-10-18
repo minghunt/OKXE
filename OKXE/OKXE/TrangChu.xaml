@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OKXE.TrangChu" Shell.BackgroundColor="#00bcc3" Shell.TitleColor="#00bcc3">
+    <TabBar Shell.TabBarBackgroundColor="Beige" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarDisabledColor="AntiqueWhite">
+        <ShellContent Icon="home_icon.png" Title="Trang Chủ" >
+            <ContentPage Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3">
+
+                <ContentPage.Content>
+                    <StackLayout >
+                        
+                        <CollectionView x:Name="lstloaihoatl" ItemsSource="{Binding listHoa}" SelectionMode="Single"
+                ItemsLayout="VerticalGrid, 2" >
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout WidthRequest="60">
+                                        <Frame HeightRequest="260" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                            <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="130"/>
+                                                    <RowDefinition Height="26"/>
+                                                    <RowDefinition Height="18"/>
+                                                    <RowDefinition  />
+                                                </Grid.RowDefinitions>
+                                                <Image
+                                                   Source="{Binding Hinh}"
+                                                   Aspect="AspectFill"
+                                                   HeightRequest="60"
+                                                   WidthRequest="60" Margin="0"/>
+                                                <Label Text="{Binding TenHoa}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
+                                   TextColor="Blue" FontSize="20"/>
+                                                <Label Text="{Binding Gia}" TextColor="Black" Margin="0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                <Label Text="{Binding MoTa}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                            </Grid>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </ContentPage.Content>
+
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Icon="shop_icon.png"
+                      Title="Cửa hàng">
+            <ContentPage>
+                
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Icon="heart_icon.png"
+                      Title="Yêu thích">
+            <ContentPage>
+
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Icon="blog_icon.png"
+                      Title="Blog" >
+            <ContentPage Shell.NavBarIsVisible="True"  Shell.PresentationMode="Modal">
+                
+                <StackLayout Spacing="0" Orientation="Vertical">
+                    <StackLayout>
+                        <WebView  VerticalOptions="Start" HeightRequest="1000" Source="https://stage.okxe.vn/blog/">
+                        </WebView>
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Icon="user_icon.png"
+                      Title="Tài khoản">
+            <ContentPage>
+
+            </ContentPage>
+        </ShellContent>
+    </TabBar>
+</Shell>
