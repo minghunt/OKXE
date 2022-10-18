@@ -1,11 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OKXE.TrangChu" Shell.BackgroundColor="#00bcc3" Shell.TitleColor="#00bcc3">
-    <TabBar Shell.TabBarBackgroundColor="Beige" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarDisabledColor="AntiqueWhite">
-        <ShellContent Icon="home_icon.png" Title="Trang Chủ" >
+             x:Class="OKXE.TrangChu" Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3" Shell.TitleColor="White">
+    <TabBar Shell.TabBarBackgroundColor="Beige" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="Gray" Shell.TabBarDisabledColor="AntiqueWhite">
+        <ShellContent Icon="home_icon.png" Title="Trang Chủ">
+            
             <ContentPage Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3">
+                <ContentPage.ToolbarItems>
+                    <ToolbarItem Order="Primary" Priority="1" IconImageSource="message_icon.png"></ToolbarItem>
+                    <ToolbarItem Order="Primary" Priority="0" IconImageSource="notify_icon.png"></ToolbarItem>
+                </ContentPage.ToolbarItems>
+                <Shell.TitleView>
+                    <StackLayout HeightRequest="40" WidthRequest="40">
+                        <StackLayout HeightRequest="40" WidthRequest="80" Orientation="Horizontal">
 
+                            <Button ImageSource="location_icon.png" BackgroundColor="Transparent" HeightRequest="30" WidthRequest="30"/>
+                            <Label Text="Việt Nam" TextColor="White" VerticalOptions="End" FontSize="16"/>
+                            <Image Source="moto_icon.png" Margin="45,0,0,0" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
+
+                        </StackLayout>
+                    </StackLayout>
+                </Shell.TitleView>
                 <ContentPage.Content>
                     <StackLayout >
                         
