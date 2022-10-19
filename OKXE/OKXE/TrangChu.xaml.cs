@@ -33,6 +33,10 @@ namespace OKXE
             }));
             carou.ItemsSource = K;
             ExchangeName.Data.Ten = btnLocal;
+            Exchange.Data.MyCoView = lstXe;
+            List<Xe> Xes = new List<Xe>();
+            Xes = Xe.KhoiTaoDsXe();
+            lstXe.ItemsSource = Xes;
         }
 
 
@@ -44,7 +48,7 @@ namespace OKXE
 
         private void ContentPage_Focused(object sender, FocusEventArgs e)
         {
-            Navigation.PushAsync(new Page1());
+            
         }
 
         private void ShellContent_Appearing(object sender, EventArgs e)

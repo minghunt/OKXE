@@ -24,9 +24,9 @@ namespace OKXE.Views
             InitializeComponent();
             h.Add(new DiaDiem { Name = "Cả nước" });
             
-            h.Add(new DiaDiem { Name = "Tp Hải Phòng" });
-            h.Add(new DiaDiem { Name = "Tp Hà Nội" });
-            h.Add(new DiaDiem { Name = "Tp Cần Thơ" });
+            h.Add(new DiaDiem { Name = "Tp. Hải Phòng" });
+            h.Add(new DiaDiem { Name = "Tp. Hà Nội" });
+            h.Add(new DiaDiem { Name = "Tp. Cần Thơ" });
             h.Add(new DiaDiem { Name = "Tp. Hồ Chí Minh" });
             listView.ItemsSource = h;
             string s = ExchangeName.Data.Ten.Text;
@@ -37,12 +37,26 @@ namespace OKXE.Views
                     listView.SelectedItem = d;
                 }
             }
+            
+
+            
         }
 
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             DiaDiem lh = (DiaDiem)e.SelectedItem;
             ExchangeName.Data.Ten.Text = lh.Name;
+            List<Xe> temp = new List<Xe>();
+            temp = Xe.KhoiTaoDsXe();
+            if (lh.Name != "Cả nước")
+            {
+                for (int i=0;i<temp.Count;i++)
+                {
+                    if (lh.Name != temp[i].noiBanXe)
+                        temp.Remove(temp[i]);
+                }
+            }
+            Exchange.Data.MyCoView.ItemsSource = temp;
         }
     }
 }
