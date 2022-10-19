@@ -17,7 +17,7 @@ namespace OKXE
         public TrangChu()
         {
             InitializeComponent();
-            Routing.RegisterRoute("Home/add", typeof(SearchXe));
+            Routing.RegisterRoute(nameof(SearchXe), typeof(SearchXe));
             Routing.RegisterRoute(nameof(SearchLocation), typeof(SearchLocation));
             //Routing.RegisterRoute("Home", typeof(SearchXe));
             K = new List<Hinh>();

@@ -3,16 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OKXE.Views.SearchLocation" Shell.PresentationMode="Modal">
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="listView" ItemSelected="listView_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Label Text="{Binding Name}"/>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <StackLayout Spacing="0">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal"  >
+                    <Button ImageSource="close_icon.png" Clicked="Button_Clicked" WidthRequest="36" BackgroundColor="Transparent" Margin="10,0,85,0"/>
+                    <Label Text="Lựa chọn khu vực" TextColor="Black" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout HeightRequest="50" Margin="0,0,0,15">
+                    <Frame HasShadow="False" CornerRadius="5" HeightRequest="60" Padding="0,3,0,-10" Margin="15,5,15,13" BackgroundColor="LightGray" >
+                        <SearchBar x:Name="searchLoca" TextChanged="searchLoca_TextChanged" VerticalOptions="Start" HeightRequest="30" FontSize="18" Margin="-10,0,0,-5" BackgroundColor="LightGray" Placeholder="Tìm kiếm Tỉnh/Thành phố" CancelButtonColor="Transparent" PlaceholderColor="Gray"/>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout HeightRequest="300" Margin="15,0,15,0">
+                <ListView x:Name="listView" ItemSelected="listView_ItemSelected" RowHeight="40" SeparatorColor="LightGray">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Tapped="listView_ItemTapped">
+                                <StackLayout Orientation="Horizontal" HeightRequest="10" Margin="0,0,0,0" BackgroundColor="Transparent">
+                                    <Image x:Name="loca_img" Source="{Binding imgLoca}" Margin="15,0,0,0"/>
+                                    <Frame HasShadow="False" Padding="0,0,0,0" CornerRadius="5" HeightRequest="20" BackgroundColor="Transparent" >
+                                        <Label Text="{Binding Name}" WidthRequest="300" HeightRequest="20" Margin="10,0,0,0" TextColor="Black" VerticalOptions="Center" FontSize="14"/>
+                                    </Frame>
+                                    <Image Source="{Binding imgTick}" HorizontalOptions="End"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

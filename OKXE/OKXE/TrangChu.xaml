@@ -21,69 +21,54 @@
                     </StackLayout>
                 </Shell.TitleView>
                 <ContentPage.Content>
-                    <StackLayout Spacing="0" >
+                    <StackLayout Spacing="0" Margin="0,0,0,0">
                         <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" >
                             <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-1" HeightRequest="10" WidthRequest="340">
-                                <SearchBar Margin="-10,0,0,0" Focused="SearchBar_Focused" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent"/>
+                                <SearchBar Margin="-10,0,0,0" Focused="SearchBar_Focused" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent" Placeholder="Nhập từ khóa tìm kiếm"/>
                             </Frame>
                             <Button ImageSource="setting_icon.png" Margin="0,0,0,10" HeightRequest="25" WidthRequest="40" BackgroundColor="Transparent"></Button>
                         </StackLayout>
-                  
-                            <ScrollView >
-                                <Grid HeightRequest="1000">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="164"/>
-                                        <RowDefinition/>
-                                       
-                                    </Grid.RowDefinitions>
-                                    <CarouselView Grid.Row="0" x:Name="carou" HeightRequest="164" Margin="0,0,0,0" VerticalOptions="Start">
+                        <ScrollView Margin="0,-1,0,0">
+                            <CollectionView  x:Name="lstXe" SelectionMode="Single"
+                ItemsLayout="VerticalGrid, 2" HeightRequest="1000">
+                                <CollectionView.Header>
+                                    <CarouselView x:Name="carou" HeightRequest="164" Margin="0,0,0,0" VerticalOptions="Start">
                                         <CarouselView.ItemTemplate>
                                             <DataTemplate>
                                                 <Image Source="{Binding Image}" Aspect="AspectFit" Margin="0"/>
                                             </DataTemplate>
                                         </CarouselView.ItemTemplate>
                                     </CarouselView>
-                                    <CollectionView Grid.Row="1" x:Name="lstXe" SelectionMode="Single"
-                ItemsLayout="VerticalGrid, 2" HeightRequest="1000">
-                                        <CollectionView.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackLayout WidthRequest="60">
-                                                    
-                                                    <Frame HeightRequest="260" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
-                                                        <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
-                                                            <Grid.RowDefinitions>
-                                                                <RowDefinition Height="130"/>
-                                                                <RowDefinition Height="26"/>
-                                                                <RowDefinition Height="18"/>
-                                                                <RowDefinition  />
-                                                            </Grid.RowDefinitions>
-                                                            <Image
-                                                   Source="{Binding hinhXe}"
-                                                   Aspect="AspectFill"
-                                                   HeightRequest="60"
-                                                   WidthRequest="60" Margin="0"/>
-                                                            <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
-                                   TextColor="Blue" FontSize="20"/>
-                                                            <Label Text="{Binding giaXe}" TextColor="Black" Margin="0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
-                                                            <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
-                                                        </Grid>
-                                                    </Frame>
-                                                </StackLayout>
-                                            </DataTemplate>
-                                        </CollectionView.ItemTemplate>
-                                    </CollectionView>
-                                </Grid>
-                                
-                                
-                            </ScrollView>
-                            
 
-                           
-                                
-                           
-                           
-                        </StackLayout>
-                
+                                </CollectionView.Header>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout WidthRequest="60">
+                                            <Frame HeightRequest="260" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                                <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="130"/>
+                                                        <RowDefinition Height="26"/>
+                                                        <RowDefinition Height="18"/>
+                                                        <RowDefinition  />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                       Source="{Binding hinhXe}"
+                                                       Aspect="AspectFill"
+                                                       HeightRequest="60"
+                                                       WidthRequest="60" Margin="0"/>
+                                                    <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
+                                       TextColor="Blue" FontSize="20"/>
+                                                    <Label Text="{Binding giaXe}" TextColor="Black" Margin="0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                    <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
+                    </StackLayout>
                 </ContentPage.Content>
 
             </ContentPage>
