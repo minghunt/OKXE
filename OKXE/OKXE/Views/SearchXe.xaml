@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OKXE.Views.SearchXe" Shell.NavBarIsVisible="True" NavigationPage.HasNavigationBar="True"  Shell.PresentationMode="ModalNotAnimated">
+    <NavigationPage.TitleView>
+        <StackLayout HeightRequest="60" Orientation="Horizontal">
+            <Button IsEnabled="True" Margin="0,0,0,10" ContentLayout="Left,0" Padding="0" TextColor="White" FontSize="15" Text="Tp. Hồ Chí Minh" TextTransform="None" WidthRequest="155" ImageSource="location_icon.png" BackgroundColor="Transparent" />
+            <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content >
+        
+        <StackLayout HeightRequest="600">
+            <Label Text="gergwerg>gdgd" VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

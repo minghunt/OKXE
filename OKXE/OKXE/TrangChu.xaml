@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OKXE.TrangChu" Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3" Shell.TitleColor="White">
+             x:Class="OKXE.TrangChu" Shell.NavBarHasShadow="False" 
+       Shell.BackgroundColor="#00bcc3" Shell.TitleColor="White"
+       >
     <TabBar Shell.TabBarBackgroundColor="Beige" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="Gray" Shell.TabBarDisabledColor="AntiqueWhite">
         <ShellContent Icon="home_icon.png" Title="Trang Chủ">
             
@@ -11,57 +13,112 @@
                     <ToolbarItem Order="Primary" Priority="0" IconImageSource="notify_icon.png"></ToolbarItem>
                 </ContentPage.ToolbarItems>
                 <Shell.TitleView>
-                    <StackLayout HeightRequest="40" WidthRequest="40">
-                        <StackLayout HeightRequest="40" WidthRequest="80" Orientation="Horizontal">
-
-                            <Button ImageSource="location_icon.png" BackgroundColor="Transparent" HeightRequest="30" WidthRequest="30"/>
-                            <Label Text="Việt Nam" TextColor="White" VerticalOptions="End" FontSize="16"/>
-                            <Image Source="moto_icon.png" Margin="45,0,0,0" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
-
-                        </StackLayout>
+                    <StackLayout HeightRequest="60" Orientation="Horizontal">
+                        <Button IsEnabled="True" Margin="0,0,0,10" ContentLayout="Left,0" Padding="0" TextColor="White" FontSize="15" Text="Tp. Hồ Chí Minh" TextTransform="None" WidthRequest="155" ImageSource="location_icon.png" BackgroundColor="Transparent" />
+                        <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                     </StackLayout>
                 </Shell.TitleView>
                 <ContentPage.Content>
                     <StackLayout >
-                        
-                        <CollectionView x:Name="lstloaihoatl" ItemsSource="{Binding listHoa}" SelectionMode="Single"
+                        <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" HeightRequest="60" >
+                            <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-1" HeightRequest="10" WidthRequest="340">
+                                <SearchBar Margin="-10,0,0,0" Focused="SearchBar_Focused" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent"/>
+                               
+                            </Frame>
+                            <Button ImageSource="setting_icon.png" Margin="0,0,0,10" HeightRequest="25" WidthRequest="40" BackgroundColor="Transparent"></Button>
+                        </StackLayout>
+                        <ScrollView>
+                            <CollectionView HeightRequest="1000" x:Name="lstloaihoatsl" ItemsSource="{Binding listHoa}" SelectionMode="Single"
                 ItemsLayout="VerticalGrid, 2" >
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout WidthRequest="60">
-                                        <Frame HeightRequest="260" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
-                                            <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="130"/>
-                                                    <RowDefinition Height="26"/>
-                                                    <RowDefinition Height="18"/>
-                                                    <RowDefinition  />
-                                                </Grid.RowDefinitions>
-                                                <Image
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout WidthRequest="60">
+                                            <Frame HeightRequest="260" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                                <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="130"/>
+                                                        <RowDefinition Height="26"/>
+                                                        <RowDefinition Height="18"/>
+                                                        <RowDefinition  />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
                                                    Source="{Binding Hinh}"
                                                    Aspect="AspectFill"
                                                    HeightRequest="60"
                                                    WidthRequest="60" Margin="0"/>
-                                                <Label Text="{Binding TenHoa}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
+                                                    <Label Text="{Binding TenHoa}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
                                    TextColor="Blue" FontSize="20"/>
-                                                <Label Text="{Binding Gia}" TextColor="Black" Margin="0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
-                                                <Label Text="{Binding MoTa}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
-                                            </Grid>
-                                        </Frame>
-                                    </StackLayout>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
+                                                    <Label Text="{Binding Gia}" TextColor="Black" Margin="0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                    <Label Text="{Binding MoTa}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
                     </StackLayout>
                 </ContentPage.Content>
 
             </ContentPage>
         </ShellContent>
         <ShellContent Icon="shop_icon.png"
-                      Title="Cửa hàng">
-            <ContentPage>
-                
+                      Title="Cửa hàng" Shell.PresentationMode="ModalAnimated">
+            <ContentPage Shell.BackgroundColor="#00bcc3">
+                <ContentPage.ToolbarItems>
+                    <ToolbarItem Order="Primary" Priority="1" IconImageSource="message_icon.png"></ToolbarItem>
+                    <ToolbarItem Order="Primary" Priority="0" IconImageSource="notify_icon.png"></ToolbarItem>
+                </ContentPage.ToolbarItems>
+                <Shell.TitleView>
+                    <StackLayout HeightRequest="60" Orientation="Horizontal">
+                        <Button IsEnabled="True" Margin="0,0,0,10" ContentLayout="Left,0" Padding="0" TextColor="White" FontSize="15" Text="Tp. Hồ Chí Minh" TextTransform="None" WidthRequest="155" ImageSource="location_icon.png" BackgroundColor="Transparent" />
+                        <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Shell.TitleView>
+                <ContentPage.Content>
+                    <StackLayout >
+                        <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" HeightRequest="60" >
+                            <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-1" HeightRequest="10" WidthRequest="340">
+                                <SearchBar Margin="-10,0,0,0" Focused="SearchBar_Focused" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent"/>
+
+                            </Frame>
+                            
+                        </StackLayout>
+                        <ScrollView>
+                            <CollectionView HeightRequest="1000" x:Name="lstloaihoatl" ItemsSource="{Binding listHoa}" SelectionMode="Single"
+                ItemsLayout="VerticalGrid, 2" >
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout WidthRequest="60">
+                                            <Frame HeightRequest="260" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                                <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="130"/>
+                                                        <RowDefinition Height="26"/>
+                                                        <RowDefinition Height="18"/>
+                                                        <RowDefinition  />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                   Source="{Binding Hinh}"
+                                                   Aspect="AspectFill"
+                                                   HeightRequest="60"
+                                                   WidthRequest="60" Margin="0"/>
+                                                    <Label Text="{Binding TenHoa}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
+                                   TextColor="Blue" FontSize="20"/>
+                                                    <Label Text="{Binding Gia}" TextColor="Black" Margin="0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                    <Label Text="{Binding MoTa}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
+                    </StackLayout>
+                </ContentPage.Content>
+
             </ContentPage>
+
         </ShellContent>
         <ShellContent Icon="heart_icon.png"
                       Title="Yêu thích">
@@ -82,9 +139,9 @@
             </ContentPage>
         </ShellContent>
         <ShellContent Icon="user_icon.png"
-                      Title="Tài khoản">
-            <ContentPage>
-
+                      Title="Tài khoản" Shell.PresentationMode="Modal" Appearing="ShellContent_Appearing">
+            <ContentPage  Focused="ContentPage_Focused" Shell.PresentationMode="Modal">
+                <StackLayout HeightRequest="1000"></StackLayout>
             </ContentPage>
         </ShellContent>
     </TabBar>

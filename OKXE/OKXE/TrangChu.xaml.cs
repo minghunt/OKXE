@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OKXE.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,23 @@ namespace OKXE
         public TrangChu()
         {
             InitializeComponent();
+        }
+
+
+        private void SearchBar_Focused(object sender, FocusEventArgs e)
+        {
+            Navigation.PushAsync(new Page1());
+           
+        }
+
+        private void ContentPage_Focused(object sender, FocusEventArgs e)
+        {
+            Navigation.PushAsync(new Page1());
+        }
+
+        private void ShellContent_Appearing(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page1());
         }
     }
 }
