@@ -16,5 +16,11 @@ namespace OKXE.Views
         {
             InitializeComponent();
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            //var route = $"{nameof(TrangChu)}";
+            await Shell.Current.GoToAsync("//Home");
+        }
     }
 }
