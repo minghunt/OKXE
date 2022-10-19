@@ -26,30 +26,24 @@ namespace OKXE.Views
             h = new List<DiaDiem>();
             InitializeComponent();
             h.Add(new DiaDiem { Name = "Việt Nam" });
-
             h.Add(new DiaDiem { Name = "Tp. Hải Phòng" });
             h.Add(new DiaDiem { Name = "Tp. Hà Nội" });
             h.Add(new DiaDiem { Name = "Tp. Cần Thơ" });
             h.Add(new DiaDiem { Name = "Tp. Hồ Chí Minh" });
             string s = ExchangeName.Data.Ten.Text;
             listView.ItemsSource = h;
-            var dd = h;
             for (int i = 0; i < 5; i++)
             {
                 if (s == h[i].Name)
                 {
 
-                    dd[i].imgLoca = "loca_icon.png";
-                    dd[i].imgTick = "tick_icon.png";
+                    h[i].imgLoca = "loca_icon.png";
+                    h[i].imgTick = "tick_icon.png";
                 }
-
             }
             listView.ItemsSource = null;
-            listView.ItemsSource = dd;
+            listView.ItemsSource = h;
         }
-
-
-
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             DiaDiem lh = (DiaDiem)e.SelectedItem;
@@ -60,16 +54,13 @@ namespace OKXE.Views
 
             if (lh.Name != "Việt Nam")
             {
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < temp.Count; i++)
                 {
                     if (lh.Name == temp[i].noiBanXe)
                         xes.Add(temp[i]);
                 }
             }
-            else
-            {
-                xes = Xe.KhoiTaoDsXe();
-            }
+            else xes = Xe.KhoiTaoDsXe();
             Exchange.Data.MyCoView.ItemsSource = xes;
         }
 
@@ -88,23 +79,21 @@ namespace OKXE.Views
             }
 
             var ht = viewCell.BindingContext as DiaDiem;
-            var dd = h;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < h.Count; i++)
             {
                 if (ht.Name == h[i].Name)
                 {
-                    dd[i].imgLoca = "loca_icon.png";
-                    dd[i].imgTick = "tick_icon.png";
+                    h[i].imgLoca = "loca_icon.png";
+                    h[i].imgTick = "tick_icon.png";
                 }
                 else
                 {
-                    dd[i].imgTick = "x";
-                    dd[i].imgLoca = "locanot_icon.png";
+                    h[i].imgTick = "x";
+                    h[i].imgLoca = "locanot_icon.png";
                 }
             }
-            h = dd;
             listView.ItemsSource = null;
-            listView.ItemsSource = dd;
+            listView.ItemsSource = h;
         }
 
         private void searchLoca_TextChanged(object sender, TextChangedEventArgs e)

@@ -15,7 +15,7 @@
                 <Shell.TitleView>
                     <StackLayout HeightRequest="60" Orientation="Horizontal">
 
-                        <Button IsEnabled="True" HorizontalOptions="Start" x:Name="btnLoca" Clicked="btnLoca_Clicked" Margin="0,0,0,10" ContentLayout="Left,-30" Padding="0,0,10,0" TextColor="White" FontSize="15" Text="Cả nước" TextTransform="None" WidthRequest="155" ImageSource="location_icon.png" BackgroundColor="Transparent" />
+                        <Button IsEnabled="True" HorizontalOptions="Start" x:Name="btnLoca" Clicked="btnLoca_Clicked" Margin="0,0,0,10" ContentLayout="Left,-30" Padding="0,0,10,0" TextColor="White" FontSize="15" Text="Việt Nam" TextTransform="None" WidthRequest="155" ImageSource="location_icon.png" BackgroundColor="Transparent" />
 
                         <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                     </StackLayout>
