@@ -3,20 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OKXE.TrangChu" Shell.NavBarHasShadow="False" 
        Shell.BackgroundColor="#00bcc3" Shell.TitleColor="White"
-       >
+       Shell.PresentationMode="Modal">
     <TabBar Shell.TabBarBackgroundColor="Beige" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="Gray" Shell.TabBarDisabledColor="AntiqueWhite">
         <ShellContent Icon="home_icon.png" Title="Trang Chủ" Route="Home">
-            
             <ContentPage Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3">
                 <ContentPage.ToolbarItems>
-                    <ToolbarItem Order="Primary" Priority="1" IconImageSource="message_icon.png"></ToolbarItem>
-                    <ToolbarItem Order="Primary" Priority="0" IconImageSource="notify_icon.png"></ToolbarItem>
+                    <ToolbarItem Order="Primary" Priority="1" Clicked="MessageItem_Clicked" IconImageSource="message_icon.png"></ToolbarItem>
+                    <ToolbarItem Order="Primary" Priority="0" Clicked="NotifyItem_Clicked" IconImageSource="notify_icon.png"></ToolbarItem>
                 </ContentPage.ToolbarItems>
                 <Shell.TitleView>
                     <StackLayout HeightRequest="60" Orientation="Horizontal">
-
                         <Button IsEnabled="True" HorizontalOptions="Start" x:Name="btnLoca" Clicked="btnLoca_Clicked" Margin="0,0,0,10" ContentLayout="Left,-30" Padding="0,0,10,0" TextColor="White" FontSize="15" Text="Việt Nam" TextTransform="None" WidthRequest="155" ImageSource="location_icon.png" BackgroundColor="Transparent" />
-
                         <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                     </StackLayout>
                 </Shell.TitleView>
@@ -70,7 +67,6 @@
                         </ScrollView>
                     </StackLayout>
                 </ContentPage.Content>
-
             </ContentPage>
         </ShellContent>
         <ShellContent Icon="shop_icon.png"
@@ -82,9 +78,7 @@
                 </ContentPage.ToolbarItems>
                 <Shell.TitleView>
                     <StackLayout HeightRequest="60" Orientation="Horizontal">
-
                         <Button IsEnabled="True" HorizontalOptions="Start" x:Name="btnLocal" Clicked="btnLoca_Clicked" Margin="0,0,0,10" ContentLayout="Left,-30" Padding="0,0,10,0" TextColor="White" FontSize="15" Text="{Binding Source={x:Reference btnLoca}, Path=Text, Mode=TwoWay}" TextTransform="None" WidthRequest="155" ImageSource="location_icon.png" BackgroundColor="Transparent" />
-
                         <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                     </StackLayout>
                 </Shell.TitleView>
@@ -92,7 +86,7 @@
                     <StackLayout >
                         <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" HeightRequest="42" >
                             <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-1" HeightRequest="10" WidthRequest="375">
-                                <SearchBar Margin="-10,0,0,0" Focused="SearchBar_Focused" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent"/>
+                                <SearchBar Margin="-10,0,0,0" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent"/>
                             </Frame>
                         </StackLayout>
                         <ScrollView>

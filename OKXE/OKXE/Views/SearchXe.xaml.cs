@@ -22,5 +22,9 @@ namespace OKXE.Views
             //var route = $"{nameof(TrangChu)}";
             await Shell.Current.GoToAsync("//Home");
         }
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//Home");
+        }
     }
 }

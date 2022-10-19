@@ -19,6 +19,8 @@ namespace OKXE
             InitializeComponent();
             Routing.RegisterRoute(nameof(SearchXe), typeof(SearchXe));
             Routing.RegisterRoute(nameof(SearchLocation), typeof(SearchLocation));
+            Routing.RegisterRoute(nameof(PageNotify), typeof(PageNotify));
+            Routing.RegisterRoute(nameof(PageMessage), typeof(PageMessage));
             //Routing.RegisterRoute("Home", typeof(SearchXe));
             K = new List<Hinh>();
             foreach(Hinh i in Hinh.KhoiTao())
@@ -42,7 +44,6 @@ namespace OKXE
 
         private async void SearchBar_Focused(object sender, FocusEventArgs e)
         {
-            
             await Shell.Current.GoToAsync(nameof(SearchXe));
         }
 
@@ -53,7 +54,7 @@ namespace OKXE
 
         private void ShellContent_Appearing(object sender, EventArgs e)
         {
-            Shell.Current.GoToAsync("Home");
+            //Shell.Current.GoToAsync("Home");
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -67,6 +68,18 @@ namespace OKXE
             await Shell.Current.GoToAsync(route);
             //await Shell.Current.GoToAsync(nameof(SearchLocation));
             //DisplayAlert("gre", "gre", "ok");
+        }
+
+
+
+        private async void NotifyItem_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(PageNotify));
+        }
+
+        private async void MessageItem_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(PageMessage));
         }
     }
 }

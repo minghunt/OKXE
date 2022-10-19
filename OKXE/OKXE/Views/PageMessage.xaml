@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OKXE.Views.PageMessage" Shell.PresentationMode="NotAnimated" Title="Hộp thư của tôi">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HeightRequest="50" BackgroundColor="#00bcc3">
+                <Frame HasShadow="False" CornerRadius="15" Margin="0,20,0,0">
+                    <Label Text="Bạn chưa có cuộc hội thoại" FontSize="16" Margin="0,-10,0,0" TextColor="Black"/>
+                </Frame>
+                <BoxView Margin="0,-15,0,0" HeightRequest="1" Color="LightGray"/>
+            </StackLayout>
+            <StackLayout Margin="10,0,10,0">
+                <Image Source="chatting_icon.png" Margin="0,150,0,0"/>
+                <Label Text="Danh sách trống"  FontSize="16" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" />
+                <Label Text="Hãy nhắn tin mua qua trang sản phẩm hoặc nhắn trực tiếp người bán" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="16"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
