@@ -21,8 +21,10 @@ namespace OKXE.Model
         }
 
         public string Buffer { get; set; }
-
+       
+        public Label Ten { get; set; }
         public CollectionView MyCoView { get; set; }
+        public Filter MyFilter { get; set; }
 
     }
 }

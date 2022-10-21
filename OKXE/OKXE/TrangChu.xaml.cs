@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using OKXE.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Rg.Plugins.Popup.Services;
 namespace OKXE
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -34,7 +34,7 @@ namespace OKXE
                 return true;
             }));
             carou.ItemsSource = K;
-            ExchangeName.Data.Ten = btnLocal;
+            Exchange.Data.Ten = Lb_Loca;
             Exchange.Data.MyCoView = lstXe;
             List<Xe> Xes = new List<Xe>();
             Xes = Xe.KhoiTaoDsXe();
@@ -80,6 +80,12 @@ namespace OKXE
         private async void MessageItem_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(PageMessage));
+        }
+
+        [Obsolete]
+        private async void Filter_Clicked(object sender, EventArgs e)
+        {
+            await PopupNavigation.PushAsync(new PageFilter());
         }
     }
 }

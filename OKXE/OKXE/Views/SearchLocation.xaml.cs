@@ -30,7 +30,7 @@ namespace OKXE.Views
             h.Add(new DiaDiem { Name = "Tp. Hà Nội" });
             h.Add(new DiaDiem { Name = "Tp. Cần Thơ" });
             h.Add(new DiaDiem { Name = "Tp. Hồ Chí Minh" });
-            string s = ExchangeName.Data.Ten.Text;
+            string s = Exchange.Data.Ten.Text;
             listView.ItemsSource = h;
             for (int i = 0; i < 5; i++)
             {
@@ -47,7 +47,7 @@ namespace OKXE.Views
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             DiaDiem lh = (DiaDiem)e.SelectedItem;
-            ExchangeName.Data.Ten.Text = lh.Name;
+            Exchange.Data.Ten.Text = lh.Name;
             List<Xe> temp = new List<Xe>();
             List<Xe> xes = new List<Xe>();
             temp = Xe.KhoiTaoDsXe();
