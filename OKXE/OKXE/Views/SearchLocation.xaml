@@ -6,7 +6,7 @@
         <StackLayout Spacing="0">
             <StackLayout>
                 <StackLayout Orientation="Horizontal"  >
-                    <Button ImageSource="close_icon.png" Clicked="Button_Clicked" WidthRequest="36" BackgroundColor="Transparent" Margin="10,0,85,0"/>
+                    <Button ImageSource="cancel_icon16.png" Clicked="Button_Clicked" WidthRequest="36" BackgroundColor="Transparent" Margin="10,0,85,0"/>
                     <Label Text="Lựa chọn khu vực" TextColor="Black" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </StackLayout>
                 <StackLayout HeightRequest="60" Margin="0,0,0,15">

@@ -15,7 +15,7 @@ namespace OKXE.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this);
-
+            Xamarin.Forms.Svg.Droid.SvgImage.Init(this);
             LoadApplication(new App());
             Window.SetStatusBarColor(Android.Graphics.Color.Argb(0, 188, 195, 1));
         }

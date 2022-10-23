@@ -9,89 +9,103 @@
         <ContentView.Behaviors>
             <behavior1:SwipeDownToClosePopupPage  CloseAction="ClosePage" ParentView="{x:Reference ViewToMove}"/>
         </ContentView.Behaviors>
-        <StackLayout>
-            <Frame CornerRadius="15"
+        <StackLayout Margin="0" >
+            <Frame CornerRadius="15" 
             x:Name="RecordPlayFrame"       
-            BackgroundColor="White"
+            BackgroundColor="White" HeightRequest="1000"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="Start" Margin="0,55,0,0">
-
-                <StackLayout x:Name="k" Spacing="0"  HeightRequest="600" WidthRequest="500" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="Start">
+                <StackLayout Margin="-20,0,-20,0">
+                    <BoxView HorizontalOptions="Center" HeightRequest="3" WidthRequest="150" BackgroundColor="#f0f1f3"/>
                     <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="White" WidthRequest="500">
-                        <Button HorizontalOptions="Start" Margin="-35,0,0,0" ImageSource="cancel_icon16.png" BackgroundColor="Transparent"/>
-                        <Label Text="Bộ lọc" FontSize="17" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
-                        <Button HorizontalOptions="End" Padding="0" Margin="0,0,-18,10" HeightRequest="20" WidthRequest="80" TextTransform="None" BackgroundColor="Transparent" TextColor="#00bcc3" Text="Bỏ lọc"/>
+                        <Button HorizontalOptions="Start" Margin="-15,0,0,0" ImageSource="cancel_icon16.png" Clicked="close_click" BackgroundColor="Transparent"/>
+                        <Label Text="Bộ lọc" FontSize="17" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="5,0,0,0"/>
+                        <Button HorizontalOptions="End" Padding="0" Margin="0,0,2,10" HeightRequest="20" WidthRequest="80" Clicked="BoLocAndClose_Clicked" TextTransform="None" BackgroundColor="Transparent" TextColor="#00bcc3" Text="Bỏ lọc"/>
                     </StackLayout>
-                    <StackLayout Margin="0,10,0,0">
-                        <Label Text="Nơi bán"  TextColor="Black" FontSize="15" FontAttributes="Bold"/>
-                        <StackLayout HeightRequest="50" Margin="0,0,0,15" WidthRequest="550">
-                            <Frame HasShadow="False" CornerRadius="5" HeightRequest="50" Padding="0,3,0,1" Margin="0,5,0,13" BackgroundColor="#e5e4e2" >
-                                <SearchBar x:Name="searchLoca" HeightRequest="40" VerticalOptions="Start"  FontSize="18" Margin="-10,0,0,-3" BackgroundColor="#e5e4e2" Placeholder="Tìm kiếm Tỉnh/Thành phố" CancelButtonColor="Transparent" PlaceholderColor="Gray"/>
-                            </Frame>
-                        </StackLayout>
-                        <BoxView Margin="-20,0,-20,0" Color="LightGray" HeightRequest="5"/>
-                    </StackLayout>
-                    <StackLayout Margin="0,10,0,0">
-                        <Label Text="Giá"  TextColor="Black" FontSize="15" FontAttributes="Bold"/>
-                        <StackLayout HeightRequest="50" Margin="0,0,0,15" WidthRequest="550">
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                <Label x:Name="min"/>
-                                <Label x:Name="max"/>
+                    <ScrollView VerticalScrollBarVisibility="Never" HeightRequest="1000">
+                        <StackLayout x:Name="k" Spacing="0"  HeightRequest="600"  BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="Start">
+                            <StackLayout  Margin="0,10,0,0" >
+                                <Label Text="Nơi bán" Margin="20,0,0,0" TextColor="Black" FontSize="15" FontAttributes="Bold"/>
+                                <StackLayout HeightRequest="50" Margin="20,0,20,15" WidthRequest="550">
+                                    <Frame HasShadow="False" CornerRadius="5" HeightRequest="50" Padding="0,3,0,1" Margin="0,5,0,13" BackgroundColor="#F1F4F6" >
+                                        <SearchBar x:Name="searchLoca" HeightRequest="40" VerticalOptions="Start"  FontSize="18" Margin="-10,0,0,-3" BackgroundColor="#F1F4F6" Placeholder="Tìm kiếm Tỉnh/Thành phố" CancelButtonColor="Transparent" PlaceholderColor="Gray"/>
+                                    </Frame>
+                                </StackLayout>
+                                <BoxView Color="#f0f1f3" WidthRequest="800" HeightRequest="5"/>
                             </StackLayout>
-                            <xct:RangeSlider WidthRequest="550"
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Margin="0,10,0,0">
+                                    <Label Text="Tình trạng xe" Margin="20,0,0,20" TextColor="Black" FontSize="15" FontAttributes="Bold"/>
+                                    <StackLayout HeightRequest="40" Orientation="Horizontal" Margin="0,0,0,15" WidthRequest="550">
+                                        <Button x:Name="moi" ContentLayout="Left,-50" ImageSource="icon_new16.png" BorderWidth="1" BackgroundColor="#F1F4F6"  HorizontalOptions="EndAndExpand" Clicked="moi_Clicked" 
+                                                Margin="0,0,0,0" WidthRequest="175" Text="Xe mới" TextTransform="None" FontAttributes="None" FontSize="15" CornerRadius="4"/>
+                                        <Button x:Name="cu" ContentLayout="Left,0" ImageSource="icon_old16.png" BorderWidth="1" BackgroundColor="#F1F4F6" HorizontalOptions="StartAndExpand" Clicked="cu_Clicked" 
+                                                Margin="15,0,0,0" WidthRequest="175" Text="Xe đã sử dụng" TextTransform="None" FontAttributes="None" FontSize="15" CornerRadius="4"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <BoxView Margin="-20,0,-20,0" Color="#f0f1f3"  HeightRequest="5"/>
+                                <StackLayout HeightRequest="100" Margin="0,0,0,15" Spacing="0" >
+                                    <Label Text="Giá xe" Margin="20,10,0,0" TextColor="Black" FontSize="15"  FontAttributes="Bold"/>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" >
+                                        <Label x:Name="min" FontSize="15" TextColor="Black"/>
+                                        <Label x:Name="max" FontSize="15" TextColor="Black" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                    <xct:RangeSlider 
+                                    Margin="22,0,22,0"                 
                                     x:Name="RangeSlider"
                                     MaximumValue="150"
+                                    ThumbBorderColor="#00bcc3"   
+                                    
                                     MinimumValue="0"
                                     StepValue="1"
-                                    LowerValue="-10"
+                                    LowerValue="0"
                                     UpperValue="10" 
-                                    ThumbSize="10"
+                                    ThumbSize="20"
                                     ThumbColor="#00bcc3"
-                                    TrackSize="2"
+                                    TrackSize="4"
                                     TrackColor="LightGray"
                                     TrackHighlightColor="#00bcc3"
                                     ValueLabelSpacing="1"
                                     ValueChanged="RangeSlider_ValueChanged"
-                                             ValueLabelStringFormat=""/>
-                        </StackLayout>
-                        <BoxView Margin="-20,0,-20,0" Color="LightGray" HeightRequest="5"/>
-                    </StackLayout>
-                    <StackLayout Margin="0,10,0,0">
-                        <Label Text="Tình trạng xe"  TextColor="Black" FontSize="15" FontAttributes="Bold"/>
-                        <StackLayout HeightRequest="50" Orientation="Horizontal" Margin="0,0,0,15" WidthRequest="550">
-                            <Button x:Name="cu" HorizontalOptions="StartAndExpand" Clicked="cu_Clicked" WidthRequest="175"/>
-                            <Button x:Name="moi" HorizontalOptions="EndAndExpand" Clicked="moi_Clicked" WidthRequest="175"/>
-                        </StackLayout>
-                        <BoxView Margin="-20,0,-20,0" Color="LightGray" HeightRequest="5"/>
-                    </StackLayout>
-                    <StackLayout>
-                        <ScrollView>
-                            <StackLayout>
-                                <Label Text="Welcome to Xamarin.Forms " WidthRequest="170" HeightRequest="30"/>
+                                    ValueLabelStringFormat=""/>
+                                    <BoxView Margin="-20,20,-20,20" Color="#f0f1f3" HeightRequest="5"/>
 
+                                </StackLayout>
+                                <StackLayout Margin="0,10,0,0" HeightRequest="200">
+                                    <Label Text="Kiểu xe" Margin="20,0,0,10" TextColor="Black" FontSize="15" FontAttributes="Bold"/>
+                                    <StackLayout HeightRequest="40" Orientation="Horizontal" Margin="0,0,0,15" WidthRequest="550">
+                                        <Button x:Name="ga" ContentLayout="Left,-50" ImageSource="xega_icon.png" BorderWidth="1" BackgroundColor="#F1F4F6"  HorizontalOptions="EndAndExpand" Clicked="ga_Clicked" 
+                                                Margin="-2,0,0,0" WidthRequest="175" Text="Xe ga" TextTransform="None" FontAttributes="None" FontSize="15" CornerRadius="4"/>
+
+                                        <Button x:Name="so" HeightRequest="40" ContentLayout="Left,-50" ImageSource="xeso_icon.png" BorderWidth="1" BackgroundColor="#F1F4F6"  HorizontalOptions="EndAndExpand" Clicked="so_Clicked" 
+                                                Margin="-8,0,16,0" WidthRequest="175" Text="Xe số" TextTransform="None" FontAttributes="None" FontSize="15" CornerRadius="4"/>
+                                    </StackLayout>
+                                    <StackLayout HeightRequest="40" Orientation="Horizontal" Margin="0,0,0,15" WidthRequest="550">
+                                        <Button x:Name="pkl" ContentLayout="Left,0" ImageSource="xepkl_icon.png" BorderWidth="1" BackgroundColor="#F1F4F6"  HorizontalOptions="EndAndExpand" Clicked="pkl_Clicked" 
+                                                Margin="-2,0,0,0" WidthRequest="175" Text="Phân khối lớn" TextTransform="None" FontAttributes="None" FontSize="15" CornerRadius="4"/>
+                                        <Button x:Name="dien" ContentLayout="Left,-2" ImageSource="xedien_icon.png" BorderWidth="1" BackgroundColor="#F1F4F6"  HorizontalOptions="EndAndExpand" Clicked="dien_Clicked" 
+                                                Margin="-8,0,16,0" WidthRequest="175" Text="Xe điện" TextTransform="None" FontAttributes="None" FontSize="15" CornerRadius="4"/>
+                                    </StackLayout>
+                                </StackLayout>
                             </StackLayout>
-                        </ScrollView>
+                        </StackLayout>
+                    </ScrollView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="End" HeightRequest="30" BackgroundColor="White" WidthRequest="500">
+                        <Button WidthRequest="170" HeightRequest="30" HorizontalOptions="StartAndExpand" Padding="0" Margin="20,0,0,-10" TextTransform="None" Clicked="BoLoc_Clicked" Text="Thiết lập lại" BackgroundColor="White" TextColor="#00bcc3" FontSize="17" BorderWidth="1" BorderColor="#00bcc3" CornerRadius="10"/>
+
+                        <Button WidthRequest="170" HeightRequest="30" HorizontalOptions="EndAndExpand" Padding="0" Margin="0,0,20,-10" TextTransform="None" BackgroundColor="#00bcc3" TextColor="white" Text="Áp dụng" BorderWidth="1" FontSize="17" CornerRadius="10"/>
+
                     </StackLayout>
                 </StackLayout>
-
-
             </Frame>
-
-
         </StackLayout>
     </ContentView>
     <pages:PopupPage.Animation>
         <animations:MoveAnimation
             PositionIn="Bottom"
             PositionOut="Bottom"
-           DurationIn="400"
-                 DurationOut="300"
-          
-            
+            DurationIn="400"
+            DurationOut="300"
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
-
-
-
-
 </pages:PopupPage>

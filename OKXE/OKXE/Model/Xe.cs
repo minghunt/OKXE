@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace OKXE.Model
@@ -19,18 +20,22 @@ namespace OKXE.Model
             public string dongCoXe { get; set; }
             public int namSdXe { get; set; }
             public int kmDaChay { get; set; }
-            public double giaXe { get; set; }
-            public string moTaXe { get; set; }
-            //public static List<Xe> ListXe;
-            public static List<Xe> KhoiTaoDsXe()
+            public string giaXe { get; set; }
+            public double giaXeNum { get; set; }
+
+        public string moTaXe { get; set; }
+        //public static List<Xe> ListXe;
+        
+
+        public static ObservableCollection<Xe> KhoiTaoDsXe()
             {
-                List<Xe> listxe = new List<Xe>();
+            ObservableCollection<Xe> listxe = new ObservableCollection<Xe>();
 
                 listxe.Add(new Xe
                 {
                     maXe = 1,
                     tenXe = "Air Blade 125 Fi",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Honda",
                     loaiXe = "Xe ga",
                     namSxXe = "2019",
@@ -40,7 +45,8 @@ namespace OKXE.Model
                     dongCoXe = "125",
                     namSdXe = 3,
                     kmDaChay = 5000,
-                    giaXe = 32000000,
+                    giaXe = "32.000.000đ",
+                    giaXeNum=32,
                     hinhXe="chosoido.jpg"
                 });
                 listxe.Add(new Xe
@@ -57,7 +63,8 @@ namespace OKXE.Model
                     dongCoXe = "150",
                     namSdXe = 2,
                     kmDaChay = 5000,
-                    giaXe = 48500000,
+                    giaXeNum=48.5,
+                    giaXe = "48.500.000đ",
                     hinhXe = "chosoido1.jpg"
                 });
                 listxe.Add(new Xe
@@ -74,14 +81,15 @@ namespace OKXE.Model
                     dongCoXe = "110",
                     namSdXe = 12,
                     kmDaChay = 30000,
-                    giaXe = 13500000,
+                    giaXeNum=13.5,
+                    giaXe = "13.500.000đ",
                     hinhXe = "chosoido2.jpg"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 4,
                     tenXe = "Dream 110",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Honda",
                     loaiXe = "Xe số",
                     namSxXe = "2014",
@@ -91,32 +99,34 @@ namespace OKXE.Model
                     dongCoXe = "110",
                     namSdXe = 8,
                     kmDaChay = 22500,
-                    giaXe = 38000000,
+                    giaXeNum=38,
+                    giaXe = "38.000.000đ",
                     hinhXe = "chosoido3.jpg"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 5,
                     tenXe = "Exciter 135 2009",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Yamaha",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2009",
                     noiBanXe = "Tp. Hà Nội",
                     maShopXe = "2",
                     mauXe = "Đen",
                     dongCoXe = "135",
                     namSdXe = 13,
+                    giaXeNum=38,
                     kmDaChay = 50000,
-                    giaXe = 38000000
+                    giaXe = "38.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 6,
                     tenXe = "Exciter 135 2011",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Yamaha",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2011",
                     noiBanXe = "Tp. Hà Nội",
                     maShopXe = "3",
@@ -124,7 +134,9 @@ namespace OKXE.Model
                     dongCoXe = "135",
                     namSdXe = 11,
                     kmDaChay = 10000,
-                    giaXe = 18000000
+                    giaXe = "18.000.000đ",
+                    giaXeNum=18
+
                 });
                 listxe.Add(new Xe
                 {
@@ -132,7 +144,7 @@ namespace OKXE.Model
                     tenXe = "Exciter 150",
                     tinhTrangXe = "Cũ",
                     hangXe = "Yamaha",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2018",
                     noiBanXe = "Tp. Hà Nội",
                     maShopXe = "1",
@@ -140,7 +152,8 @@ namespace OKXE.Model
                     dongCoXe = "150",
                     namSdXe = 4,
                     kmDaChay = 20000,
-                    giaXe = 26000000
+                    giaXeNum=26,
+                    giaXe = "26.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -148,7 +161,7 @@ namespace OKXE.Model
                     tenXe = "Exciter VVA 155",
                     tinhTrangXe = "Cũ",
                     hangXe = "Yamaha",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2021",
                     noiBanXe = "Tp. Hà Nội",
                     maShopXe = "2",
@@ -156,7 +169,8 @@ namespace OKXE.Model
                     dongCoXe = "155",
                     namSdXe = 1,
                     kmDaChay = 5000,
-                    giaXe = 42500000
+                    giaXeNum=42.5,
+                    giaXe = "42.500.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -171,14 +185,15 @@ namespace OKXE.Model
                     mauXe = "Đen",
                     dongCoXe = "125",
                     namSdXe = 4,
+                    giaXeNum=37,
                     kmDaChay = 40000,
-                    giaXe = 37000000
+                    giaXe = "37.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 10,
                     tenXe = "Grande Blue Core",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Yamaha",
                     loaiXe = "Xe ga",
                     namSxXe = "2018",
@@ -187,24 +202,26 @@ namespace OKXE.Model
                     mauXe = "Đen",
                     dongCoXe = "125",
                     namSdXe = 4,
+                    giaXeNum=29,
                     kmDaChay = 5000,
-                    giaXe = 29000000
+                    giaXe = "29.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 11,
                     tenXe = "GTR 150",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Honda",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2020",
                     noiBanXe = "Tp. Hải Phòng",
                     maShopXe = "2",
                     mauXe = "Đen",
                     dongCoXe = "150",
                     namSdXe = 2,
+                    giaXeNum=28,
                     kmDaChay = 10000,
-                    giaXe = 28000000
+                    giaXe = "28.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -220,7 +237,9 @@ namespace OKXE.Model
                     dongCoXe = "125",
                     namSdXe = 4,
                     kmDaChay = 5000,
-                    giaXe = 24000000
+                    giaXeNum = 24,
+
+                    giaXe = "24.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -236,7 +255,9 @@ namespace OKXE.Model
                     dongCoXe = "125",
                     namSdXe = 8,
                     kmDaChay = 10000,
-                    giaXe = 23800000
+                    giaXeNum = 23.8,
+
+                    giaXe = "23.800.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -251,8 +272,9 @@ namespace OKXE.Model
                     mauXe = "Đen",
                     dongCoXe = "125",
                     namSdXe = 10,
+                    giaXeNum = 12,
                     kmDaChay = 5000,
-                    giaXe = 12000000
+                    giaXe = "12.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -260,7 +282,7 @@ namespace OKXE.Model
                     tenXe = "MSX 125",
                     tinhTrangXe = "Cũ",
                     hangXe = "Honda",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2019",
                     noiBanXe = "Tp. Hải Phòng",
                     maShopXe = "1",
@@ -268,13 +290,14 @@ namespace OKXE.Model
                     dongCoXe = "125",
                     namSdXe = 3,
                     kmDaChay = 20000,
-                    giaXe = 41000000
+                    giaXeNum = 41,
+                    giaXe = "41.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 16,
                     tenXe = "PCX 150",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Honda",
                     loaiXe = "Xe ga",
                     namSxXe = "2021",
@@ -284,31 +307,33 @@ namespace OKXE.Model
                     dongCoXe = "150",
                     namSdXe = 1,
                     kmDaChay = 10000,
-                    giaXe = 85000000
+                    giaXeNum = 85,
+                    giaXe = "85.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 17,
                     tenXe = "Satria F150 Fi",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Suzuki",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2019",
                     noiBanXe = "Tp. Hải Phòng",
                     maShopXe = "3",
                     mauXe = "Đen",
                     dongCoXe = "150",
                     namSdXe = 3,
+                    giaXeNum = 40,
                     kmDaChay = 5000,
-                    giaXe = 40000000
+                    giaXe = "40.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 18,
                     tenXe = "SH 150i",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Honda",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2013",
                     noiBanXe = "Tp. Cần Thơ",
                     maShopXe = "1",
@@ -316,7 +341,9 @@ namespace OKXE.Model
                     dongCoXe = "150",
                     namSdXe = 9,
                     kmDaChay = 30000,
-                    giaXe = 62000000
+                    giaXeNum = 62,
+
+                    giaXe = "62.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -324,15 +351,16 @@ namespace OKXE.Model
                     tenXe = "SH Mode 125",
                     tinhTrangXe = "Cũ",
                     hangXe = "Honda",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2019",
                     noiBanXe = "Tp. Cần Thơ",
                     maShopXe = "2",
                     mauXe = "Đỏ",
                     dongCoXe = "125",
                     namSdXe = 3,
+                    giaXeNum = 44,
                     kmDaChay = 5000,
-                    giaXe = 44000000
+                    giaXe = "44.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -347,8 +375,9 @@ namespace OKXE.Model
                     mauXe = "Đen",
                     dongCoXe = "110",
                     namSdXe = 9,
+                    giaXeNum = 7.5,
                     kmDaChay = 8500,
-                    giaXe = 7500000
+                    giaXe = "7.500.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -364,7 +393,8 @@ namespace OKXE.Model
                     dongCoXe = "50",
                     namSdXe = 9,
                     kmDaChay = 5000,
-                    giaXe = 7200000
+                    giaXeNum = 7.2,
+                    giaXe = "7.200.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -372,21 +402,22 @@ namespace OKXE.Model
                     tenXe = "Sonic 150",
                     tinhTrangXe = "Cũ",
                     hangXe = "Honda",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2019",
                     noiBanXe = "Tp. Cần Thơ",
                     maShopXe = "2",
                     mauXe = "Đen vàng",
                     dongCoXe = "150",
                     namSdXe = 3,
+                    giaXeNum = 38.5,
                     kmDaChay = 5000,
-                    giaXe = 38500000
+                    giaXe = "38.500.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 23,
                     tenXe = "Vario 125",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Honda",
                     loaiXe = "Xe ga",
                     namSxXe = "2019",
@@ -395,8 +426,9 @@ namespace OKXE.Model
                     mauXe = "Đen",
                     dongCoXe = "125",
                     namSdXe = 3,
+                    giaXeNum = 41,
                     kmDaChay = 5000,
-                    giaXe = 41000000
+                    giaXe = "41.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -411,14 +443,15 @@ namespace OKXE.Model
                     mauXe = "Xanh đen",
                     dongCoXe = "150",
                     namSdXe = 3,
+                    giaXeNum = 42,
                     kmDaChay = 5000,
-                    giaXe = 42000000
+                    giaXe = "42.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 25,
                     tenXe = "Vespa Sprint",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Piaggio",
                     loaiXe = "Xe ga",
                     namSxXe = "2019",
@@ -427,14 +460,15 @@ namespace OKXE.Model
                     mauXe = "Trắng",
                     dongCoXe = "150",
                     namSdXe = 3,
+                    giaXeNum = 65,
                     kmDaChay = 20000,
-                    giaXe = 65000000
+                    giaXe = "65.000.000đ"
                 });
                 listxe.Add(new Xe
                 {
                     maXe = 26,
                     tenXe = "Vision 110",
-                    tinhTrangXe = "Cũ",
+                    tinhTrangXe = "Mới",
                     hangXe = "Honda",
                     loaiXe = "Xe ga",
                     namSxXe = "2020",
@@ -443,8 +477,9 @@ namespace OKXE.Model
                     mauXe = "Trắng",
                     dongCoXe = "110",
                     namSdXe = 2,
+                    giaXeNum = 32.5,
                     kmDaChay = 5000,
-                    giaXe = 32500000
+                    giaXe = "32.500.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -459,8 +494,9 @@ namespace OKXE.Model
                     mauXe = "Đen",
                     dongCoXe = "110",
                     namSdXe = 14,
+                    giaXeNum = 5.8,
                     kmDaChay = 95000,
-                    giaXe = 5800000
+                    giaXe = "5.800.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -468,15 +504,16 @@ namespace OKXE.Model
                     tenXe = "Winner 150 2016",
                     tinhTrangXe = "Cũ",
                     hangXe = "Honda",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2016",
                     noiBanXe = "Tp. Hồ Chí Minh",
                     maShopXe = "1",
                     mauXe = "Vàng đen",
                     dongCoXe = "150",
                     namSdXe = 6,
+                    giaXeNum = 26.5,
                     kmDaChay = 5000,
-                    giaXe = 26500000
+                    giaXe = "26.500.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -484,15 +521,16 @@ namespace OKXE.Model
                     tenXe = "Winner X 2019",
                     tinhTrangXe = "Cũ",
                     hangXe = "Honda",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2019",
                     noiBanXe = "Tp. Hồ Chí Minh",
                     maShopXe = "2",
                     mauXe = "Đen xanh",
                     dongCoXe = "150",
                     namSdXe = 3,
+                    giaXeNum = 28.8,
                     kmDaChay = 5000,
-                    giaXe = 28800000
+                    giaXe = "28.800.000đ"
                 });
                 listxe.Add(new Xe
                 {
@@ -500,15 +538,16 @@ namespace OKXE.Model
                     tenXe = "Winner X 2022",
                     tinhTrangXe = "Cũ",
                     hangXe = "Honda",
-                    loaiXe = "Xe côn tay",
+                    loaiXe = "Xe số",
                     namSxXe = "2022",
                     noiBanXe = "Tp. Hồ Chí Minh",
                     maShopXe = "3",
                     mauXe = "Đỏ",
                     dongCoXe = "150",
                     namSdXe = 0,
+                    giaXeNum = 41,
                     kmDaChay = 1000,
-                    giaXe = 41000000
+                    giaXe = "41.000.000đ"
                 });
                 return listxe;
             }

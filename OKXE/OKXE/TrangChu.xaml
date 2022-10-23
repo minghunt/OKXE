@@ -4,7 +4,7 @@
              x:Class="OKXE.TrangChu" Shell.NavBarHasShadow="False" 
        Shell.BackgroundColor="#00bcc3" Shell.TitleColor="White"
        Shell.PresentationMode="Modal">
-    <TabBar Shell.TabBarBackgroundColor="Beige" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="Gray" Shell.TabBarDisabledColor="AntiqueWhite">
+    <TabBar Shell.TabBarBackgroundColor="Beige" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="#a2b7be" Shell.TabBarDisabledColor="#a2b7be">
         <ShellContent Icon="home_icon.png" Title="Trang Chủ" Route="Home">
             <ContentPage Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3">
                 <ContentPage.ToolbarItems>
@@ -46,7 +46,7 @@
                                                 <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="130"/>
-                                                        <RowDefinition Height="26"/>
+                                                        <RowDefinition Height="28"/>
                                                         <RowDefinition Height="18"/>
                                                         <RowDefinition  />
                                                     </Grid.RowDefinitions>
@@ -86,9 +86,9 @@
                 </Shell.TitleView>
                 <ContentPage.Content>
                     <StackLayout >
-                        <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" HeightRequest="42" >
-                            <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-1" HeightRequest="10" WidthRequest="375">
-                                <SearchBar Margin="-10,0,0,0" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent"/>
+                        <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="44" >
+                            <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-2" HeightRequest="10" WidthRequest="372">
+                                <SearchBar Margin="-10,0,0,0" Focused="SearchBar_Focused" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent" Placeholder="Nhập từ khóa tìm kiếm"/>
                             </Frame>
                         </StackLayout>
                         <ScrollView>

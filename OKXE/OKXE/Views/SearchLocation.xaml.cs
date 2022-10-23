@@ -1,6 +1,7 @@
 ﻿using OKXE.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,8 +49,8 @@ namespace OKXE.Views
         {
             DiaDiem lh = (DiaDiem)e.SelectedItem;
             Exchange.Data.Ten.Text = lh.Name;
-            List<Xe> temp = new List<Xe>();
-            List<Xe> xes = new List<Xe>();
+            ObservableCollection<Xe> temp = new ObservableCollection<Xe>();
+            ObservableCollection<Xe> xes = new ObservableCollection<Xe>();
             temp = Xe.KhoiTaoDsXe();
 
             if (lh.Name != "Việt Nam")

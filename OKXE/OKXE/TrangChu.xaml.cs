@@ -8,12 +8,16 @@ using OKXE.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
+using System.Collections.ObjectModel;
+
 namespace OKXE
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TrangChu : Shell
     {
         List<Hinh> K;
+        Filter FX = new Filter {min=0,max=150,IsOld="0",Xe="x" };
+        
         public TrangChu()
         {
             InitializeComponent();
@@ -36,7 +40,7 @@ namespace OKXE
             carou.ItemsSource = K;
             Exchange.Data.Ten = Lb_Loca;
             Exchange.Data.MyCoView = lstXe;
-            List<Xe> Xes = new List<Xe>();
+            ObservableCollection<Xe> Xes = new ObservableCollection<Xe>();
             Xes = Xe.KhoiTaoDsXe();
             lstXe.ItemsSource = Xes;
         }
@@ -85,6 +89,7 @@ namespace OKXE
         [Obsolete]
         private async void Filter_Clicked(object sender, EventArgs e)
         {
+            Exchange.Data.MyFilter = FX;
             await PopupNavigation.PushAsync(new PageFilter());
         }
     }

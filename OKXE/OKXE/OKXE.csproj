@@ -11,10 +11,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="xeplk_icon.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="xeplk_icon.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +38,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\PageNotify.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PagePopupSearchLoca.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SearchLocation.xaml">
