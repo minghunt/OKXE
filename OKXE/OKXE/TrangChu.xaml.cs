@@ -9,7 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 using System.Collections.ObjectModel;
-
+//
 namespace OKXE
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
