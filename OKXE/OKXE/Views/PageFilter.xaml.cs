@@ -15,7 +15,6 @@ namespace OKXE.Views
     public partial class PageFilter : Rg.Plugins.Popup.Pages.PopupPage
     {
         private string _Count;
-
         public string Count
         {
             get
@@ -29,17 +28,14 @@ namespace OKXE.Views
                 OnPropertyChanged();
             }
         }
-            Filter FX = Exchange.Data.MyFilter;
-
+        Filter FX = Exchange.Data.MyFilter;
         public PageFilter()
-        {
+        { 
             InitializeComponent();
             if (Exchange.Data.Ten.Text != "Việt Nam")
-            {
                 searchLoca.Text = Exchange.Data.Ten.Text;
-            }
             else searchLoca.Text ="";
-            
+            Exchange.Data.FilterLoca = searchLoca;
             if (FX.IsOld != "0")
             {
                 if (FX.IsOld == "C")
@@ -77,60 +73,13 @@ namespace OKXE.Views
                 }
             }
         }
-        
 
+        [Obsolete]
         private async void ClosePage()
         {
-            IEnumerable<Xe> lstxe=Xe.KhoiTaoDsXe();
-            IEnumerable<Xe> xes = Xe.KhoiTaoDsXe();
-
-            Count = "1";
-            await PopupNavigation.Instance.PopAsync();
             Exchange.Data.MyFilter.min = RangeSlider.LowerValue;
             Exchange.Data.MyFilter.max = RangeSlider.UpperValue;
-            if (Exchange.Data.Ten.Text != "Việt Nam")
-            {
-               xes=xes.Where(p => p.noiBanXe.Equals(Exchange.Data.Ten.Text));
-                searchLoca.Text = Exchange.Data.Ten.Text;
-            }
-            if (FX.Xe != "x")
-            {
-                if (FX.Xe == "G")
-                {
-                    xes = xes.Where(p => p.loaiXe.Equals("Xe ga"));
-
-                }
-                else if (FX.Xe == "S")
-                {
-                    xes = xes.Where(p => p.loaiXe.Equals("Xe số"));
-                }
-                else if (FX.Xe == "D")
-                {
-                    xes = xes.Where(p => p.loaiXe.Equals("Xe điện"));
-
-                }
-                else
-                {
-                    xes = xes.Where(p => p.loaiXe.Equals("Phân khối lớn"));
-
-                }
-            }
-            if (FX.IsOld != "0")
-            {
-                if (FX.IsOld == "C")
-                {
-                    xes = xes.Where(p => p.tinhTrangXe.Equals("Cũ"));
-
-                }
-                else 
-                {
-                    xes = xes.Where(p => p.loaiXe.Equals("Mới"));
-                }
-            }
-            xes = xes.Where(p => p.giaXeNum<=FX.max);
-            xes = xes.Where(p => p.giaXeNum>=FX.min);
-
-            Exchange.Data.MyCoView.ItemsSource = xes;
+            await PopupNavigation.PopAsync();
         }
 
         private void RangeSlider_ValueChanged(object sender, EventArgs e)
@@ -152,7 +101,6 @@ namespace OKXE.Views
                     max.Text = "0đ";
                 }
             }
-
         }
 
         private void cu_Clicked(object sender, EventArgs e)
@@ -243,6 +191,7 @@ namespace OKXE.Views
 
         private void BoLoc_Clicked(object sender, EventArgs e)
         {
+            searchLoca.Text = "";
             RangeSlider.LowerValue = 0;
             RangeSlider.UpperValue = 150;
             cu.BorderColor = Color.FromHex("#F1F4F6");
@@ -264,6 +213,7 @@ namespace OKXE.Views
         [Obsolete]
         private void BoLocAndClose_Clicked(object sender, EventArgs e)
         {
+            searchLoca.Text = "";
             Exchange.Data.MyFilter.min = 0;
             Exchange.Data.MyFilter.max = 150;
             cu.BorderColor = Color.FromHex("#F1F4F6");
@@ -281,6 +231,50 @@ namespace OKXE.Views
             so.BorderColor = Color.FromHex("#F1F4F6");
             Exchange.Data.MyFilter.Xe = "x";
             PopupNavigation.PopAsync();
+        }
+        [Obsolete]
+        private async void searchLoca_Focused(object sender, FocusEventArgs e)
+        {
+            await PopupNavigation.PushAsync(new PagePopupSearchLoca());
+        }
+
+        private async void Submit_Clicked(object sender, EventArgs e)
+        {
+            IEnumerable<Xe> lstxe = Xe.KhoiTaoDsXe();
+            IEnumerable<Xe> xes = Xe.KhoiTaoDsXe();
+            await PopupNavigation.Instance.PopAsync();
+            Exchange.Data.MyFilter.min = RangeSlider.LowerValue;
+            Exchange.Data.MyFilter.max = RangeSlider.UpperValue;
+            if (searchLoca.Text != "")
+            {
+                Exchange.Data.Ten.Text = searchLoca.Text;
+            }
+            if (Exchange.Data.Ten.Text != "Việt Nam")
+            {
+                xes = xes.Where(p => p.noiBanXe.Equals(Exchange.Data.Ten.Text));
+                searchLoca.Text = Exchange.Data.Ten.Text;
+            }
+            if (FX.Xe != "x")
+            {
+                if (FX.Xe == "G")
+                    xes = xes.Where(p => p.loaiXe.Equals("Xe ga"));
+                else if (FX.Xe == "S")
+                    xes = xes.Where(p => p.loaiXe.Equals("Xe số"));
+                else if (FX.Xe == "D")
+                    xes = xes.Where(p => p.loaiXe.Equals("Xe điện"));
+                else
+                    xes = xes.Where(p => p.loaiXe.Equals("Phân khối lớn"));
+            }
+            if (FX.IsOld != "0")
+            {
+                if (FX.IsOld == "C")
+                    xes = xes.Where(p => p.tinhTrangXe.Equals("Cũ"));
+                else
+                    xes = xes.Where(p => p.tinhTrangXe.Equals("Mới"));
+            }
+            xes = xes.Where(p => p.giaXeNum <= FX.max);
+            xes = xes.Where(p => p.giaXeNum >= FX.min);
+            Exchange.Data.MyCoView.ItemsSource = xes;
         }
     }
 }

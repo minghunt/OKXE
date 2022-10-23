@@ -4,7 +4,7 @@
              x:Class="OKXE.TrangChu" Shell.NavBarHasShadow="False" 
        Shell.BackgroundColor="#00bcc3" Shell.TitleColor="White"
        Shell.PresentationMode="Modal">
-    <TabBar Shell.TabBarBackgroundColor="Beige" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="#a2b7be" Shell.TabBarDisabledColor="#a2b7be">
+    <TabBar Shell.TabBarBackgroundColor="#f0f8f7" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="#a2b7be" Shell.TabBarDisabledColor="#a2b7be">
         <ShellContent Icon="home_icon.png" Title="Trang Chủ" Route="Home">
             <ContentPage Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3">
                 <ContentPage.ToolbarItems>
@@ -14,7 +14,7 @@
                 <Shell.TitleView>
                     <StackLayout HeightRequest="60" Orientation="Horizontal">
                         <Button IsEnabled="True" Margin="-125,0,0,10" HorizontalOptions="Start" x:Name="btnLoca" Clicked="btnLoca_Clicked"  Padding="0,0,30,0" TextTransform="None" WidthRequest="270" ImageSource="location_icon.png" BackgroundColor="Transparent" />
-                        <Label x:Name="Lb_Loca" Text="Việt Nam" Margin="-122,14,0,0" FontSize="17" TextColor="White" WidthRequest="130" HorizontalTextAlignment="Start"/>
+                        <Label x:Name="Lb_Loca" Text="Việt Nam" Margin="-122,14,0,0" FontSize="16" TextColor="White" WidthRequest="130" HorizontalTextAlignment="Start"/>
                         <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                     </StackLayout>
                 </Shell.TitleView>
@@ -46,7 +46,7 @@
                                                 <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="130"/>
-                                                        <RowDefinition Height="28"/>
+                                                        <RowDefinition Height="30"/>
                                                         <RowDefinition Height="18"/>
                                                         <RowDefinition  />
                                                     </Grid.RowDefinitions>
@@ -57,7 +57,7 @@
                                                        WidthRequest="60" Margin="0"/>
                                                     <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
                                        TextColor="Blue" FontSize="20"/>
-                                                    <Label Text="{Binding giaXe}" TextColor="Black" Margin="0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                    <Label Text="{Binding giaXe}" HeightRequest="30" TextColor="Black" Margin="0,-3,0,0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
                                                     <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
                                                 </Grid>
                                             </Frame>
@@ -80,7 +80,7 @@
                 <Shell.TitleView>
                     <StackLayout HeightRequest="60" Orientation="Horizontal">
                         <Button IsEnabled="True" Margin="-125,0,0,10" HorizontalOptions="Start" Clicked="btnLoca_Clicked"  Padding="0,0,30,0" TextTransform="None" WidthRequest="270" ImageSource="location_icon.png" BackgroundColor="Transparent" />
-                        <Label Text="{Binding Source={x:Reference Lb_Loca}, Path=Text, Mode=TwoWay}" Margin="-122,14,0,0" FontSize="17" TextColor="White" WidthRequest="130" HorizontalTextAlignment="Start"/>
+                        <Label Text="{Binding Source={x:Reference Lb_Loca}, Path=Text, Mode=TwoWay}" Margin="-122,14,0,0" FontSize="16" TextColor="White" WidthRequest="130" HorizontalTextAlignment="Start"/>
                         <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                     </StackLayout>
                 </Shell.TitleView>

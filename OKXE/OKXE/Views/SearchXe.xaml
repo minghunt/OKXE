@@ -7,11 +7,48 @@
             <StackLayout Spacing="0"  HeightRequest="55" Orientation="Horizontal" BackgroundColor="#00bcc3">
                 <Button WidthRequest="50" ImageSource="back_icon.png" Clicked="BackButton_Clicked" BackgroundColor="Transparent"/>
                 <Frame Margin="10,10,10,10" Padding="0" WidthRequest="400" CornerRadius="10">
-                    <SearchBar HeightRequest="40" FontSize="16" Margin="-10,0,0,-2" CancelButtonColor="Transparent"/>
+                    <SearchBar HeightRequest="40" TextChanged="SearchBar_TextChanged" FontSize="16" Margin="-10,0,0,-2" CancelButtonColor="Transparent" Placeholder="Nhập tên xe cần tìm" TextColor="Black"/>
                 </Frame>
             </StackLayout>
-            <Label Text="gergwerg>gdgd" VerticalOptions="CenterAndExpand"/>
-            <Button Clicked="Button_Clicked"/>
+            <CollectionView  x:Name="lstXe" SelectionMode="Single"
+                ItemsLayout="VerticalGrid, 2" HeightRequest="1000">
+                <CollectionView.Header>
+                    <StackLayout Margin="5">
+                        <Label Margin="5" Text="Gợi ý tìm kiếm" TextColor="Black" FontSize="15"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Button WidthRequest="50" Margin="5" HeightRequest="25" Padding="1" VerticalOptions="Center" Text="Tất cả" BackgroundColor="#cdd2d4" Clicked="All_Clicked" FontSize="15" HorizontalOptions="Start" TextTransform="None" CornerRadius="20"/>
+                            <Button WidthRequest="50" Margin="5" HeightRequest="25" Padding="1" VerticalOptions="Center" Text="wave" BackgroundColor="#cdd2d4" Clicked="Wave_Clicked" FontSize="15" HorizontalOptions="Start" TextTransform="None" CornerRadius="20"/>
+                            <Button WidthRequest="50" Margin="5" HeightRequest="25" Padding="1" VerticalOptions="Center" Text="sh" BackgroundColor="#cdd2d4" Clicked="Sh_Clicked" FontSize="15" HorizontalOptions="Start" TextTransform="None" CornerRadius="20"/>
+
+                        </StackLayout>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout WidthRequest="60">
+                            <Frame HeightRequest="260" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="130"/>
+                                        <RowDefinition Height="28"/>
+                                        <RowDefinition Height="18"/>
+                                        <RowDefinition  />
+                                    </Grid.RowDefinitions>
+                                    <Image
+                                                       Source="{Binding hinhXe}"
+                                                       Aspect="AspectFill"
+                                                       HeightRequest="60"
+                                                       WidthRequest="60" Margin="0"/>
+                                    <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
+                                       TextColor="Blue" FontSize="20"/>
+                                    <Label Text="{Binding giaXe}" TextColor="Black" Margin="0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
