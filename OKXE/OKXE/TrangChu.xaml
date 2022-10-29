@@ -28,27 +28,59 @@
                         </StackLayout>
                         <ScrollView Margin="0,-1,0,0">
                             <CollectionView  x:Name="lstXe" SelectionMode="Single"
-                ItemsLayout="VerticalGrid, 2" HeightRequest="1000">
+                ItemsLayout="VerticalGrid, 2" SelectionChanged="lstXe_SelectionChanged">
                                 <CollectionView.Header>
-                                    <CarouselView x:Name="carou" HeightRequest="164" Margin="0,0,0,0" VerticalOptions="Start">
-                                        <CarouselView.ItemTemplate>
-                                            <DataTemplate>
-                                                <Image Source="{Binding Image}" Aspect="AspectFit" Margin="0"/>
-                                            </DataTemplate>
-                                        </CarouselView.ItemTemplate>
-                                    </CarouselView>
-
+                                    <StackLayout Padding="0" Margin="0" >
+                                        <StackLayout HeightRequest="167">
+                                            <CarouselView x:Name="carou"  Margin="0,-1,0,0" HorizontalOptions="Center" VerticalOptions="Start">
+                                                <CarouselView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Image Source="{Binding Image}" Aspect="AspectFit" Margin="0"/>
+                                                    </DataTemplate>
+                                                </CarouselView.ItemTemplate>
+                                            </CarouselView>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <ScrollView Orientation="Horizontal" BackgroundColor="White" HorizontalScrollBarVisibility="Never" WidthRequest="700">
+                                                <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                                    <StackLayout Margin="20,0,10,0">
+                                                        <Button x:Name="All" HorizontalOptions="Start" Clicked="All_Clicked" ImageSource="All_icon.png" CornerRadius="60" WidthRequest="60" HeightRequest="60" BackgroundColor="#ccf2f3"/>
+                                                        <Label Text="Tất cả" Margin="9,0,0,0" FontSize="15" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Margin="15,0,10,0">
+                                                        <Button HorizontalOptions="Start" x:Name="Ga" Clicked="Ga_Clicked" ImageSource="xeganot_icon.png" CornerRadius="60" WidthRequest="60" HeightRequest="60" BackgroundColor="#efefef"/>
+                                                        <Label Text="Xe tay ga" Margin="0,0,0,0" FontSize="15" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Margin="15,0,10,0">
+                                                        <Button HorizontalOptions="Start" x:Name="So" Clicked="So_Clicked" ImageSource="xesonot_icon.png" CornerRadius="60" WidthRequest="60" HeightRequest="60" BackgroundColor="#efefef"/>
+                                                        <Label Text="Xe số" Margin="10,0,0,0" FontSize="15" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Margin="15,0,10,0">
+                                                        <Button HorizontalOptions="Start" x:Name="Pkl" Clicked="Pkl_Clicked" ImageSource="xepklnot_icon.png" CornerRadius="60" WidthRequest="60" HeightRequest="60" BackgroundColor="#efefef"/>
+                                                        <Label Text="Phân khối lớn" Margin="-13,0,0,0" FontSize="15" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Margin="0,0,10,0">
+                                                        <Button HorizontalOptions="Start" x:Name="Dien" Clicked="Dien_Clicked" ImageSource="xediennot_icon.png" CornerRadius="60" WidthRequest="60" HeightRequest="60" BackgroundColor="#efefef"/>
+                                                        <Label Text="Xe điện" Margin="5,0,0,0" FontSize="15" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </ScrollView>
+                                        </StackLayout>
+                                        <BoxView Margin="0,10,0,0" Color="#f0f1f3" HeightRequest="5"/>
+                                        <Label Margin="15,10,0,0" Text="Tất cả sản phẩm" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+                                    </StackLayout>
                                 </CollectionView.Header>
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <StackLayout WidthRequest="60">
-                                            <Frame HeightRequest="260" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
-                                                <Grid Padding="0" HeightRequest="250" BackgroundColor="White">
+                                            <Frame HeightRequest="253" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                                <Grid Padding="0" HeightRequest="220" BackgroundColor="White">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="130"/>
-                                                        <RowDefinition Height="30"/>
-                                                        <RowDefinition Height="18"/>
-                                                        <RowDefinition  />
+                                                        <RowDefinition Height="25"/>
+                                                        <RowDefinition Height="23"/>
+                                                        <RowDefinition Height="23" />
+                                                        <RowDefinition  Height="23" />
                                                     </Grid.RowDefinitions>
                                                     <Image
                                                        Source="{Binding hinhXe}"
@@ -56,9 +88,35 @@
                                                        HeightRequest="60"
                                                        WidthRequest="60" Margin="0"/>
                                                     <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
-                                       TextColor="Blue" FontSize="20"/>
-                                                    <Label Text="{Binding giaXe}" HeightRequest="30" TextColor="Black" Margin="0,-3,0,0" Padding="0"  Grid.Row="2" FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
-                                                    <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="5,0,5,0" Padding="0"  Grid.Row="3"  FontSize="16" VerticalOptions="Start" HorizontalOptions="Center"/>
+                                                        TextColor="Blue" FontSize="20"/>
+                                                    <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="2">
+                                                        <Image Source="{Binding xeImg}" Margin="0,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
+
+                                                        <Image Source="{Binding isoldImg}" Margin="10,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
+                                                        <Frame Margin="12,0,0,0" Padding="0" BackgroundColor="LightGray" CornerRadius="5" WidthRequest="45">
+                                                            <Label Text="{Binding namSxXe}" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                                        </Frame>
+                                                        
+                                                    </StackLayout>
+                                                    <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="3">
+                                                        <Image Source="Loca_icon.png" HeightRequest="15"/>
+
+                                                        <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="0,0,5,0" Padding="0" FontSize="15" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                                            </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" Margin="10,-3,0,0" Grid.Row="4">
+                                                        <Label x:Name="gia" Text="{Binding giaXe}" FontSize="15" HorizontalTextAlignment="Center"  TextColor="Black" 
+                                                   Margin="0,-8,0,0" Padding="0"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
+                                                        <Label Text="{Binding Sao}" Padding="0" Margin="5,4,0,0" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="End"/>
+                                                        <Image Source="star.png" Margin="-2,2,0,0" HeightRequest="15" VerticalOptions="Center"/>
+
+                                                        <Image Source="{Binding loveImg}" Margin="5,0,0,0" HeightRequest="20" VerticalOptions="Center">
+                                                            <Image.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="Xe_LoveTap"/>
+                                                            </Image.GestureRecognizers>
+                                                        </Image>
+                                                        
+
+                                                    </StackLayout>
                                                 </Grid>
                                             </Frame>
                                         </StackLayout>

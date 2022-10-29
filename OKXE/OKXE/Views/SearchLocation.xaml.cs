@@ -15,6 +15,7 @@ namespace OKXE.Views
     public partial class SearchLocation : ContentPage
     {
         ViewCell lastCell;
+        IEnumerable<Xe> xes=Xe.KhoiTaoDsXe();
         public class DiaDiem
         {
             public string Name { get; set; }
@@ -49,20 +50,12 @@ namespace OKXE.Views
         {
             DiaDiem lh = (DiaDiem)e.SelectedItem;
             Exchange.Data.Ten.Text = lh.Name;
-            ObservableCollection<Xe> temp = new ObservableCollection<Xe>();
-            ObservableCollection<Xe> xes = new ObservableCollection<Xe>();
-            temp = Xe.KhoiTaoDsXe();
-
-            if (lh.Name != "Việt Nam")
-            {
-                for (int i = 0; i < temp.Count; i++)
-                {
-                    if (lh.Name == temp[i].noiBanXe)
-                        xes.Add(temp[i]);
-                }
-            }
-            else xes = Xe.KhoiTaoDsXe();
-            Exchange.Data.MyCoView.ItemsSource = xes;
+            IEnumerable<Xe> temp=xes;
+            if (lh.Name!="Việt Nam")
+                temp = xes.Where(p => p.noiBanXe.Equals(lh.Name));
+            if (Exchange.Data.MyFilter.Xe!="x")
+                temp = temp.Where(p => p.loaiXe.Equals(Exchange.Data.MyFilter.Xe));
+            Exchange.Data.MyCoView.ItemsSource = temp;
         }
 
         private void listView_ItemTapped(object sender, EventArgs e)
@@ -99,7 +92,7 @@ namespace OKXE.Views
 
         private void searchLoca_TextChanged(object sender, TextChangedEventArgs e)
         {
-            listView.ItemsSource = h.Where(p => p.Name.ToLower().Contains(e.NewTextValue));
+            listView.ItemsSource = h.Where(p => p.Name.ToLower().Contains(e.NewTextValue.ToLower()));
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

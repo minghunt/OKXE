@@ -21,8 +21,12 @@ namespace OKXE.Model
             public int namSdXe { get; set; }
             public int kmDaChay { get; set; }
             public string giaXe { get; set; }
-            public double giaXeNum { get; set; }
+        public string Sao { get; set; } = "5";
+        public string xeImg { get; set; } = "xeso_icon.png";
+        public string isoldImg { get; set; } = "icon_old16.png";
 
+        public double giaXeNum { get; set; }
+        public string loveImg { get; set; } = "FavouriteBlack.png";
         public string moTaXe { get; set; }
         //public static List<Xe> ListXe;
         

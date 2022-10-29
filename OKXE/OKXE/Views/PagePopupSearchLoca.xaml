@@ -4,7 +4,7 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                   xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
                   x:Class="OKXE.Views.PagePopupSearchLoca" CloseWhenBackgroundIsClicked="False"
-                  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:behavior1="clr-namespace:OKXE.Model">
+                  xmlns:behavior1="clr-namespace:OKXE.Model">
     <ContentView x:Name="ViewToMove">
         <ContentView.Behaviors>
             <behavior1:SwipeDownToClosePopupPage  CloseAction="ClosePage" ParentView="{x:Reference ViewToMove}"/>

@@ -14,13 +14,14 @@ namespace OKXE.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageFilter : Rg.Plugins.Popup.Pages.PopupPage
     {
+
         private string _Count;
         public string Count
         {
             get
             {
                 return _Count;
-                ;
+               
             }
             set
             {
@@ -52,17 +53,17 @@ namespace OKXE.Views
             RangeSlider.UpperValue = FX.max;
             if (FX.Xe != "x")
             {
-                if (FX.Xe == "G")
+                if (FX.Xe == "Xe ga")
                 {
                     ga.BorderColor = Color.FromHex("#00BCC3");
                     ga.BackgroundColor = Color.FromHex("#F4FFFF");
                 }
-                else if (FX.Xe == "S")
+                else if (FX.Xe == "Xe số")
                 {
                     so.BorderColor = Color.FromHex("#00BCC3");
                     so.BackgroundColor = Color.FromHex("#F4FFFF");
                 }
-                else if (FX.Xe == "D")
+                else if (FX.Xe == "Xe điện")
                 {
                     dien.BorderColor = Color.FromHex("#00BCC3");
                     dien.BackgroundColor = Color.FromHex("#F4FFFF");
@@ -137,7 +138,7 @@ namespace OKXE.Views
             pkl.BorderColor = Color.FromHex("#F1F4F6");
             dien.BorderColor = Color.FromHex("#F1F4F6");
             so.BorderColor = Color.FromHex("#F1F4F6");
-            Exchange.Data.MyFilter.Xe = "G";
+            Exchange.Data.MyFilter.Xe = "Xe ga";
         }
 
         private void so_Clicked(object sender, EventArgs e)
@@ -152,7 +153,7 @@ namespace OKXE.Views
             ga.BorderColor = Color.FromHex("#F1F4F6");
             
 
-            Exchange.Data.MyFilter.Xe = "S";
+            Exchange.Data.MyFilter.Xe = "Xe số";
         }
 
         private void pkl_Clicked(object sender, EventArgs e)
@@ -165,7 +166,7 @@ namespace OKXE.Views
             ga.BorderColor = Color.FromHex("#F1F4F6");
             dien.BorderColor = Color.FromHex("#F1F4F6");
             so.BorderColor = Color.FromHex("#F1F4F6");
-            Exchange.Data.MyFilter.Xe = "P";
+            Exchange.Data.MyFilter.Xe = "Xe pkl";
         }
 
         private void dien_Clicked(object sender, EventArgs e)
@@ -178,7 +179,7 @@ namespace OKXE.Views
             ga.BorderColor = Color.FromHex("#F1F4F6");
             pkl.BorderColor = Color.FromHex("#F1F4F6");
             so.BorderColor = Color.FromHex("#F1F4F6");
-            Exchange.Data.MyFilter.Xe = "D";
+            Exchange.Data.MyFilter.Xe = "Xe điện";
         }
 
         [Obsolete]
@@ -256,14 +257,74 @@ namespace OKXE.Views
             }
             if (FX.Xe != "x")
             {
-                if (FX.Xe == "G")
+                if (FX.Xe == "Xe ga")
+                {
                     xes = xes.Where(p => p.loaiXe.Equals("Xe ga"));
-                else if (FX.Xe == "S")
+                    Exchange.Data.btGa.BackgroundColor = Color.FromHex("#ccf2f3");
+                    Exchange.Data.btGa.ImageSource = "xega_icon.png";
+                    Exchange.Data.btAll.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btAll.ImageSource = "Allnot_icon.png";
+                    Exchange.Data.btSo.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btSo.ImageSource = "xesonot_icon.png";
+                    Exchange.Data.btDien.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btDien.ImageSource = "xediennot_icon.png";
+                    Exchange.Data.btPkl.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btPkl.ImageSource = "xepklnot_icon.png";
+                }
+                else if (FX.Xe == "Xe số")
+                {
                     xes = xes.Where(p => p.loaiXe.Equals("Xe số"));
-                else if (FX.Xe == "D")
+                    Exchange.Data.btGa.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btGa.ImageSource = "xeganot_icon.png";
+                    Exchange.Data.btAll.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btAll.ImageSource = "Allnot_icon.png";
+                    Exchange.Data.btSo.BackgroundColor = Color.FromHex("#ccf2f3");
+                    Exchange.Data.btSo.ImageSource = "xeso_icon.png";
+                    Exchange.Data.btDien.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btDien.ImageSource = "xediennot_icon.png";
+                    Exchange.Data.btPkl.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btPkl.ImageSource = "xepklnot_icon.png";
+                }
+                else if (FX.Xe == "Xe điện")
+                {
                     xes = xes.Where(p => p.loaiXe.Equals("Xe điện"));
-                else
+                    Exchange.Data.btGa.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btGa.ImageSource = "xeganot_icon.png";
+                    Exchange.Data.btAll.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btAll.ImageSource = "Allnot_icon.png";
+                    Exchange.Data.btSo.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btSo.ImageSource = "xesonot_icon.png";
+                    Exchange.Data.btDien.BackgroundColor = Color.FromHex("#ccf2f3");
+                    Exchange.Data.btDien.ImageSource = "xedien_icon.png";
+                    Exchange.Data.btPkl.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btPkl.ImageSource = "xepklnot_icon.png";
+                }
+                else 
+                {
                     xes = xes.Where(p => p.loaiXe.Equals("Phân khối lớn"));
+                    Exchange.Data.btGa.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btGa.ImageSource = "xeganot_icon.png";
+                    Exchange.Data.btAll.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btAll.ImageSource = "Allnot_icon.png";
+                    Exchange.Data.btSo.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btSo.ImageSource = "xesonot_icon.png";
+                    Exchange.Data.btDien.BackgroundColor = Color.FromHex("#efefef");
+                    Exchange.Data.btDien.ImageSource = "xediennot_icon.png";
+                    Exchange.Data.btPkl.BackgroundColor = Color.FromHex("#ccf2f3");
+                    Exchange.Data.btPkl.ImageSource = "xepkl_icon.png";
+                }
+            }else
+            {
+                Exchange.Data.btGa.BackgroundColor = Color.FromHex("#efefef");
+                Exchange.Data.btGa.ImageSource = "xeganot_icon.png";
+                Exchange.Data.btAll.BackgroundColor = Color.FromHex("#ccf2f3");
+                Exchange.Data.btAll.ImageSource = "All_icon.png";
+                Exchange.Data.btSo.BackgroundColor = Color.FromHex("#efefef");
+                Exchange.Data.btSo.ImageSource = "xesonot_icon.png";
+                Exchange.Data.btDien.BackgroundColor = Color.FromHex("#efefef");
+                Exchange.Data.btDien.ImageSource = "xediennot_icon.png";
+                Exchange.Data.btPkl.BackgroundColor = Color.FromHex("#efefef");
+                Exchange.Data.btPkl.ImageSource = "xepklnot_icon.png";
             }
             if (FX.IsOld != "0")
             {

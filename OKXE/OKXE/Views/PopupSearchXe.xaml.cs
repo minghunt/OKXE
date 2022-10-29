@@ -1,41 +1,39 @@
-﻿using System;
+﻿using OKXE.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OKXE.Model;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace OKXE.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchXe : ContentPage
+    public partial class PopupSearchXe : Rg.Plugins.Popup.Pages.PopupPage
     {
         IEnumerable<Xe> Xes;
-        public SearchXe()
+        public PopupSearchXe()
         {
             InitializeComponent();
             Xes = new ObservableCollection<Xe>();
             Xes = Xe.KhoiTaoDsXe();
             lstXe.ItemsSource = Xes;
+
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            //var route = $"{nameof(TrangChu)}";
-            await Shell.Current.GoToAsync("//Home");
-        }
+        
         private async void BackButton_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//Home");
+            await PopupNavigation.PopAsync();
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lstXe.ItemsSource= Xes.Where(p => p.tenXe.ToLower().Contains(e.NewTextValue));
-      
+            lstXe.ItemsSource = Xes.Where(p => p.tenXe.ToLower().Contains(e.NewTextValue));
+
         }
 
 
