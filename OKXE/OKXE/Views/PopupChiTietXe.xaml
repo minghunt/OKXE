@@ -11,11 +11,96 @@
             <StackLayout Spacing="0" Margin="0,5,0,0" VerticalOptions="Center" HeightRequest="55"  Orientation="Horizontal" BackgroundColor="#00bcc3">
                 <Button WidthRequest="50" ImageSource="back_icon.png" Clicked="BackButton_Clicked" VerticalOptions="Center" BackgroundColor="Transparent"/>
                 <Label Text="{Binding tenXe}"  Margin="0,10,0,0" HorizontalOptions="StartAndExpand" TextColor="White" FontSize="20" FontAttributes="Bold"/>
-                <Image Source="search.png" HorizontalOptions="End" VerticalOptions="Center" />
-                <Image Source="heart_white.png" HorizontalOptions="End" VerticalOptions="Center" Margin="15,0,15,0"/>
+                <Image Source="search.png" HorizontalOptions="End" VerticalOptions="Center" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Search_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="loveImg" Source="heart_white.png" HorizontalOptions="End" VerticalOptions="Center" Margin="15,0,15,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="love_tap"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </StackLayout>
-            <StackLayout BackgroundColor="White" HeightRequest="1000">
-                <Image Aspect="AspectFill" Source="{Binding hinhXe}" HeightRequest="300" WidthRequest="400"/>
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <StackLayout BackgroundColor="White" HeightRequest="1000">
+                    <Image Aspect="AspectFill" Source="{Binding hinhXe}" HeightRequest="300" WidthRequest="400"/>
+                    <Label Margin="15,10,0,0" Text="{Binding tenXe}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
+                    <Label Margin="15,10,0,10" Text="{Binding giaXe}" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+                    <BoxView HeightRequest="2"  Margin="0,0,0,0" Color="#f0f1f3" WidthRequest="500"/>
+                    <Grid ColumnSpacing="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="0,0,0,0" >
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="5,0,0,0">
+                                <Image x:Name="isOld" HeightRequest="30"/>
+                                <Label Text="Tình trạng" TextColor="Black" FontSize="15" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <BoxView HeightRequest="60" WidthRequest="2" Color="#f0f1f3" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="5,0,0,0">
+                                <Image x:Name="loaiXeImg"/>
+                                <Label Text="{Binding loaiXe}" HorizontalOptions="Center" TextColor="Black" FontSize="15" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <BoxView HeightRequest="60" WidthRequest="2" Color="#f0f1f3" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="2"  Margin="0">
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="5,0,0,0">
+                                <Frame BackgroundColor="#00bcc3" Margin="0" VerticalOptions="Start"  CornerRadius="10"  HasShadow="False" HorizontalOptions="Center" Padding="8,1,8,1">
+                                    <Label x:Name="namSD" TextColor="White" FontSize="12" HorizontalTextAlignment="Center" VerticalOptions="Center" Margin="0,0,0,0"/>
+                                </Frame>
+                                <Image Source="calendar.png" WidthRequest="30" HeightRequest="30"/>
+                                <Label Text="Năm sử dụng" HorizontalOptions="Center" TextColor="Black" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <BoxView HeightRequest="60" WidthRequest="2" Color="#f0f1f3" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="3" >
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                                <Image Source="medium.png" WidthRequest="30" HeightRequest="30"/>
+                                <Label x:Name="kmDachay" TextColor="Black" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold"/>
+                            </StackLayout>
+                          
+                        </StackLayout>
+                    </Grid>
+                    <BoxView HeightRequest="7"  Margin="0,0,0,0" Color="#f0f1f3" WidthRequest="500"/>
+                    <StackLayout Margin="15">
+                        <Label Text="Mô tả chi tiết" Margin="0,0,0,20" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Năm sản xuất" TextColor="#9b9999" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding namSxXe}" TextColor="Black" FontSize="15" />
+                        </StackLayout >
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Động cơ(Phân khối)" TextColor="#9b9999" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding dongCoXe}" TextColor="Black" FontSize="15" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Màu sắc" TextColor="#9b9999" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding mauXe}" TextColor="Black" FontSize="15" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Khu vực" TextColor="#9b9999" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding noiBanXe}" TextColor="Black" FontSize="15" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Xem xe trực tiêp" TextColor="#9b9999" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="Liên hệ người bán" TextColor="Black" FontSize="15" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                
+
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HeightRequest="30" BackgroundColor="Azure" Padding="0,10,0,20">
+                <Button WidthRequest="170" HeightRequest="30" HorizontalOptions="StartAndExpand" Padding="0" Margin="20,0,0,-10" TextTransform="None" Clicked="Call_Clicked" Text="Liên hệ ngay" BackgroundColor="White" TextColor="#00bcc3" FontSize="17" BorderWidth="1" BorderColor="#00bcc3" CornerRadius="10"/>
+                <Button WidthRequest="170" HeightRequest="30" HorizontalOptions="EndAndExpand" Padding="0" Margin="0,0,20,-10" TextTransform="None" Clicked="Buy_Clicked" BackgroundColor="#00bcc3" TextColor="white" Text="Mua hàng" BorderWidth="1" FontSize="17" CornerRadius="10"/>
             </StackLayout>
         </StackLayout>
     </ContentView>

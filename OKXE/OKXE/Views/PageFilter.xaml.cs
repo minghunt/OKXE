@@ -241,8 +241,8 @@ namespace OKXE.Views
 
         private async void Submit_Clicked(object sender, EventArgs e)
         {
-            IEnumerable<Xe> lstxe = Xe.KhoiTaoDsXe();
-            IEnumerable<Xe> xes = Xe.KhoiTaoDsXe();
+            IEnumerable<Xe> lstxe = Exchange.Data.Xes;
+            IEnumerable<Xe> xes = Exchange.Data.Xes;
             await PopupNavigation.Instance.PopAsync();
             Exchange.Data.MyFilter.min = RangeSlider.LowerValue;
             Exchange.Data.MyFilter.max = RangeSlider.UpperValue;

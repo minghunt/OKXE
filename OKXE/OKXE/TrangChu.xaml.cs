@@ -18,6 +18,7 @@ namespace OKXE
         List<Hinh> K;
         Filter FX = new Filter {min=0,max=150,IsOld="0",Xe="x" };
         ObservableCollection<Xe> Xes;
+        ObservableCollection<Xe> XesLove=new ObservableCollection<Xe>();
         IEnumerable<Xe> xes;
         public TrangChu()
         {
@@ -32,23 +33,25 @@ namespace OKXE
             {
                 K.Add(i);
             }
-            //carou.ItemsSource = K;
             Device.StartTimer(TimeSpan.FromSeconds(2), (Func<bool>)(() =>
             {
                 carou.Position = (carou.Position + 1) % K.Count;
                 return true;
             }));
             carou.ItemsSource = K;
+            Xes = new ObservableCollection<Xe>();
+            Xes = Xe.KhoiTaoDsXe();
             Exchange.Data.Ten = Lb_Loca;
-            Exchange.Data.MyCoView = lstXe; 
+            Exchange.Data.MyCoView = lstXe;
+            Exchange.Data.MyLoveXe = lstXeLove;
             Exchange.Data.MyFilter = FX;
             Exchange.Data.btGa = Ga;
             Exchange.Data.btAll = All;
             Exchange.Data.btSo = So;
             Exchange.Data.btPkl = Pkl;
             Exchange.Data.btDien = Dien;
-            Xes = new ObservableCollection<Xe>();
-            Xes = Xe.KhoiTaoDsXe();
+            Exchange.Data.Xes = Xes;
+            
             lstXe.ItemsSource = Xes;
         }
 
@@ -77,11 +80,7 @@ namespace OKXE
         {
             var route = $"{nameof(SearchLocation)}";
             await Shell.Current.GoToAsync(route);
-            //await Shell.Current.GoToAsync(nameof(SearchLocation));
-            //DisplayAlert("gre", "gre", "ok");
         }
-
-
 
         private async void NotifyItem_Clicked(object sender, EventArgs e)
         {
@@ -96,7 +95,6 @@ namespace OKXE
         [Obsolete]
         private async void Filter_Clicked(object sender, EventArgs e)
         {
-            
             await PopupNavigation.PushAsync(new PageFilter());
         }
 
@@ -129,7 +127,7 @@ namespace OKXE
             }
             else xes = Xes;
             xes = xes.Where(p => p.loaiXe.Equals("Xe ga"));
-            lstXe.ItemsSource = xes;
+            //lstXe.ItemsSource = xes;
             Exchange.Data.MyFilter.Xe = "Xe ga";
             Ga.BackgroundColor = Color.FromHex("#ccf2f3");
             Ga.ImageSource = "Xega_icon.png";
@@ -141,6 +139,8 @@ namespace OKXE
             Pkl.BackgroundColor = Color.FromHex("#efefef");
             Dien.ImageSource = "Xediennot_icon.png";
             Dien.BackgroundColor = Color.FromHex("#efefef");
+            Exchange.Data.MyCoView.ItemsSource = null;
+            Exchange.Data.MyCoView.ItemsSource = xes;
         }
 
         private void So_Clicked(object sender, EventArgs e)
@@ -211,13 +211,46 @@ namespace OKXE
 
         private void Xe_LoveTap(object sender, EventArgs e)
         {
-
+            var s = sender as Image;
+            var xe = s.BindingContext as Xe;
+            for (int i = 0; i < Xes.Count; i++)
+                if (Xes[i].maXe == xe.maXe)
+                    if (Xes[i].loveImg == "FavouriteRed.png")
+                    {
+                        Xes[i].loveImg = "FavouriteBlack.png";
+                        s.Source= "FavouriteBlack.png";
+                    }
+                    else
+                    {
+                        Xes[i].loveImg = "FavouriteRed.png";
+                        s.Source = "FavouriteRed.png";
+                    }
         }
 
         private void lstXe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var a = e.CurrentSelection.FirstOrDefault() as Xe;
+            Exchange.Data.Xes = Xes;
             PopupNavigation.PushAsync(new PopupChiTietXe(a));
+        }
+
+        private void Love_Appear(object sender, EventArgs e)
+        {
+            
+            XesLove = new ObservableCollection<Xe>();
+            for (int i = 0; i < Xes.Count; i++)
+                if (Xes[i].loveImg == "FavouriteRed.png")
+                    XesLove.Add(Xes[i]);
+            lstXeLove.ItemsSource = XesLove;
+            Exchange.Data.MyLoveXe = lstXeLove;
+        }
+
+        private void lstXe_Tapped(object sender, EventArgs e)
+        {
+            var a = sender as StackLayout;
+            Xe Tap = a.BindingContext as Xe;
+            Exchange.Data.Xes = Xes;
+            PopupNavigation.PushAsync(new PopupChiTietXe(Tap));
         }
     }
 }

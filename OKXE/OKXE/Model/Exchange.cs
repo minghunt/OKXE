@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
-
+using System.Collections.ObjectModel;
 namespace OKXE.Model
 {
     public class Exchange
@@ -26,7 +26,9 @@ namespace OKXE.Model
         public Button btSo { get; set; }
         public Button btPkl { get; set; }
         public Button btDien { get; set; }
+        public ObservableCollection<Xe> Xes { get; set; }
 
+        public CollectionView MyLoveXe { get; set; }
         public Label Ten { get; set; }
         public SearchBar FilterLoca { get; set; }
         public CollectionView MyCoView { get; set; }

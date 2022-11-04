@@ -28,7 +28,7 @@
                         </StackLayout>
                         <ScrollView Margin="0,-1,0,0">
                             <CollectionView  x:Name="lstXe" SelectionMode="Single"
-                ItemsLayout="VerticalGrid, 2" SelectionChanged="lstXe_SelectionChanged">
+                ItemsLayout="VerticalGrid, 2" >
                                 <CollectionView.Header>
                                     <StackLayout Padding="0" Margin="0" >
                                         <StackLayout HeightRequest="167">
@@ -73,6 +73,9 @@
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <StackLayout WidthRequest="60">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="lstXe_Tapped"/>
+                                            </StackLayout.GestureRecognizers>
                                             <Frame HeightRequest="253" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
                                                 <Grid Padding="0" HeightRequest="220" BackgroundColor="White">
                                                     <Grid.RowDefinitions>
@@ -93,6 +96,7 @@
                                                         <Image Source="{Binding xeImg}" Margin="0,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
 
                                                         <Image Source="{Binding isoldImg}" Margin="10,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
+
                                                         <Frame Margin="12,0,0,0" Padding="0" BackgroundColor="LightGray" CornerRadius="5" WidthRequest="45">
                                                             <Label Text="{Binding namSxXe}" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                                         </Frame>
@@ -109,7 +113,7 @@
                                                         <Label Text="{Binding Sao}" Padding="0" Margin="5,4,0,0" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="End"/>
                                                         <Image Source="star.png" Margin="-2,2,0,0" HeightRequest="15" VerticalOptions="Center"/>
 
-                                                        <Image Source="{Binding loveImg}" Margin="5,0,0,0" HeightRequest="20" VerticalOptions="Center">
+                                                        <Image x:Name="LoveImg" Source="{Binding loveImg}" Margin="5,0,0,0" HeightRequest="20" VerticalOptions="Center">
                                                             <Image.GestureRecognizers>
                                                                 <TapGestureRecognizer Tapped="Xe_LoveTap"/>
                                                             </Image.GestureRecognizers>
@@ -159,9 +163,73 @@
 
         </ShellContent>
         <ShellContent Icon="heart_icon.png"
-                      Title="Yêu thích">
-            <ContentPage>
+                      Title="Yêu thích" Appearing="Love_Appear">
+            <ContentPage Title="Sản phẩm yêu thích">
+                <StackLayout>
+                    <ScrollView Margin="0,-1,0,0">
+                        <CollectionView  x:Name="lstXeLove" SelectionMode="Single"
+                ItemsLayout="VerticalGrid, 2" SelectionChanged="lstXe_SelectionChanged">
+                            
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout WidthRequest="60">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="lstXe_Tapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                        <Frame HeightRequest="253" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                            <Grid Padding="0" HeightRequest="220" BackgroundColor="White">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="130"/>
+                                                    <RowDefinition Height="25"/>
+                                                    <RowDefinition Height="23"/>
+                                                    <RowDefinition Height="23" />
+                                                    <RowDefinition  Height="23" />
+                                                </Grid.RowDefinitions>
+                                                <Image
+                                                       Source="{Binding hinhXe}"
+                                                       Aspect="AspectFill"
+                                                       HeightRequest="60"
+                                                       WidthRequest="60" Margin="0"/>
+                                                <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
+                                                        TextColor="Blue" FontSize="20"/>
+                                                <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="2">
+                                                    <Image Source="{Binding xeImg}" Margin="0,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
 
+                                                    <Image Source="{Binding isoldImg}" Margin="10,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
+
+                                                    <Frame Margin="12,0,0,0" Padding="0" BackgroundColor="LightGray" CornerRadius="5" WidthRequest="45">
+                                                        <Label Text="{Binding namSxXe}" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                                    </Frame>
+
+                                                </StackLayout>
+                                                <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="3">
+                                                    <Image Source="Loca_icon.png" HeightRequest="15"/>
+
+                                                    <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="0,0,5,0" Padding="0" FontSize="15" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Margin="10,-3,0,0" Grid.Row="4">
+                                                    <Label x:Name="gia" Text="{Binding giaXe}" FontSize="15" HorizontalTextAlignment="Center"  TextColor="Black" 
+                                                   Margin="0,-8,0,0" Padding="0"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
+                                                    <Label Text="{Binding Sao}" Padding="0" Margin="5,4,0,0" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="End"/>
+                                                    <Image Source="star.png" Margin="-2,2,0,0" HeightRequest="15" VerticalOptions="Center"/>
+
+                                                    <Image x:Name="LoveImg" Source="{Binding loveImg}" Margin="5,0,0,0" HeightRequest="20" VerticalOptions="Center">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="Xe_LoveTap"/>
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+
+
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+
+                </StackLayout>
             </ContentPage>
         </ShellContent>
         <ShellContent Icon="blog_icon.png"

@@ -14,14 +14,11 @@ namespace OKXE.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PopupSearchXe : Rg.Plugins.Popup.Pages.PopupPage
     {
-        IEnumerable<Xe> Xes;
+        ObservableCollection<Xe> Xes=Exchange.Data.Xes;
         public PopupSearchXe()
         {
             InitializeComponent();
-            Xes = new ObservableCollection<Xe>();
-            Xes = Xe.KhoiTaoDsXe();
             lstXe.ItemsSource = Xes;
-
         }
 
         
@@ -50,6 +47,32 @@ namespace OKXE.Views
         private void Sh_Clicked(object sender, EventArgs e)
         {
             lstXe.ItemsSource = Xes.Where(p => p.tenXe.ToLower().Contains("sh"));
+        }
+
+        private void lstXe_Tapped(object sender, EventArgs e)
+        {
+            var a = sender as StackLayout;
+            Xe Tap = a.BindingContext as Xe;
+            Exchange.Data.Xes = Xes;
+            PopupNavigation.PushAsync(new PopupChiTietXe(Tap));
+        }
+
+        private void Xe_LoveTap(object sender, EventArgs e)
+        {
+            var s = sender as Image;
+            var xe = s.BindingContext as Xe;
+            for (int i = 0; i < Xes.Count; i++)
+                if (Xes[i].maXe == xe.maXe)
+                    if (Xes[i].loveImg == "FavouriteRed.png")
+                    {
+                        Xes[i].loveImg = "FavouriteBlack.png";
+                        s.Source = "FavouriteBlack.png";
+                    }
+                    else
+                    {
+                        Xes[i].loveImg = "FavouriteRed.png";
+                        s.Source = "FavouriteRed.png";
+                    }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace OKXE.Views
     public partial class SearchLocation : ContentPage
     {
         ViewCell lastCell;
-        IEnumerable<Xe> xes=Xe.KhoiTaoDsXe();
+        IEnumerable<Xe> xes=Exchange.Data.Xes;
         public class DiaDiem
         {
             public string Name { get; set; }
