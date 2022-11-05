@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="http://rotorgames.com" 
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                  x:Class="OKXE.Views.PopupChiTietShop" CloseWhenBackgroundIsClicked="False" BackgroundColor="Transparent"
+                 >
+    <ContentView>
+        <StackLayout HeightRequest="600" BackgroundColor="#00bcc3" Spacing="0">
+            <StackLayout Spacing="0" Margin="0,0,0,0" VerticalOptions="End" HeightRequest="55"  Orientation="Horizontal" BackgroundColor="#00bcc3">
+                <Button WidthRequest="50" Margin="0,13,0,0" ImageSource="back_icon.png" Clicked="BackButton_Clicked" VerticalOptions="Center" BackgroundColor="Transparent"/>
+                <Label Text="Thông tin cửa hàng"  Margin="0,15,0,0" HorizontalOptions="StartAndExpand" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                <Image x:Name="loveImg" Source="{Binding loveImg}" HorizontalOptions="End" VerticalOptions="Center" Margin="15,10,15,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="love_tap"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <StackLayout BackgroundColor="White">
+                    
+                    <CollectionView  x:Name="lstXe" SelectionMode="Single"
+                ItemsLayout="VerticalGrid, 2" >
+                        <CollectionView.Header>
+                            <StackLayout Padding="0" Margin="0">
+                                <Image Aspect="AspectFill" Source="{Binding hinhNenShop}" HeightRequest="300" WidthRequest="400"/>
+                                <Frame WidthRequest="150" HeightRequest="150" CornerRadius="80" HorizontalOptions="Center" Padding="0" Margin="0,-80,0,0">
+                                    <Image Source="{Binding hinhShop}" Aspect="AspectFit"/>
+
+                                </Frame>
+                                <Label Margin="0,10,0,0" Text="{Binding tenShop}" FontSize="22" HorizontalOptions="CenterAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                                <Label Text="{Binding diaChi}" Margin="10,10,10,0" FontSize="16" HorizontalOptions="CenterAndExpand" TextColor="#9b9999" HorizontalTextAlignment="Center"/>
+
+                                <StackLayout Orientation="Horizontal" Margin="0,-3,0,0" HorizontalOptions="Center">
+                                    <Label Text="{Binding Sao}" Padding="0" Margin="0,4,0,0" FontSize="17" TextColor="Black" VerticalOptions="Center" HorizontalOptions="End"/>
+                                    <Image Source="star.png" Margin="-2,2,0,0" HeightRequest="17" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <BoxView HeightRequest="5" Margin="0,0,0,0" Color="#f0f1f3" WidthRequest="500" />
+
+                                <Label Margin="15,10,0,0" Text="Tất cả sản phẩm" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </CollectionView.Header>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout WidthRequest="60">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lstXe_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Frame HeightRequest="265" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                        <Grid Padding="0" HeightRequest="220" BackgroundColor="White">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="140"/>
+                                                <RowDefinition Height="25"/>
+                                                <RowDefinition Height="23"/>
+                                                <RowDefinition Height="24" />
+                                                <RowDefinition  Height="24" />
+                                            </Grid.RowDefinitions>
+                                            <Image
+                                                       Source="{Binding hinhXe}"
+                                                       Aspect="AspectFill"
+                                                       HeightRequest="60"
+                                                       WidthRequest="60" Margin="0"/>
+                                            <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
+                                                        TextColor="Blue" FontSize="20"/>
+                                            <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="2">
+                                                <Image Source="{Binding xeImg}" Margin="0,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
+
+                                                <Image Source="{Binding isoldImg}" Margin="10,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
+
+                                                <Frame Margin="12,0,0,0" Padding="0" BackgroundColor="LightGray" CornerRadius="5" WidthRequest="45">
+                                                    <Label Text="{Binding namSxXe}" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                                </Frame>
+
+                                            </StackLayout>
+                                            <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="3">
+                                                <Image Source="Loca_icon.png" HeightRequest="15"/>
+
+                                                <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="0,0,5,0" Padding="0" FontSize="15" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Margin="10,-3,0,0" Grid.Row="4">
+                                                <Label x:Name="gia" Text="{Binding giaXe}" FontSize="15" HorizontalTextAlignment="Center"  TextColor="Black" 
+                                                   Margin="0,-8,0,0" Padding="0"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
+                                                <Label Text="{Binding Sao}" Padding="0" Margin="5,4,0,0" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="End"/>
+                                                <Image Source="star.png" Margin="-2,2,0,0" HeightRequest="15" VerticalOptions="Center"/>
+
+                                                <Image x:Name="LoveImg" Source="{Binding loveImg}" Margin="5,0,0,0" HeightRequest="20" VerticalOptions="Center">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="Xe_LoveTap"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+
+
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.Footer>
+                            <StackLayout BackgroundColor="#f8f8f8" Padding="15">
+                                <Label Text="Các sản phẩm đăng bán không thuộc sở hữu của Okxe. Mọi thông tin về sản phẩm và các giao dịch thuộc về trách nhiệm của người bán." TextColor="#9b9999" FontSize="15"/>
+                                <Image Source="logo_okxe.png" WidthRequest="150" HorizontalOptions="Start" Margin="0,10,0,0"/>
+                            </StackLayout>
+                        </CollectionView.Footer>
+                    </CollectionView>
+
+                    
+
+                </StackLayout>
+                
+
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HeightRequest="35" BackgroundColor="Azure" Padding="0,10,0,10">
+                <Button HeightRequest="40" WidthRequest="320" ImageSource="telephone.png" HorizontalOptions="CenterAndExpand" Margin="20,0,20,0" Padding="85,0,65,0" TextTransform="None" Clicked="Call_Clicked" Text="Thông tin liên lạc" BackgroundColor="White" TextColor="#00bcc3" FontSize="17" BorderWidth="1" BorderColor="#00bcc3" CornerRadius="6"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView>
+    <pages:PopupPage.Animation>
+        <animations:MoveAnimation
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            DurationIn="300"
+            DurationOut="200"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+</pages:PopupPage>

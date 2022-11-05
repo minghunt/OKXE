@@ -76,14 +76,14 @@
                                             <StackLayout.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="lstXe_Tapped"/>
                                             </StackLayout.GestureRecognizers>
-                                            <Frame HeightRequest="253" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                            <Frame HeightRequest="265" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
                                                 <Grid Padding="0" HeightRequest="220" BackgroundColor="White">
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="130"/>
+                                                        <RowDefinition Height="140"/>
                                                         <RowDefinition Height="25"/>
                                                         <RowDefinition Height="23"/>
-                                                        <RowDefinition Height="23" />
-                                                        <RowDefinition  Height="23" />
+                                                        <RowDefinition Height="24" />
+                                                        <RowDefinition  Height="24" />
                                                     </Grid.RowDefinitions>
                                                     <Image
                                                        Source="{Binding hinhXe}"
@@ -148,14 +148,52 @@
                 </Shell.TitleView>
                 <ContentPage.Content>
                     <StackLayout >
-                        <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="44" >
-                            <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-2" HeightRequest="10" WidthRequest="372">
-                                <SearchBar Margin="-10,0,0,0" Focused="SearchBar_Focused" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent" Placeholder="Nhập từ khóa tìm kiếm"/>
+                        <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="65" >
+                            <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-1" HeightRequest="25" WidthRequest="370">
+                                <SearchBar Margin="-10,0,0,0" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent" Placeholder="Nhập từ khóa tìm kiếm"/>
                             </Frame>
+
                         </StackLayout>
-                        <ScrollView>
-                           
-                        </ScrollView>
+                        <StackLayout HeightRequest="20" Margin="20,0,0,0" BackgroundColor="White">
+                            <Label Text="Danh sách cửa hàng" FontSize="16" FontAttributes="Bold" TextColor="Black"/>
+                        </StackLayout>
+                        <CollectionView  x:Name="lstShop" SelectionMode="Single"
+                ItemsLayout="VerticalGrid, 2" >
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout WidthRequest="60">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="lstShop_Tapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                        <Frame HeightRequest="230" Padding="0"  CornerRadius="10" HasShadow="True" Margin="10"  BackgroundColor="White">
+                                            <Grid Padding="0" HeightRequest="220" BackgroundColor="White">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="140"/>
+                                                    <RowDefinition Height="20"/>
+                                                    <RowDefinition Height="24"/>
+                                                    <RowDefinition Height="20" />
+                                                </Grid.RowDefinitions>
+                                                <Image
+                                                       Source="{Binding hinhShop}"
+                                                       Aspect="AspectFill"
+                                                       HeightRequest="60"
+                                                       WidthRequest="60" Margin="0"/>
+                                                <Label Text="{Binding tenShop}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
+                                                        TextColor="Blue" FontSize="16"/>
+                                                <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="2">
+                                                    <Image Source="Loca_icon.png" HeightRequest="15"/>
+                                                    <Label Text="{Binding tenTp}" TextColor="Black" Margin="0,0,5,0" Padding="0" FontSize="15" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Margin="10,-3,0,0" Grid.Row="3">
+                                                    <Label Text="{Binding Sao}" Padding="0" Margin="5,4,0,0" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="End"/>
+                                                    <Image Source="star.png" Margin="-2,2,0,0" HeightRequest="15" VerticalOptions="Center"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </StackLayout>
                 </ContentPage.Content>
 
@@ -182,8 +220,8 @@
                                                     <RowDefinition Height="130"/>
                                                     <RowDefinition Height="25"/>
                                                     <RowDefinition Height="23"/>
-                                                    <RowDefinition Height="23" />
-                                                    <RowDefinition  Height="23" />
+                                                    <RowDefinition Height="24" />
+                                                    <RowDefinition  Height="24" />
                                                 </Grid.RowDefinitions>
                                                 <Image
                                                        Source="{Binding hinhXe}"
@@ -246,8 +284,102 @@
         </ShellContent>
         <ShellContent Icon="user_icon.png"
                       Title="Tài khoản" Shell.PresentationMode="Modal" Appearing="ShellContent_Appearing">
-            <ContentPage  Shell.PresentationMode="Modal">
-                <StackLayout HeightRequest="1000"></StackLayout>
+            
+            <ContentPage  Shell.PresentationMode="Modal" Title="Tài khoản">
+                <ContentPage.ToolbarItems>
+                    <ToolbarItem Order="Primary" Priority="1" Clicked="MessageItem_Clicked" IconImageSource="settings.png"></ToolbarItem>
+                    <ToolbarItem Order="Primary" Priority="0" Clicked="NotifyItem_Clicked" IconImageSource="notify_icon.png"></ToolbarItem>
+                </ContentPage.ToolbarItems>
+                <StackLayout Spacing="0">
+                    <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="65" Margin="0,0,0,0" >
+                        <Frame HasShadow="False" CornerRadius="80" Padding="0" Margin="18,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" HeightRequest="50" WidthRequest="50">
+                            <Image Source="chosoido.jpg" Aspect="AspectFit" />
+                        </Frame>
+                        <Label Text="Đăng nhập" TextColor="White" FontSize="18" Margin="10,0,0,0" VerticalOptions="Center" FontAttributes="Bold"/>
+                        
+                    </StackLayout>
+                    <ScrollView>
+                        <StackLayout Spacing="0">
+                            <StackLayout Margin="15">
+                                <Label Text="QUẢN LÝ MUA BÁN XE" TextColor="#9b9999" FontAttributes="Bold" FontSize="14"/>
+                            </StackLayout>
+                            <StackLayout Margin="20,0,20,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Label Text="Gian hàng của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Label Text="Xe đang bán" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Label Text="Xe đã mua" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Label Text="Sản phẩm yêu thích" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Margin="15">
+                                <Label Text="HOẠT ĐỘNG CỦA TÔI" TextColor="#9b9999" FontAttributes="Bold" FontSize="14"/>
+                            </StackLayout>
+                            <StackLayout Margin="20,0,20,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Label Text="Hộp thư của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Label Text="Thông báo của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+
+                            </StackLayout>
+                            <StackLayout Margin="15">
+                                <Label Text="THÔNG TIN HỖ TRỢ" TextColor="#9b9999" FontAttributes="Bold" FontSize="14"/>
+                            </StackLayout>
+                            <StackLayout Margin="20,0,20,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Label Text="Hộp thư của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Label Text="Thông báo của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                                
+                            </StackLayout>
+                            <StackLayout BackgroundColor="#f8f8f8" Padding="15" Spacing="15">
+                                <Image Source="logo_okxe.png" WidthRequest="150" HorizontalOptions="Start" Margin="0,0,0,0"/>
+                                <Label Text="Công ty TNHH OKXE Việt Nam" TextColor="Black" FontAttributes="Bold" FontSize="17"/>
+                                <Label FontSize="15">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Hà Nội: "
+                                      TextColor="Black" FontAttributes="Bold"/>
+                                            <Span Text="Tòa nhà Sao Mai - Tầng 11, số 19 Lê Văn Lương, P. Nhân Chính, Q. Thanh Xuân." 
+                                      TextColor="Black">
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="15" TextColor="Black" Text="Điện thoại: (024) 73 077 889" Margin="0,-15,0,0"/>
+                                <Label FontSize="15">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Hồ Chí Minh: "
+                                      TextColor="Black" FontAttributes="Bold"/>
+                                            <Span Text="Tòa nhà TTC - Tầng 17, số 253 Hoàng Văn Thụ, P.2, Q. Tân Bình." 
+                                      TextColor="Black">
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="15" TextColor="Black" Text="Điện thoại: (028) 73 057 057" Margin="0,-15,0,0"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
             </ContentPage>
         </ShellContent>
     </TabBar>

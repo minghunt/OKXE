@@ -19,6 +19,7 @@ namespace OKXE
         Filter FX = new Filter {min=0,max=150,IsOld="0",Xe="x" };
         ObservableCollection<Xe> Xes;
         ObservableCollection<Xe> XesLove=new ObservableCollection<Xe>();
+        ObservableCollection<Shop> Shops = new ObservableCollection<Shop>();
         IEnumerable<Xe> xes;
         public TrangChu()
         {
@@ -41,8 +42,12 @@ namespace OKXE
             carou.ItemsSource = K;
             Xes = new ObservableCollection<Xe>();
             Xes = Xe.KhoiTaoDsXe();
+            Shops = Shop.KhoiTaoDsShop();
+            Exchange.Data.maShop = 0;
+            Exchange.Data.MyShopXe = null;
             Exchange.Data.Ten = Lb_Loca;
             Exchange.Data.MyCoView = lstXe;
+            Exchange.Data.MyShop = lstShop;
             Exchange.Data.MyLoveXe = lstXeLove;
             Exchange.Data.MyFilter = FX;
             Exchange.Data.btGa = Ga;
@@ -51,7 +56,7 @@ namespace OKXE
             Exchange.Data.btPkl = Pkl;
             Exchange.Data.btDien = Dien;
             Exchange.Data.Xes = Xes;
-            
+            lstShop.ItemsSource = Shops;
             lstXe.ItemsSource = Xes;
         }
 
@@ -251,6 +256,14 @@ namespace OKXE
             Xe Tap = a.BindingContext as Xe;
             Exchange.Data.Xes = Xes;
             PopupNavigation.PushAsync(new PopupChiTietXe(Tap));
+        }
+
+        private void lstShop_Tapped(object sender, EventArgs e)
+        {
+            var a = sender as StackLayout;
+            Shop Tap = a.BindingContext as Shop;
+            Exchange.Data.maShop = Tap.maShopXe;
+            PopupNavigation.PushAsync(new PopupChiTietShop(Tap));
         }
     }
 }

@@ -38,8 +38,8 @@
                                         <RowDefinition Height="130"/>
                                         <RowDefinition Height="25"/>
                                         <RowDefinition Height="23"/>
-                                        <RowDefinition Height="23" />
-                                        <RowDefinition  Height="23" />
+                                        <RowDefinition Height="24" />
+                                        <RowDefinition  Height="24" />
                                     </Grid.RowDefinitions>
                                     <Image
                                                        Source="{Binding hinhXe}"

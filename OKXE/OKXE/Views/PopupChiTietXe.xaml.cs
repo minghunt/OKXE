@@ -17,6 +17,7 @@ namespace OKXE.Views
 
         ObservableCollection<Xe> Xes = Exchange.Data.Xes;
         Xe xe;
+        
         public PopupChiTietXe()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace OKXE.Views
 
         private void Call_Clicked(object sender, EventArgs e)
         {
-
+            PopupNavigation.PushAsync(new PopupLienHe());
         }
 
         private void Buy_Clicked(object sender, EventArgs e)
@@ -79,7 +80,11 @@ namespace OKXE.Views
             for (int i = 0; i < Xes.Count; i++)
                 if (Xes[i].loveImg == "FavouriteRed.png")
                     XesLove.Add(Xes[i]);
-            
+            if (Exchange.Data.MyShopXe != null)
+            {
+                Exchange.Data.MyShopXe.ItemsSource = null;
+                Exchange.Data.MyShopXe.ItemsSource = Xes.Where(p => p.maShopXe.Equals(Exchange.Data.maShop));
+            }
             Exchange.Data.MyLoveXe.ItemsSource = XesLove;
         }
 

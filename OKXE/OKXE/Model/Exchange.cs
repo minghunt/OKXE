@@ -27,8 +27,10 @@ namespace OKXE.Model
         public Button btPkl { get; set; }
         public Button btDien { get; set; }
         public ObservableCollection<Xe> Xes { get; set; }
-
+        public int maShop { get; set; }
         public CollectionView MyLoveXe { get; set; }
+        public CollectionView MyShopXe { get; set; }
+        public CollectionView MyShop { get; set; }
         public Label Ten { get; set; }
         public SearchBar FilterLoca { get; set; }
         public CollectionView MyCoView { get; set; }
