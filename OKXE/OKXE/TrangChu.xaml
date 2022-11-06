@@ -4,7 +4,7 @@
              x:Class="OKXE.TrangChu" Shell.NavBarHasShadow="False" 
        Shell.BackgroundColor="#00bcc3" Shell.TitleColor="White"
        Shell.PresentationMode="Modal">
-    <TabBar Shell.TabBarBackgroundColor="#f0f8f7" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="#a2b7be" Shell.TabBarDisabledColor="#a2b7be">
+    <TabBar Route="Home" Shell.TabBarBackgroundColor="#f0f8f7" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="#a2b7be" Shell.TabBarDisabledColor="#a2b7be">
         <ShellContent Icon="home_icon.png" Title="Trang Chủ" Route="Home">
             <ContentPage Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3">
                 <ContentPage.ToolbarItems>
@@ -150,7 +150,7 @@
                     <StackLayout >
                         <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="65" >
                             <Frame HasShadow="False" CornerRadius="10" Margin="20,0,0,8" Padding="0,0,0,-1" HeightRequest="25" WidthRequest="370">
-                                <SearchBar Margin="-10,0,0,0" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent" Placeholder="Nhập từ khóa tìm kiếm"/>
+                                <SearchBar Margin="-10,0,0,0" TextChanged="Search_Shop_TextChanged" FontSize="15" HeightRequest="60" CancelButtonColor="Transparent" Placeholder="Nhập từ khóa tìm kiếm"/>
                             </Frame>
 
                         </StackLayout>
@@ -201,7 +201,7 @@
 
         </ShellContent>
         <ShellContent Icon="heart_icon.png"
-                      Title="Yêu thích" Appearing="Love_Appear">
+                      Title="Yêu thích" Appearing="Love_Appear" Route="Love">
             <ContentPage Title="Sản phẩm yêu thích">
                 <StackLayout>
                     <ScrollView Margin="0,-1,0,0">
@@ -313,10 +313,16 @@
                                     <Label Text="Xe đang bán" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="XeDamua_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
                                     <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
                                     <Label Text="Xe đã mua" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="XeLove_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
                                     <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
                                     <Label Text="Sản phẩm yêu thích" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>

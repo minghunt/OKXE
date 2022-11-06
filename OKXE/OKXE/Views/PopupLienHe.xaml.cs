@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using OKXE.Model;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,11 @@ namespace OKXE.Views
         {
             InitializeComponent();
         }
-
+        public PopupLienHe(Shop a)
+        {
+            InitializeComponent();
+            this.BindingContext = a;
+        }
         [Obsolete]
         private void ClosePage()
         {

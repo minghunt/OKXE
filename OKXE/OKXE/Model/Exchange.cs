@@ -31,6 +31,8 @@ namespace OKXE.Model
         public CollectionView MyLoveXe { get; set; }
         public CollectionView MyShopXe { get; set; }
         public CollectionView MyShop { get; set; }
+        public CollectionView MyXeDaMua { get; set; }
+        public ObservableCollection<Shop> Shops { get; set; }
         public Label Ten { get; set; }
         public SearchBar FilterLoca { get; set; }
         public CollectionView MyCoView { get; set; }

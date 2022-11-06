@@ -56,7 +56,7 @@ namespace OKXE.Views
             if (Exchange.Data.MyFilter.Xe!="x")
                 temp = temp.Where(p => p.loaiXe.Equals(Exchange.Data.MyFilter.Xe));
             Exchange.Data.MyCoView.ItemsSource = temp;
-            ObservableCollection<Shop> shops = Shop.KhoiTaoDsShop();
+            ObservableCollection<Shop> shops = Exchange.Data.Shops;
             if (lh.Name == "Việt Nam")
                 Exchange.Data.MyShop.ItemsSource = shops;
             else Exchange.Data.MyShop.ItemsSource = shops.Where(p => p.tenTp.Equals(lh.Name));

@@ -43,8 +43,10 @@ namespace OKXE
             Xes = new ObservableCollection<Xe>();
             Xes = Xe.KhoiTaoDsXe();
             Shops = Shop.KhoiTaoDsShop();
+            Exchange.Data.Shops = Shops;
             Exchange.Data.maShop = 0;
             Exchange.Data.MyShopXe = null;
+            Exchange.Data.MyXeDaMua = null;
             Exchange.Data.Ten = Lb_Loca;
             Exchange.Data.MyCoView = lstXe;
             Exchange.Data.MyShop = lstShop;
@@ -264,6 +266,24 @@ namespace OKXE
             Shop Tap = a.BindingContext as Shop;
             Exchange.Data.maShop = Tap.maShopXe;
             PopupNavigation.PushAsync(new PopupChiTietShop(Tap));
+        }
+
+        private void Search_Shop_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            IEnumerable<Shop> SearchShop = Exchange.Data.Shops;
+            if (Exchange.Data.Ten.Text != "Việt Nam")
+                SearchShop = SearchShop.Where(p => p.tenTp.Equals(Exchange.Data.Ten.Text));
+            lstShop.ItemsSource = SearchShop.Where(p => p.tenShop.ToLower().Contains(e.NewTextValue.ToLower()));
+        }
+
+        private void XeDamua_Tapped(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new PopupXeDaMua());
+        }
+
+        private void XeLove_Tapped(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//Home/Love");
         }
     }
 }

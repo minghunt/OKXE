@@ -13,7 +13,7 @@ namespace OKXE.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PopupChiTietShop : Rg.Plugins.Popup.Pages.PopupPage
     {
-        ObservableCollection<Shop> shops = Shop.KhoiTaoDsShop();
+        ObservableCollection<Shop> shops = Exchange.Data.Shops;
         Shop temp;
         ObservableCollection<Xe> Xes=Exchange.Data.Xes;
         public PopupChiTietShop()
@@ -49,12 +49,17 @@ namespace OKXE.Views
                         loveImg.Source = "heart.png";
                         shops[i].loveImg = "heart.png";
                     }
-            Exchange.Data.MyShop.ItemsSource = shops;
+           
+            if (Exchange.Data.Ten.Text == "Việt Nam")
+                Exchange.Data.MyShop.ItemsSource = shops;
+            else Exchange.Data.MyShop.ItemsSource = shops.Where(p => p.tenTp.Equals(Exchange.Data.Ten.Text)); 
+            Exchange.Data.Shops = shops;
+
         }
 
         private void Call_Clicked(object sender, EventArgs e)
         {
-
+            PopupNavigation.PushAsync(new PopupLienHe(temp));
         }
 
         private void lstXe_Tapped(object sender, EventArgs e)

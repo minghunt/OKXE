@@ -23,19 +23,19 @@
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Frame Margin="20,0,0,0"  CornerRadius="80" WidthRequest="80" HeightRequest="80" Padding="0" VerticalOptions="Center">
-                            <Image Source="chosoido.jpg" Aspect="AspectFit"/>
+                            <Image Source="{Binding hinhShop}" Aspect="AspectFit"/>
                         </Frame>
                         <StackLayout >
-                            <Label Margin="10,3,0,0" Text="Xe máy Hoàng Sơn" TextColor="Black" FontSize="15"/>
+                            <Label Margin="10,3,0,0" Text="{Binding tenShop}" TextColor="Black" FontSize="15"/>
                             <StackLayout  Margin="10,0,0,0" Orientation="Horizontal" Spacing="0">
                                 <Image Source="Loca_icon.png" HeightRequest="15"/>
-                                <Label Text="Tp. Hồ Chí Minh" TextColor="#9b9999" Margin="5,0,0,0" Padding="0" FontSize="15" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                <Label Text="{Binding tenTp}" TextColor="#9b9999" Margin="5,0,0,0" Padding="0" FontSize="15" VerticalOptions="Start" HorizontalOptions="Start"/>
                             </StackLayout>
                             <StackLayout  Margin="10,0,0,0" Orientation="Horizontal">
-                                <Label Text="5" Padding="0" Margin="3,0,0,0" FontSize="15" TextColor="#9b9999" VerticalOptions="Center" HorizontalOptions="End"/>
+                                <Label Text="{Binding Sao}" Padding="0" Margin="3,0,0,0" FontSize="15" TextColor="#9b9999" VerticalOptions="Center" HorizontalOptions="End"/>
                                 <Image Source="star.png" Margin="-2,0,0,0" HeightRequest="15" VerticalOptions="Center"/>
                             </StackLayout>
-                            <Label Margin="12,0,0,0"  Text="0343393337" TextColor="#00bcc3" FontSize="15"/>
+                            <Label Margin="12,0,0,0"  Text="{Binding Sdt}" TextColor="#00bcc3" FontSize="15"/>
                         </StackLayout>
                         
                     </StackLayout>

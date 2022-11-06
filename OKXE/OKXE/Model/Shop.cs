@@ -15,6 +15,7 @@ namespace OKXE.Model
         public string hinhShop { get; set; }
         public string diaChi { get; set; }
         public string loveImg { get; set; } = "heart.png";
+        public string Sdt { get; set; } = "0909789512";
         public static ObservableCollection<Shop> KhoiTaoDsShop()
         {
             ObservableCollection<Shop> listShop = new ObservableCollection<Shop>();

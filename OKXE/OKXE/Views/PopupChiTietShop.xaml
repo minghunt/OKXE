@@ -8,7 +8,7 @@
     <ContentView>
         <StackLayout HeightRequest="600" BackgroundColor="#00bcc3" Spacing="0">
             <StackLayout Spacing="0" Margin="0,0,0,0" VerticalOptions="End" HeightRequest="55"  Orientation="Horizontal" BackgroundColor="#00bcc3">
-                <Button WidthRequest="50" Margin="0,13,0,0" ImageSource="back_icon.png" Clicked="BackButton_Clicked" VerticalOptions="Center" BackgroundColor="Transparent"/>
+                <Button WidthRequest="50" Margin="0,9,0,0" ImageSource="back_icon.png" Clicked="BackButton_Clicked" VerticalOptions="Center" BackgroundColor="Transparent"/>
                 <Label Text="Thông tin cửa hàng"  Margin="0,15,0,0" HorizontalOptions="StartAndExpand" TextColor="White" FontSize="20" FontAttributes="Bold"/>
                 <Image x:Name="loveImg" Source="{Binding loveImg}" HorizontalOptions="End" VerticalOptions="Center" Margin="15,10,15,0">
                     <Image.GestureRecognizers>

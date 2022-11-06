@@ -24,7 +24,7 @@ namespace OKXE.Model
         public string Sao { get; set; } = "5";
         public string xeImg { get; set; } = "xeso_icon.png";
         public string isoldImg { get; set; } = "icon_old16.png";
-
+        public string trangThaiXe { get; set; } = "Avai";
         public double giaXeNum { get; set; }
         public string loveImg { get; set; } = "FavouriteBlack.png";
         public string moTaXe { get; set; }
