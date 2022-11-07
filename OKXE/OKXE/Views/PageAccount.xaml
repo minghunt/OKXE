@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OKXE.Views.PageAccount" Shell.TabBarIsVisible="False" Shell.PresentationMode="NotAnimated" Title="Quản lý tài khoản">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#f0f1f3">
+            <StackLayout Spacing="0" BackgroundColor="White" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Frame Padding="0" CornerRadius="80" HeightRequest="40" WidthRequest="40">
+                        <Image Source="chosoido3.jpg" Aspect="AspectFit"  />
+                    </Frame>
+                    <Label Text="Nguyễn Minh Hùng" FontAttributes="Bold" VerticalOptions="Center" TextColor="Black" FontSize="18" HorizontalOptions="StartAndExpand"/>
+                </StackLayout >
+            </StackLayout>
+            <Label Text="Thông tin liên hệ" FontAttributes="Bold" Margin="15,5,0,5" TextColor="Black" FontSize="16" />
+            <StackLayout Spacing="0" BackgroundColor="White" Padding="20,10,10,10">
+                <Label Text="0343393337" TextColor="Black" FontSize="16" />
+            </StackLayout>
+            <Label Text="Địa chỉ"  FontAttributes="Bold" Margin="15,5,0,5" TextColor="Black" FontSize="16" />
+            <StackLayout Spacing="0" BackgroundColor="White" Padding="20,10,15,10">
+                <Label Text="Ấp Bình Chánh, Xã Bình Thạnh, Thành phố Hồng Ngự, Tỉnh Đồng Tháp" TextColor="Black" FontSize="16" />
+            </StackLayout>
+            <Button Text="Đăng xuất" TextColor="White" BackgroundColor="Black" VerticalOptions="EndAndExpand" FontSize="18" Margin="20,0,20,25"
+                   CornerRadius="8" TextTransform="None" Clicked="Out_clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

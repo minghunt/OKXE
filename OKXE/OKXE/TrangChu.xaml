@@ -287,23 +287,23 @@
             
             <ContentPage  Shell.PresentationMode="Modal" Title="Tài khoản">
                 <ContentPage.ToolbarItems>
-                    <ToolbarItem Order="Primary" Priority="1" Clicked="MessageItem_Clicked" IconImageSource="settings.png"></ToolbarItem>
+                    <ToolbarItem Order="Primary" Priority="1" Clicked="Account_Clicked" IconImageSource="settings.png"></ToolbarItem>
                     <ToolbarItem Order="Primary" Priority="0" Clicked="NotifyItem_Clicked" IconImageSource="notify_icon.png"></ToolbarItem>
                 </ContentPage.ToolbarItems>
-                <StackLayout Spacing="0">
-                    <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="65" Margin="0,0,0,0" >
+                <StackLayout Spacing="0" BackgroundColor="#00bcc3">
+                    <StackLayout BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="65" Margin="0,0,0,5" >
                         <Frame HasShadow="False" CornerRadius="80" Padding="0" Margin="18,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" HeightRequest="50" WidthRequest="50">
-                            <Image Source="chosoido.jpg" Aspect="AspectFit" />
+                            <Image Source="User.jpg" Aspect="AspectFit" />
                         </Frame>
-                        <Label Text="Đăng nhập" TextColor="White" FontSize="18" Margin="10,0,0,0" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <Label Text="Nguyễn Minh Hùng" TextColor="White" FontSize="18" Margin="10,0,0,0" VerticalOptions="Center" FontAttributes="Bold"/>
                         
                     </StackLayout>
-                    <ScrollView>
+                    <ScrollView BackgroundColor="White">
                         <StackLayout Spacing="0">
                             <StackLayout Margin="15,20,15,10">
                                 <Label Text="QUẢN LÝ MUA BÁN XE" TextColor="#a2b7be" FontAttributes="Bold" FontSize="14"/>
                             </StackLayout>
-                            <StackLayout Margin="25,0,20,0" Spacing="15">
+                            <StackLayout Margin="25,0,20,0" Spacing="25">
                                 <StackLayout Orientation="Horizontal" Spacing="8">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="XeDamua_Tapped"/>
@@ -329,7 +329,7 @@
                             <StackLayout Margin="15,20,15,10">
                                 <Label Text="HOẠT ĐỘNG CỦA TÔI" TextColor="#a2b7be" FontAttributes="Bold" FontSize="14"/>
                             </StackLayout>
-                            <StackLayout Margin="25,0,20,0" Spacing="15">
+                            <StackLayout Margin="25,0,20,0" Spacing="25">
                                 
                                 <StackLayout Orientation="Horizontal" Spacing="10">
                                     <StackLayout.GestureRecognizers>
@@ -350,7 +350,7 @@
                             <StackLayout Margin="15,20,15,10">
                                 <Label Text="THÔNG TIN HỖ TRỢ" TextColor="#a2b7be" FontAttributes="Bold" FontSize="14"/>
                             </StackLayout>
-                            <StackLayout Margin="25,0,20,0" Spacing="15">
+                            <StackLayout Margin="25,0,20,0" Spacing="25">
                                 <StackLayout Orientation="Horizontal" Spacing="10">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="about_Tapped"/>
@@ -381,7 +381,17 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label FontSize="15" TextColor="Black" Text="Điện thoại: (024) 73 077 889" Margin="0,-15,0,0"/>
+                                <Label FontSize="15" Margin="0,-15,0,0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Điện thoại: "
+                                      TextColor="Black" />
+                                            <Span Text="(024) 73 077 889" 
+                                      TextColor="#00bcc3">
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
                                 <Label FontSize="15">
                                     <Label.FormattedText>
                                         <FormattedString>
@@ -393,7 +403,28 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label FontSize="15" TextColor="Black" Text="Điện thoại: (028) 73 057 057" Margin="0,-15,0,0"/>
+                                <Label FontSize="15" Margin="0,-15,0,0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Điện thoại: "
+                                      TextColor="Black" />
+                                            <Span Text="(028) 73 057 057" 
+                                      TextColor="#00bcc3">
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="15">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Số ĐKKD: "
+                                      TextColor="Black" FontAttributes="Bold"/>
+                                            <Span Text="0108473996 - Ngày cấp 16/10/2018, được sửa đổi lần 4 ngày 19/06/2020 - Cấp bởi: Sở Kế hoạch và Đầu tư TP Hà Nội." 
+                                      TextColor="Black">
+                                            </Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
                             </StackLayout>
                         </StackLayout>
                     </ScrollView>

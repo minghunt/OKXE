@@ -25,11 +25,11 @@ namespace OKXE
         public TrangChu()
         {
             InitializeComponent();
-            
+            PopupNavigation.PushAsync(new PopupLoggin());
             Routing.RegisterRoute(nameof(SearchLocation), typeof(SearchLocation));
             Routing.RegisterRoute(nameof(PageNotify), typeof(PageNotify));
             Routing.RegisterRoute(nameof(PageMessage), typeof(PageMessage));
-            //Routing.RegisterRoute("Home", typeof(SearchXe));
+            Routing.RegisterRoute(nameof(PageAccount), typeof(PageAccount));
             K = new List<Hinh>();
             foreach(Hinh i in Hinh.KhoiTao())
             {
@@ -311,6 +311,12 @@ namespace OKXE
         private async void support_Tapped(object sender, EventArgs e)
         {
             await Launcher.OpenAsync("https://stage.okxe.vn/complaint-resolution-process");
+        }
+
+        private  void Account_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync(nameof(PageAccount));
+
         }
     }
 }

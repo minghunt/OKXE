@@ -20830,31 +20830,34 @@ namespace OKXE.Droid
 			public const int tooltip_frame_light = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int user_icon = 2131165377;
-			
-			// aapt resource value: 0x7F0700C3
-			public const int xediennot_icon = 2131165379;
+			public const int User = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int xedien_icon = 2131165378;
-			
-			// aapt resource value: 0x7F0700C5
-			public const int xeganot_icon = 2131165381;
+			public const int user_icon = 2131165378;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int xega_icon = 2131165380;
+			public const int xediennot_icon = 2131165380;
 			
-			// aapt resource value: 0x7F0700C7
-			public const int xepklnot_icon = 2131165383;
+			// aapt resource value: 0x7F0700C3
+			public const int xedien_icon = 2131165379;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int xepkl_icon = 2131165382;
+			public const int xeganot_icon = 2131165382;
 			
-			// aapt resource value: 0x7F0700C9
-			public const int xesonot_icon = 2131165385;
+			// aapt resource value: 0x7F0700C5
+			public const int xega_icon = 2131165381;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int xeso_icon = 2131165384;
+			public const int xepklnot_icon = 2131165384;
+			
+			// aapt resource value: 0x7F0700C7
+			public const int xepkl_icon = 2131165383;
+			
+			// aapt resource value: 0x7F0700CA
+			public const int xesonot_icon = 2131165386;
+			
+			// aapt resource value: 0x7F0700C9
+			public const int xeso_icon = 2131165385;
 			
 			static Drawable()
 			{

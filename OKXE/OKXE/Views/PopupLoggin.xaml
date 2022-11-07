@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="http://rotorgames.com" 
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                  x:Class="OKXE.Views.PopupLoggin" 
+                  >
+    <ContentView HeightRequest="1000">
+        <StackLayout BackgroundColor="White" Spacing="0" HeightRequest="1000">
+            <StackLayout Margin="30,100,30,0" BackgroundColor="White" Spacing="0" HeightRequest="1000" Padding="0,0,0,1000">
+                <Label Text="Đăng nhập" Margin="0,0,0,20" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                <Label  Margin="0,0,0,5" FontSize="15" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Tên đăng nhập"
+                                      TextColor="Black"/>
+                            <Span Text=" *" 
+                                      TextColor="#00bcc3" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame BackgroundColor="#f0f1f3" Padding="10,0,10,0" CornerRadius="8">
+                    <Entry x:Name="TK" Placeholder="Nhập tên đăng nhập" BackgroundColor="#f0f1f3" PlaceholderColor="#9b9999" FontSize="15" />
+                </Frame>
+                <Label  Margin="0,20,0,5" FontSize="15" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Mật khẩu"
+                                      TextColor="Black"/>
+                            <Span Text=" *" 
+                                      TextColor="#00bcc3" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame BackgroundColor="#f0f1f3" Padding="10,0,10,0" CornerRadius="8">
+                    <Entry x:Name="MK" Placeholder="Nhập mật khẩu" BackgroundColor="#f0f1f3" PlaceholderColor="#9b9999" FontSize="15"
+                       IsPassword="True"/>
+                </Frame>
+                
+                <Button Text="Đăng nhập" TextColor="White" BackgroundColor="#00bcc3" FontSize="16" Margin="0,30,0,30"
+                   CornerRadius="8" TextTransform="None" Clicked="Loggin_clicked" HeightRequest="40" />
+                <Label HorizontalTextAlignment="Center" FontSize="15">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Bằng việc nhấp vào nút Đăng nhập đồng nghĩa với việc bạn đã chấp nhận "
+                                      TextColor="#9b9999" />
+                            <Span Text="Điều khoản sử dụng" 
+                                      TextColor="#00bcc3" TextDecorations="Underline">
+                            </Span>
+                            <Span Text=" và "
+                                      TextColor="#9b9999" />
+                            <Span Text="Chính sách bảo mật" 
+                                      TextColor="#00bcc3" TextDecorations="Underline">
+                            </Span>
+                            <Span Text=" của OKXE"
+                                      TextColor="#9b9999" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentView>
+    <pages:PopupPage.Animation>
+        <animations:MoveAnimation
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            DurationIn="400"
+            DurationOut="300"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+</pages:PopupPage>
