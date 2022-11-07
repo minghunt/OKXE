@@ -7,7 +7,7 @@
             <StackLayout Spacing="0" BackgroundColor="White" Padding="10">
                 <StackLayout Orientation="Horizontal">
                     <Frame Padding="0" CornerRadius="80" HeightRequest="40" WidthRequest="40">
-                        <Image Source="chosoido3.jpg" Aspect="AspectFit"  />
+                        <Image Source="User.jpg" Aspect="AspectFit"  />
                     </Frame>
                     <Label Text="Nguyễn Minh Hùng" FontAttributes="Bold" VerticalOptions="Center" TextColor="Black" FontSize="18" HorizontalOptions="StartAndExpand"/>
                 </StackLayout >
