@@ -29,6 +29,7 @@ namespace OKXE.Model
         public ObservableCollection<Xe> Xes { get; set; }
         public int maShop { get; set; }
         public CollectionView MyLoveXe { get; set; }
+        public CollectionView MyLoveShop { get; set; }
         public CollectionView MyShopXe { get; set; }
         public CollectionView MyShop { get; set; }
         public CollectionView MyXeDaMua { get; set; }

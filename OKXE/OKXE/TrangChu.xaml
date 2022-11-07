@@ -300,62 +300,74 @@
                     </StackLayout>
                     <ScrollView>
                         <StackLayout Spacing="0">
-                            <StackLayout Margin="15">
-                                <Label Text="QUẢN LÝ MUA BÁN XE" TextColor="#9b9999" FontAttributes="Bold" FontSize="14"/>
+                            <StackLayout Margin="15,20,15,10">
+                                <Label Text="QUẢN LÝ MUA BÁN XE" TextColor="#a2b7be" FontAttributes="Bold" FontSize="14"/>
                             </StackLayout>
-                            <StackLayout Margin="20,0,20,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
-                                    <Label Text="Gian hàng của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
-                                    <Label Text="Xe đang bán" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
+                            <StackLayout Margin="25,0,20,0" Spacing="15">
+                                <StackLayout Orientation="Horizontal" Spacing="8">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="XeDamua_Tapped"/>
                                     </StackLayout.GestureRecognizers>
-                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Image Source="cart_color.png" Aspect="AspectFit" HeightRequest="27"/>
                                     <Label Text="Xe đã mua" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal" Spacing="10">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="XeLove_Tapped"/>
                                     </StackLayout.GestureRecognizers>
-                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                    <Image Source="heart_color.png" Aspect="AspectFit" HeightRequest="25"/>
                                     <Label Text="Sản phẩm yêu thích" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ShopLove_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="shop_color.png" Aspect="AspectFit" HeightRequest="25"/>
+                                    <Label Text="Cửa hàng yêu thích" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
                             </StackLayout>
-                            <StackLayout Margin="15">
-                                <Label Text="HOẠT ĐỘNG CỦA TÔI" TextColor="#9b9999" FontAttributes="Bold" FontSize="14"/>
+                            <StackLayout Margin="15,20,15,10">
+                                <Label Text="HOẠT ĐỘNG CỦA TÔI" TextColor="#a2b7be" FontAttributes="Bold" FontSize="14"/>
                             </StackLayout>
-                            <StackLayout Margin="20,0,20,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                            <StackLayout Margin="25,0,20,0" Spacing="15">
+                                
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="mail_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="mail.png" Aspect="AspectFit" HeightRequest="25"/>
                                     <Label Text="Hộp thư của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="noti_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="notifi_color.png" Aspect="AspectFit" HeightRequest="25"/>
                                     <Label Text="Thông báo của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
 
                             </StackLayout>
-                            <StackLayout Margin="15">
-                                <Label Text="THÔNG TIN HỖ TRỢ" TextColor="#9b9999" FontAttributes="Bold" FontSize="14"/>
+                            <StackLayout Margin="15,20,15,10">
+                                <Label Text="THÔNG TIN HỖ TRỢ" TextColor="#a2b7be" FontAttributes="Bold" FontSize="14"/>
                             </StackLayout>
-                            <StackLayout Margin="20,0,20,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
-                                    <Label Text="Hộp thư của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                            <StackLayout Margin="25,0,20,0" Spacing="15">
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="about_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="infor_color.png" Aspect="AspectFit" HeightRequest="25"/>
+                                    <Label Text="Về chúng tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="heart_icon.png" Aspect="AspectFit" HeightRequest="30"/>
-                                    <Label Text="Thông báo của tôi" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="support_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Image Source="support_color.png" Aspect="AspectFit" HeightRequest="25"/>
+                                    <Label Text="Hỗ trợ khách hàng" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
                                 
                             </StackLayout>
-                            <StackLayout BackgroundColor="#f8f8f8" Padding="15" Spacing="15">
+                            <StackLayout BackgroundColor="#f8f8f8" Padding="15" Margin="0,10,0,0" Spacing="15">
                                 <Image Source="logo_okxe.png" WidthRequest="150" HorizontalOptions="Start" Margin="0,0,0,0"/>
                                 <Label Text="Công ty TNHH OKXE Việt Nam" TextColor="Black" FontAttributes="Bold" FontSize="17"/>
                                 <Label FontSize="15">

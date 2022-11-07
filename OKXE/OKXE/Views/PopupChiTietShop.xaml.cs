@@ -54,6 +54,8 @@ namespace OKXE.Views
                 Exchange.Data.MyShop.ItemsSource = shops;
             else Exchange.Data.MyShop.ItemsSource = shops.Where(p => p.tenTp.Equals(Exchange.Data.Ten.Text)); 
             Exchange.Data.Shops = shops;
+            if (Exchange.Data.MyLoveShop != null)
+                Exchange.Data.MyLoveShop.ItemsSource = shops.Where(p => p.loveImg.Equals("heart_white.png"));
 
         }
 
@@ -88,7 +90,7 @@ namespace OKXE.Views
                     }
 
             Exchange.Data.Xes = Xes;
-
+            
         }
     }
 }

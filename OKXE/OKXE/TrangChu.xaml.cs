@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 using System.Collections.ObjectModel;
+using Xamarin.Essentials;
 
 namespace OKXE
 {
@@ -46,7 +47,8 @@ namespace OKXE
             Exchange.Data.Shops = Shops;
             Exchange.Data.maShop = 0;
             Exchange.Data.MyShopXe = null;
-            Exchange.Data.MyXeDaMua = null;
+            Exchange.Data.MyXeDaMua = null; 
+            Exchange.Data.MyLoveShop = null;
             Exchange.Data.Ten = Lb_Loca;
             Exchange.Data.MyCoView = lstXe;
             Exchange.Data.MyShop = lstShop;
@@ -284,6 +286,31 @@ namespace OKXE
         private void XeLove_Tapped(object sender, EventArgs e)
         {
             Shell.Current.GoToAsync("//Home/Love");
+        }
+
+        private void ShopLove_Tapped(object sender, EventArgs e)
+        {
+            PopupNavigation.PushAsync(new PopupShopLove());
+        }
+
+        private async void mail_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(PageMessage));
+        }
+
+        private async void noti_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(PageNotify));
+        }
+
+        private async void about_Tapped(object sender, EventArgs e)
+        {
+            await Launcher.OpenAsync("https://stage.okxe.vn/about");
+        }
+
+        private async void support_Tapped(object sender, EventArgs e)
+        {
+            await Launcher.OpenAsync("https://stage.okxe.vn/complaint-resolution-process");
         }
     }
 }
