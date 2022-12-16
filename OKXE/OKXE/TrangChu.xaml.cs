@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 using System.Collections.ObjectModel;
 using Xamarin.Essentials;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace OKXE
 {
@@ -22,6 +24,13 @@ namespace OKXE
         ObservableCollection<Xe> XesLove=new ObservableCollection<Xe>();
         ObservableCollection<Shop> Shops = new ObservableCollection<Shop>();
         IEnumerable<Xe> xes;
+
+        async void InitShop()
+        {
+            
+
+        }
+
         public TrangChu()
         {
             InitializeComponent();
@@ -42,9 +51,7 @@ namespace OKXE
             }));
             carou.ItemsSource = K;
             Xes = new ObservableCollection<Xe>();
-            Xes = Xe.KhoiTaoDsXe();
-            Shops = Shop.KhoiTaoDsShop();
-            Exchange.Data.Shops = Shops;
+            InitShop();
             Exchange.Data.maShop = 0;
             Exchange.Data.MyShopXe = null;
             Exchange.Data.MyXeDaMua = null; 
@@ -60,8 +67,13 @@ namespace OKXE
             Exchange.Data.btPkl = Pkl;
             Exchange.Data.btDien = Dien;
             Exchange.Data.Xes = Xes;
-            lstShop.ItemsSource = Shops;
-            lstXe.ItemsSource = Xes;
+
+
+
+            Exchange.Data.MyStackUserInfor=User_infor;
+
+
+            
         }
 
 
@@ -108,7 +120,9 @@ namespace OKXE
         }
 
         private void All_Clicked(object sender, EventArgs e)
-        { 
+        {
+            Xes = Exchange.Data.Xes;
+
             if (Exchange.Data.Ten.Text!="Việt Nam")
             {
                 xes = Xes.Where(p => p.noiBanXe.Equals(Exchange.Data.Ten.Text));
@@ -130,6 +144,8 @@ namespace OKXE
 
         private void Ga_Clicked(object sender, EventArgs e)
         {
+            Xes = Exchange.Data.Xes;
+
             if (Exchange.Data.Ten.Text != "Việt Nam")
             {
                 xes = Xes.Where(p => p.noiBanXe.Equals(Exchange.Data.Ten.Text));
@@ -154,6 +170,8 @@ namespace OKXE
 
         private void So_Clicked(object sender, EventArgs e)
         {
+            Xes = Exchange.Data.Xes;
+
             if (Exchange.Data.Ten.Text != "Việt Nam")
             {
                 xes = Xes.Where(p => p.noiBanXe.Equals(Exchange.Data.Ten.Text));
@@ -176,6 +194,8 @@ namespace OKXE
 
         private void Pkl_Clicked(object sender, EventArgs e)
         {
+            Xes = Exchange.Data.Xes;
+
             if (Exchange.Data.Ten.Text != "Việt Nam")
             {
                 xes = Xes.Where(p => p.noiBanXe.Equals(Exchange.Data.Ten.Text));
@@ -198,6 +218,8 @@ namespace OKXE
 
         private void Dien_Clicked(object sender, EventArgs e)
         {
+            Xes = Exchange.Data.Xes;
+
             if (Exchange.Data.Ten.Text != "Việt Nam")
             {
                 xes = Xes.Where(p => p.noiBanXe.Equals(Exchange.Data.Ten.Text));
@@ -218,34 +240,46 @@ namespace OKXE
             All.BackgroundColor = Color.FromHex("#efefef");
         }
 
-        private void Xe_LoveTap(object sender, EventArgs e)
+        private async void Xe_LoveTap(object sender, EventArgs e)
         {
+            
+            Xes = Exchange.Data.Xes;
             var s = sender as Image;
             var xe = s.BindingContext as Xe;
             for (int i = 0; i < Xes.Count; i++)
                 if (Xes[i].maXe == xe.maXe)
+                {
                     if (Xes[i].loveImg == "FavouriteRed.png")
                     {
                         Xes[i].loveImg = "FavouriteBlack.png";
-                        s.Source= "FavouriteBlack.png";
+                        s.Source = "FavouriteBlack.png";
                     }
                     else
                     {
                         Xes[i].loveImg = "FavouriteRed.png";
                         s.Source = "FavouriteRed.png";
                     }
+                    xe = Xes[i];
+                    break;
+                }
+            HttpClient http = new HttpClient();
+            string jsonlh = JsonConvert.SerializeObject(xe);
+            StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq;
+            kq = await http.PostAsync("http://192.168.1.177/okxeapi/api/Xe/CapNhatXe", httcontent);
+            
         }
 
         private void lstXe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var a = e.CurrentSelection.FirstOrDefault() as Xe;
-            Exchange.Data.Xes = Xes;
+            Xes = Exchange.Data.Xes;
             PopupNavigation.PushAsync(new PopupChiTietXe(a));
         }
 
         private void Love_Appear(object sender, EventArgs e)
         {
-            
+            Xes = Exchange.Data.Xes;
             XesLove = new ObservableCollection<Xe>();
             for (int i = 0; i < Xes.Count; i++)
                 if (Xes[i].loveImg == "FavouriteRed.png")
@@ -256,9 +290,9 @@ namespace OKXE
 
         private void lstXe_Tapped(object sender, EventArgs e)
         {
+            Xes = Exchange.Data.Xes;
             var a = sender as StackLayout;
             Xe Tap = a.BindingContext as Xe;
-            Exchange.Data.Xes = Xes;
             PopupNavigation.PushAsync(new PopupChiTietXe(Tap));
         }
 
@@ -285,11 +319,13 @@ namespace OKXE
 
         private void XeLove_Tapped(object sender, EventArgs e)
         {
+            Xes = Exchange.Data.Xes;
             Shell.Current.GoToAsync("//Home/Love");
         }
 
         private void ShopLove_Tapped(object sender, EventArgs e)
         {
+            Shops = Exchange.Data.Shops;
             PopupNavigation.PushAsync(new PopupShopLove());
         }
 

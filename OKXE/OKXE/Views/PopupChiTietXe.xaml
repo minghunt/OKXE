@@ -26,7 +26,7 @@
                 <StackLayout BackgroundColor="White">
                     <Image Aspect="AspectFill" Source="{Binding hinhXe}" HeightRequest="300" WidthRequest="400"/>
                     <Label Margin="15,10,0,0" Text="{Binding tenXe}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
-                    <Label Margin="15,10,0,10" Text="{Binding giaXe}" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+                    <Label Margin="15,10,0,10" Text="{Binding giaXe, StringFormat='{0:N0} đ'}" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
                     <BoxView HeightRequest="2"  Margin="0,0,0,0" Color="#f0f1f3" WidthRequest="500"/>
                     <Grid ColumnSpacing="0" >
                         <Grid.ColumnDefinitions>

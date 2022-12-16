@@ -7,18 +7,18 @@
             <StackLayout Spacing="0" BackgroundColor="White" Padding="10">
                 <StackLayout Orientation="Horizontal">
                     <Frame Padding="0" CornerRadius="80" HeightRequest="40" WidthRequest="40">
-                        <Image Source="User.jpg" Aspect="AspectFit"  />
+                        <Image Source="{Binding hinhUser}" Aspect="AspectFit"  />
                     </Frame>
-                    <Label Text="Nguyễn Minh Hùng" FontAttributes="Bold" VerticalOptions="Center" TextColor="Black" FontSize="18" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding hoTenUser}" FontAttributes="Bold" VerticalOptions="Center" TextColor="Black" FontSize="18" HorizontalOptions="StartAndExpand"/>
                 </StackLayout >
             </StackLayout>
             <Label Text="Thông tin liên hệ" FontAttributes="Bold" Margin="15,5,0,5" TextColor="Black" FontSize="16" />
             <StackLayout Spacing="0" BackgroundColor="White" Padding="20,10,10,10">
-                <Label Text="0343393337" TextColor="Black" FontSize="16" />
+                <Label Text="{Binding phoneUser}" TextColor="Black" FontSize="16" />
             </StackLayout>
             <Label Text="Địa chỉ"  FontAttributes="Bold" Margin="15,5,0,5" TextColor="Black" FontSize="16" />
             <StackLayout Spacing="0" BackgroundColor="White" Padding="20,10,15,10">
-                <Label Text="Ấp Bình Chánh, Xã Bình Thạnh, Thành phố Hồng Ngự, Tỉnh Đồng Tháp" TextColor="Black" FontSize="16" />
+                <Label Text="{Binding diaChiUser}" TextColor="Black" FontSize="16" />
             </StackLayout>
             <Button Text="Đăng xuất" TextColor="White" BackgroundColor="Black" VerticalOptions="EndAndExpand" FontSize="18" Margin="20,0,20,25"
                    CornerRadius="8" TextTransform="None" Clicked="Out_clicked"/>

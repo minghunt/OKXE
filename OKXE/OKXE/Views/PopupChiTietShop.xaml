@@ -65,7 +65,7 @@
                                             <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="2">
                                                 <Image Source="{Binding xeImg}" Margin="0,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
 
-                                                <Image Source="{Binding isoldImg}" Margin="10,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
+                                                <Image Source="{Binding isOldImg}" Margin="10,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
 
                                                 <Frame Margin="12,0,0,0" Padding="0" BackgroundColor="LightGray" CornerRadius="5" WidthRequest="45">
                                                     <Label Text="{Binding namSxXe}" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" FontSize="15" TextColor="Black"/>

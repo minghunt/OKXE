@@ -8,6 +8,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
+using System.Net.Http;
+
 namespace OKXE.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -35,21 +38,32 @@ namespace OKXE.Views
             PopupNavigation.PopAsync();
         }
 
-        private void love_tap(object sender, EventArgs e)
+        async private void love_tap(object sender, EventArgs e)
         {
+            Shop S=new Shop();
+
             for (int i = 0; i < shops.Count; i++)
                 if (temp.maShopXe == shops[i].maShopXe)
+                {
                     if (shops[i].loveImg == "heart.png")
                     {
                         loveImg.Source = "heart_white.png";
                         shops[i].loveImg = "heart_white.png";
                     }
-                    else 
+                    else
                     {
                         loveImg.Source = "heart.png";
                         shops[i].loveImg = "heart.png";
                     }
-           
+                    S = shops[i];
+                    break;
+                }
+            HttpClient http = new HttpClient();
+
+            string jsonlh = JsonConvert.SerializeObject(S);
+            StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq;
+            kq = await http.PostAsync("http://192.168.1.177/okxeapi/api/Shop/CapNhatShop", httcontent);
             if (Exchange.Data.Ten.Text == "Việt Nam")
                 Exchange.Data.MyShop.ItemsSource = shops;
             else Exchange.Data.MyShop.ItemsSource = shops.Where(p => p.tenTp.Equals(Exchange.Data.Ten.Text)); 
@@ -72,7 +86,7 @@ namespace OKXE.Views
             PopupNavigation.PushAsync(new PopupChiTietXe(Tap));
         }
 
-        private void Xe_LoveTap(object sender, EventArgs e)
+        async private void Xe_LoveTap(object sender, EventArgs e)
         {
             var s = sender as Image;
             var xe = s.BindingContext as Xe;
@@ -88,7 +102,11 @@ namespace OKXE.Views
                         Xes[i].loveImg = "FavouriteRed.png";
                         s.Source = "FavouriteRed.png";
                     }
-
+            HttpClient http = new HttpClient();
+            string jsonlh = JsonConvert.SerializeObject(xe);
+            StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq;
+            kq = await http.PostAsync("http://192.168.1.177/okxeapi/api/Xe/CapNhatXe", httcontent);
             Exchange.Data.Xes = Xes;
             
         }

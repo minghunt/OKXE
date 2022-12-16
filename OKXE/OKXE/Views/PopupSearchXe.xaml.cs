@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace OKXE.Views
 {
@@ -57,7 +59,7 @@ namespace OKXE.Views
             PopupNavigation.PushAsync(new PopupChiTietXe(Tap));
         }
 
-        private void Xe_LoveTap(object sender, EventArgs e)
+        async private void Xe_LoveTap(object sender, EventArgs e)
         {
             var s = sender as Image;
             var xe = s.BindingContext as Xe;
@@ -73,6 +75,11 @@ namespace OKXE.Views
                         Xes[i].loveImg = "FavouriteRed.png";
                         s.Source = "FavouriteRed.png";
                     }
+            HttpClient http = new HttpClient();
+            string jsonlh = JsonConvert.SerializeObject(xe);
+            StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq;
+            kq = await http.PostAsync("http://192.168.1.177/okxeapi/api/Xe/CapNhatXe", httcontent);
         }
     }
 }

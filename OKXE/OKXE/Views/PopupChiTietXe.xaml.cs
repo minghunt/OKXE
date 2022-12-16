@@ -9,6 +9,9 @@ using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
+using System.Net.Http;
+using Newtonsoft.Json;
+
 namespace OKXE.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -24,6 +27,7 @@ namespace OKXE.Views
         }
         public PopupChiTietXe(Xe a)
         {
+            Xes = Exchange.Data.Xes;
             InitializeComponent();
             this.BindingContext = a;
             xe = a;
@@ -34,6 +38,10 @@ namespace OKXE.Views
                 loaiXeImg.Source = "xeso_icon.png";
             else if (a.loaiXe == "Xe ga")
                 loaiXeImg.Source = "xega_icon.png";
+            else if (a.loaiXe == "Xe điện")
+                loaiXeImg.Source = "xedien_icon.png";
+            else if (a.loaiXe == "Xe pkl")
+                loaiXeImg.Source = "xepkl_icon.png";
             var km = a.kmDaChay;
             kmDachay.Text = km + " km";
             namSD.Text = a.namSdXe + " năm";
@@ -64,10 +72,12 @@ namespace OKXE.Views
             PopupNavigation.PushAsync(new PopupThanhToan(xe));
         }
 
-        private void love_tap(object sender, EventArgs e)
+        async private void love_tap(object sender, EventArgs e)
         {
+            Xe temp=new Xe();
             for (int i = 0; i < Xes.Count; i++)
                 if (Xes[i].maXe == xe.maXe)
+                {
                     if (Xes[i].loveImg == "FavouriteRed.png")
                     {
                         Xes[i].loveImg = "FavouriteBlack.png";
@@ -78,7 +88,13 @@ namespace OKXE.Views
                         Xes[i].loveImg = "FavouriteRed.png";
                         loveImg.Source = "heart_white.png";
                     }
-
+                    temp = Xes[i];
+                }
+            HttpClient http = new HttpClient();
+            string jsonlh = JsonConvert.SerializeObject(xe);
+            StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq;
+            kq = await http.PostAsync("http://192.168.1.177/okxeapi/api/Xe/CapNhatXe", httcontent);
             Exchange.Data.Xes = Xes;
             
             if (Exchange.Data.MyShopXe != null)

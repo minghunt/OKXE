@@ -39,5 +39,8 @@ namespace OKXE.Model
         public CollectionView MyCoView { get; set; }
         public Filter MyFilter { get; set; }
 
+
+        public User MyUser { get; set; }
+        public StackLayout MyStackUserInfor { get; set; }
     }
 }

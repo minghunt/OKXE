@@ -8,6 +8,9 @@ using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
+using System.Net.Http;
+using Newtonsoft.Json;
+
 namespace OKXE.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -21,7 +24,9 @@ namespace OKXE.Views
         }
         public PopupThanhToan(Xe a)
         {
+            User u = Exchange.Data.MyUser;
             InitializeComponent();
+            User_infor.BindingContext = u;
             xe = a;
             this.BindingContext = a;
             if (a.trangThaiXe != "Avai")
@@ -45,26 +50,35 @@ namespace OKXE.Views
             PopupNavigation.PopAsync();
         }
 
-        private void Buy_Clicked(object sender, EventArgs e)
+        async private void Buy_Clicked(object sender, EventArgs e)
         {
-            for (int i=0;i<Xes.Count;i++)
-                if (xe.maXe==Xes[i].maXe)
-                    if (Xes[i].trangThaiXe=="Avai")
-                        {
-                            Buy.BackgroundColor = Color.White;
-                            Buy.TextColor = Color.FromHex("#00bcc3");
-                            Buy.BorderColor = Color.FromHex("#00bcc3");
-                            Buy.Text = "Hủy đơn hàng";
-                            Xes[i].trangThaiXe = "NotAvai";
-                        }
-                        else
-                        {
-                            Buy.TextColor = Color.White;
-                            Buy.BackgroundColor = Color.FromHex("#00bcc3");
-                            Buy.BorderColor = Color.FromHex("#00bcc3");
-                            Buy.Text = "Đặt hàng";
-                            Xes[i].trangThaiXe = "Avai";
-                        }
+            Xe temp = xe;
+            for (int i = 0; i < Xes.Count; i++)
+                if (xe.maXe == Xes[i].maXe)
+                {
+                    if (Xes[i].trangThaiXe == "Avai")
+                    {
+                        Buy.BackgroundColor = Color.White;
+                        Buy.TextColor = Color.FromHex("#00bcc3");
+                        Buy.BorderColor = Color.FromHex("#00bcc3");
+                        Buy.Text = "Hủy đơn hàng";
+                        Xes[i].trangThaiXe = "NotAvai";
+                    }
+                    else
+                    {
+                        Buy.TextColor = Color.White;
+                        Buy.BackgroundColor = Color.FromHex("#00bcc3");
+                        Buy.BorderColor = Color.FromHex("#00bcc3");
+                        Buy.Text = "Đặt hàng";
+                        Xes[i].trangThaiXe = "Avai";
+                    }
+                    temp = Xes[i];
+                }
+            HttpClient http = new HttpClient();
+            string jsonlh = JsonConvert.SerializeObject(temp);
+            StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq;
+            kq = await http.PostAsync("http://192.168.1.177/okxeapi/api/Xe/CapNhatXe", httcontent);
             Exchange.Data.Xes = Xes;
             if (Exchange.Data.MyXeDaMua != null)
                 Exchange.Data.MyXeDaMua.ItemsSource = Xes.Where(p => p.trangThaiXe.Equals("NotAvai"));
