@@ -35,7 +35,7 @@ namespace OKXE.Views
             }
 
             HttpClient httpClient = new HttpClient();
-            var userList = await httpClient.GetStringAsync("http://192.168.1.177/okxeapi/api/User/LayDSUser");
+            var userList = await httpClient.GetStringAsync("http://okxeapi.somee.com/api/User/LayDSUser");
             var userListConvert = JsonConvert.DeserializeObject<ObservableCollection<User>>(userList);
             for (int i=0;i<userListConvert.Count;i++)
             {
@@ -56,7 +56,7 @@ namespace OKXE.Views
             HttpClient http = new HttpClient();
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
             HttpResponseMessage kq;
-            kq = await http.PostAsync("http://192.168.1.177/okxeapi/api/User/ThemUser", httcontent);
+            kq = await http.PostAsync("http://okxeapi.somee.com/api/User/ThemUser", httcontent);
             DisplayAlert("Thông báo", "Đăng ký thành công!", "OK");
             PopupNavigation.PopAsync();
         }

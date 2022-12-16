@@ -266,7 +266,7 @@ namespace OKXE
             string jsonlh = JsonConvert.SerializeObject(xe);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
             HttpResponseMessage kq;
-            kq = await http.PostAsync("http://192.168.1.177/okxeapi/api/Xe/CapNhatXe", httcontent);
+            kq = await http.PostAsync("http://okxeapi.somee.com/api/Xe/CapNhatXe", httcontent);
             
         }
 
