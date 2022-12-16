@@ -1,9 +1,11 @@
-﻿using OKXE.Model;
+﻿using Newtonsoft.Json;
+using OKXE.Model;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,12 +36,15 @@ namespace OKXE.Views
             PopupNavigation.PushAsync(new PopupThanhToan(Tap));
         }
 
-        private void Xe_LoveTap(object sender, EventArgs e)
+        async private void Xe_LoveTap(object sender, EventArgs e)
         {
+            
             var s = sender as Image;
             var xe = s.BindingContext as Xe;
+            Xe temp = xe;
             for (int i = 0; i < Xes.Count; i++)
                 if (Xes[i].maXe == xe.maXe)
+                {
                     if (Xes[i].loveImg == "FavouriteRed.png")
                     {
                         Xes[i].loveImg = "FavouriteBlack.png";
@@ -50,7 +55,14 @@ namespace OKXE.Views
                         Xes[i].loveImg = "FavouriteRed.png";
                         s.Source = "FavouriteRed.png";
                     }
+                    temp = Xes[i];
+                }
+            HttpClient http = new HttpClient();
 
+            string jsonlh = JsonConvert.SerializeObject(xe);
+            StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
+            HttpResponseMessage kq;
+            kq = await http.PostAsync("http://okxeapi.somee.com/api/Xe/CapNhatXe", httcontent);
             Exchange.Data.Xes = Xes;
 
         }

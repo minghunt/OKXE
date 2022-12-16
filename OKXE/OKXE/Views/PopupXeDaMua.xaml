@@ -52,28 +52,25 @@
                                                        WidthRequest="60" Margin="0"/>
                                                         <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
                                                         TextColor="Blue" FontSize="20"/>
-                                                        <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="2">
+                                                        <StackLayout  Margin="8,3,0,0" Orientation="Horizontal" Grid.Row="2">
                                                             <Image Source="{Binding xeImg}" Margin="0,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
 
-                                                            <Image Source="{Binding isoldImg}" Margin="10,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
+                                                            <Image Source="{Binding isOldImg}" Margin="5,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
 
-                                                            <Frame Margin="12,0,0,0" Padding="0" BackgroundColor="LightGray" CornerRadius="5" WidthRequest="45">
+                                                            <Frame Margin="7,0,0,0" Padding="0" BackgroundColor="LightGray" CornerRadius="5" WidthRequest="45">
                                                                 <Label Text="{Binding namSxXe}" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                                             </Frame>
-
+                                                            <Label Text="{Binding Sao}" Padding="0" Margin="5,0,0,0" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="End"/>
+                                                            <Image Source="star.png" Margin="-4,0,0,0" HeightRequest="15" VerticalOptions="Center"/>
                                                         </StackLayout>
                                                         <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="3">
                                                             <Image Source="Loca_icon.png" HeightRequest="15"/>
-
                                                             <Label Text="{Binding noiBanXe}" TextColor="Black" Margin="0,0,5,0" Padding="0" FontSize="15" VerticalOptions="Start" HorizontalOptions="Start"/>
                                                         </StackLayout>
-                                                        <StackLayout Orientation="Horizontal" Margin="10,-3,0,0" Grid.Row="4">
-                                                            <Label x:Name="gia" Text="{Binding giaXe}" FontSize="15" HorizontalTextAlignment="Center"  TextColor="Black" 
+                                                        <StackLayout Orientation="Horizontal" Margin="15,-3,0,0" Grid.Row="4">
+                                                            <Label x:Name="gia" Text="{Binding giaXe, StringFormat='{0:0,0 đ}'}" FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="Black" 
                                                    Margin="0,-8,0,0" Padding="0"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
-                                                            <Label Text="{Binding Sao}" Padding="0" Margin="5,4,0,0" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="End"/>
-                                                            <Image Source="star.png" Margin="-2,2,0,0" HeightRequest="15" VerticalOptions="Center"/>
-
-                                                            <Image x:Name="LoveImg" Source="{Binding loveImg}" Margin="5,0,0,0" HeightRequest="20" VerticalOptions="Center">
+                                                            <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,0" HeightRequest="23" VerticalOptions="Center">
                                                                 <Image.GestureRecognizers>
                                                                     <TapGestureRecognizer Tapped="Xe_LoveTap"/>
                                                                 </Image.GestureRecognizers>
