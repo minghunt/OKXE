@@ -305,7 +305,7 @@ namespace OKXE.Views
                 }
                 else 
                 {
-                    xes = xes.Where(p => p.loaiXe.Equals("Phân khối lớn"));
+                    xes = xes.Where(p => p.loaiXe.Equals("Xe pkl"));
                     Exchange.Data.btGa.BackgroundColor = Color.FromHex("#efefef");
                     Exchange.Data.btGa.ImageSource = "xeganot_icon.png";
                     Exchange.Data.btAll.BackgroundColor = Color.FromHex("#efefef");
