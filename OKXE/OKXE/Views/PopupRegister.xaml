@@ -89,7 +89,7 @@
                     <Frame BackgroundColor="#f0f1f3" Padding="10,0,10,0" CornerRadius="8">
                         <Entry x:Name="Dc" Placeholder="Nhập địa chỉ" BackgroundColor="#f0f1f3" PlaceholderColor="#9b9999" FontSize="15"/>
                     </Frame>
-                    <Button Text="Đăng ký" TextColor="White" BackgroundColor="#00bcc3" FontSize="16" Margin="0,30,0,30"
+                    <Button Text="Đăng ký" TextColor="White" BackgroundColor="#00bcc3" FontSize="16" Margin="0,30,0,15"
                    CornerRadius="8" TextTransform="None" Clicked="Register_clicked" HeightRequest="40" />
                     <Label  Margin="0,0,0,5" FontSize="15" HorizontalOptions="Center">
                         <Label.FormattedText>
@@ -122,10 +122,8 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-
                 </StackLayout>
             </StackLayout>
-
         </ScrollView>
     </ContentView>
     <pages:PopupPage.Animation>

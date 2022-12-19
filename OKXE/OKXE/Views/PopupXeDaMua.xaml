@@ -10,7 +10,6 @@
             <StackLayout Spacing="0" Margin="0,0,0,0" VerticalOptions="End" HeightRequest="55"  Orientation="Horizontal" BackgroundColor="#00bcc3">
                 <Button WidthRequest="50" Margin="0,9,0,0" ImageSource="back_icon.png" Clicked="BackButton_Clicked" VerticalOptions="Center" BackgroundColor="Transparent"/>
                 <Label Text="Thông tin giao dịch xe"  Margin="0,15,0,0" HorizontalOptions="StartAndExpand" TextColor="White" FontSize="20" FontAttributes="Bold"/>
-                
             </StackLayout>
             <StackLayout HeightRequest="700" Margin="0" Spacing="0" BackgroundColor="White">
                 <xct:TabView
@@ -20,8 +19,7 @@
                 TabIndicatorColor="#9b9999"
                  Margin="0">
                     <xct:TabViewItem
-                    Text="Chờ Thanh Toán"
-                      
+                    Text="Chờ Thanh Toán"       
                     TextColor="#9b9999"
                     TextColorSelected="Black"
                     FontSize="15" Margin="0">
@@ -54,9 +52,7 @@
                                                         TextColor="Blue" FontSize="20"/>
                                                         <StackLayout  Margin="8,3,0,0" Orientation="Horizontal" Grid.Row="2">
                                                             <Image Source="{Binding xeImg}" Margin="0,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
-
                                                             <Image Source="{Binding isOldImg}" Margin="5,2,0,0" HeightRequest="22" VerticalOptions="Start"/>
-
                                                             <Frame Margin="7,0,0,0" Padding="0" BackgroundColor="LightGray" CornerRadius="5" WidthRequest="45">
                                                                 <Label Text="{Binding namSxXe}" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                                             </Frame>
@@ -70,7 +66,7 @@
                                                         <StackLayout Orientation="Horizontal" Margin="15,-3,0,0" Grid.Row="4">
                                                             <Label x:Name="gia" Text="{Binding giaXe, StringFormat='{0:0,0 đ}'}" FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="Black" 
                                                    Margin="0,-8,0,0" Padding="0"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
-                                                            <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,0" HeightRequest="23" VerticalOptions="Center">
+                                                            <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,4" HeightRequest="23" VerticalOptions="Center">
                                                                 <Image.GestureRecognizers>
                                                                     <TapGestureRecognizer Tapped="Xe_LoveTap"/>
                                                                 </Image.GestureRecognizers>
@@ -88,12 +84,7 @@
                                         </StackLayout>
                                     </CollectionView.Footer>
                                 </CollectionView>
-
-
-
                             </StackLayout>
-
-
                         </ScrollView>
                     </xct:TabViewItem>
                     <xct:TabViewItem

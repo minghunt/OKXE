@@ -255,7 +255,7 @@ namespace OKXE.Views
                 xes = xes.Where(p => p.noiBanXe.Equals(Exchange.Data.Ten.Text));
                 searchLoca.Text = Exchange.Data.Ten.Text;
             }
-            ObservableCollection<Shop> shops = Shop.KhoiTaoDsShop();
+            ObservableCollection<Shop> shops = Exchange.Data.Shops;
             if (Exchange.Data.Ten.Text == "Việt Nam")
                 Exchange.Data.MyShop.ItemsSource = shops;
             else Exchange.Data.MyShop.ItemsSource = shops.Where(p => p.tenTp.Equals(Exchange.Data.Ten.Text));

@@ -3,8 +3,7 @@
                   xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                   xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
-                  x:Class="OKXE.Views.PopupShopLove" CloseWhenBackgroundIsClicked="False" BackgroundColor="Transparent"
-                 >
+                  x:Class="OKXE.Views.PopupShopLove" CloseWhenBackgroundIsClicked="False" BackgroundColor="Transparent">
     <ContentView>
         <StackLayout HeightRequest="600" BackgroundColor="#00bcc3" Spacing="0">
             <StackLayout Spacing="0" Margin="0,0,0,0" VerticalOptions="End" HeightRequest="55"  Orientation="Horizontal" BackgroundColor="#00bcc3">
@@ -32,10 +31,10 @@
                                             <RowDefinition Height="20" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                                       Source="{Binding hinhShop}"
-                                                       Aspect="AspectFill"
-                                                       HeightRequest="60"
-                                                       WidthRequest="60" Margin="0"/>
+                                            Source="{Binding hinhShop}"
+                                            Aspect="AspectFill"
+                                            HeightRequest="60"
+                                            WidthRequest="60" Margin="0"/>
                                         <Label Text="{Binding tenShop}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
                                                         TextColor="Blue" FontSize="16"/>
                                         <StackLayout  Margin="10,3,0,0" Orientation="Horizontal" Grid.Row="2">

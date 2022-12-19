@@ -22,7 +22,6 @@
                             <Button WidthRequest="55" Margin="5" HeightRequest="25" Padding="1" VerticalOptions="Center" Text="Tất cả" BackgroundColor="#cdd2d4" Clicked="All_Clicked" FontSize="15" HorizontalOptions="Start" TextTransform="None" CornerRadius="20"/>
                             <Button WidthRequest="50" Margin="5" HeightRequest="25" Padding="1" VerticalOptions="Center" Text="wave" BackgroundColor="#cdd2d4" Clicked="Wave_Clicked" FontSize="15" HorizontalOptions="Start" TextTransform="None" CornerRadius="20"/>
                             <Button WidthRequest="30" Margin="5" HeightRequest="25" Padding="1" VerticalOptions="Center" Text="sh" BackgroundColor="#cdd2d4" Clicked="Sh_Clicked" FontSize="15" HorizontalOptions="Start" TextTransform="None" CornerRadius="20"/>
-
                         </StackLayout>
                     </StackLayout>
                 </CollectionView.Header>
@@ -42,10 +41,10 @@
                                         <RowDefinition  Height="24" />
                                     </Grid.RowDefinitions>
                                     <Image
-                                                       Source="{Binding hinhXe}"
-                                                       Aspect="AspectFill"
-                                                       HeightRequest="60"
-                                                       WidthRequest="60" Margin="0"/>
+                                        Source="{Binding hinhXe}"
+                                        Aspect="AspectFill"
+                                        HeightRequest="60"
+                                        WidthRequest="60" Margin="0"/>
                                     <Label Text="{Binding tenXe}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"
                                                         TextColor="Blue" FontSize="20"/>
                                     <StackLayout  Margin="8,3,0,0" Orientation="Horizontal" Grid.Row="2">
@@ -66,7 +65,7 @@
                                     <StackLayout Orientation="Horizontal" Margin="15,-3,0,0" Grid.Row="4">
                                         <Label x:Name="gia" Text="{Binding giaXe, StringFormat='{0:0,0 đ}'}" FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="Black" 
                                                    Margin="0,-8,0,0" Padding="0"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
-                                        <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,0" HeightRequest="23" VerticalOptions="Center">
+                                        <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,4" HeightRequest="23" VerticalOptions="Center">
                                             <Image.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="Xe_LoveTap"/>
                                             </Image.GestureRecognizers>

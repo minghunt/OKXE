@@ -3,8 +3,7 @@
                   xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                   xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
-                  x:Class="OKXE.Views.PopupLoggin" HasKeyboardOffset="False"
-                  >
+                  x:Class="OKXE.Views.PopupLoggin" HasKeyboardOffset="False">
     <ContentView HeightRequest="1000">
         <StackLayout BackgroundColor="White" Spacing="0" HeightRequest="1000">
             <StackLayout Margin="30,100,30,0" BackgroundColor="White" Spacing="0" HeightRequest="1000" Padding="0,0,0,1000">
@@ -36,9 +35,8 @@
                     <Entry x:Name="MK" Placeholder="Nhập mật khẩu" BackgroundColor="#f0f1f3" PlaceholderColor="#9b9999" FontSize="15"
                        IsPassword="True"/>
                 </Frame>
-                
                 <Button Text="Đăng nhập" TextColor="White" BackgroundColor="#00bcc3" FontSize="16" Margin="0,30,0,30"
-                   CornerRadius="8" TextTransform="None" Clicked="Loggin_clicked" HeightRequest="40" />
+                   CornerRadius="8" TextTransform="None" Clicked="Loggin_clicked" HeightRequest="40" Padding="5"/>
                 <Label  Margin="0,0,0,5" FontSize="15" HorizontalOptions="Center">
                     <Label.FormattedText>
                         <FormattedString>
@@ -71,10 +69,8 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                
             </StackLayout>
         </StackLayout>
-        
     </ContentView>
     <pages:PopupPage.Animation>
         <animations:MoveAnimation

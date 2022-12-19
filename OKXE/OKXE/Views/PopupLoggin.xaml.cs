@@ -36,7 +36,9 @@ namespace OKXE.Views
                 {
                     if (TK.Text == listUser[i].username && MK.Text == listUser[i].mkUser)
                     {
+                        await DisplayAlert("Thông báo", "Đăng nhập thành công!", "OK");
                         PopupNavigation.PopAsync();
+
                         Exchange.Data.MyStackUserInfor.BindingContext = listUser[i];
                         Exchange.Data.MyUser= listUser[i];
                         HttpClient httpClientXe = new HttpClient();
@@ -46,13 +48,13 @@ namespace OKXE.Views
                         Exchange.Data.Xes = xeListConvert;
                         Exchange.Data.MyCoView.ItemsSource = xeListConvert;
 
-
                         HttpClient httpClientShop= new HttpClient();
-
                         var shopList = await httpClientXe.GetStringAsync("http://okxeapi.somee.com/api/Shop/LayDSShopTheoUser?username=" + listUser[i].username);
                         var shopListConvert = JsonConvert.DeserializeObject<ObservableCollection<Shop>>(shopList);
                         Exchange.Data.Shops = shopListConvert;
                         Exchange.Data.MyShop.ItemsSource = shopListConvert;
+
+
                         return;
                     }
                 }

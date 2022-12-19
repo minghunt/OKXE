@@ -3,18 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OKXE.TrangChu" Shell.NavBarHasShadow="False" 
        Shell.BackgroundColor="#00bcc3" Shell.TitleColor="White"
-       Shell.PresentationMode="Modal">
+       Shell.PresentationMode="Modal" >
     <TabBar Route="Home" Shell.TabBarBackgroundColor="#f0f8f7" Shell.TabBarForegroundColor="#00bcc3" Shell.TabBarTitleColor="#00bcc3" Shell.TabBarUnselectedColor="#a2b7be" Shell.TabBarDisabledColor="#a2b7be">
-        <ShellContent Icon="home_icon.png" Title="Trang Chủ" Route="Home">
+        <ShellContent Icon="home_icon.png" Title="Trang Chủ" Route="Home" Shell.TitleColor="#00bcc3">
             <ContentPage Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3">
                 <ContentPage.ToolbarItems>
                     <ToolbarItem Order="Primary" Priority="1" Clicked="MessageItem_Clicked" IconImageSource="message_icon.png"></ToolbarItem>
                     <ToolbarItem Order="Primary" Priority="0" Clicked="NotifyItem_Clicked" IconImageSource="notify_icon.png"></ToolbarItem>
                 </ContentPage.ToolbarItems>
                 <Shell.TitleView>
-                    <StackLayout HeightRequest="60" Orientation="Horizontal">
+                    <StackLayout HeightRequest="60" Orientation="Horizontal" BackgroundColor="#00bcc3">
                         <Button IsEnabled="True" Margin="-125,0,0,10" HorizontalOptions="Start" x:Name="btnLoca" Clicked="btnLoca_Clicked"  Padding="0,0,30,0" TextTransform="None" WidthRequest="270" ImageSource="location_icon.png" BackgroundColor="Transparent" />
-                        <Label x:Name="Lb_Loca" Text="Việt Nam" Margin="-122,14,0,0" FontSize="16" TextColor="White" WidthRequest="130" HorizontalTextAlignment="Start"/>
+                        <Label x:Name="Lb_Loca" Text="Việt Nam" Margin="-122,14,0,0" FontSize="16" TextColor="White" WidthRequest="130" HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="btnLoca_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                     </StackLayout>
                 </Shell.TitleView>
@@ -113,7 +117,7 @@
                                                    Margin="0,-8,0,0" Padding="0"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
 
 
-                                                        <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,0" HeightRequest="23" VerticalOptions="Center">
+                                                        <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,4" HeightRequest="23" VerticalOptions="Center">
                                                             <Image.GestureRecognizers>
                                                                 <TapGestureRecognizer Tapped="Xe_LoveTap"/>
                                                             </Image.GestureRecognizers>
@@ -142,7 +146,11 @@
                 <Shell.TitleView>
                     <StackLayout HeightRequest="60" Orientation="Horizontal">
                         <Button IsEnabled="True" Margin="-125,0,0,10" HorizontalOptions="Start" Clicked="btnLoca_Clicked"  Padding="0,0,30,0" TextTransform="None" WidthRequest="270" ImageSource="location_icon.png" BackgroundColor="Transparent" />
-                        <Label Text="{Binding Source={x:Reference Lb_Loca}, Path=Text, Mode=TwoWay}" Margin="-122,14,0,0" FontSize="16" TextColor="White" WidthRequest="130" HorizontalTextAlignment="Start"/>
+                        <Label Text="{Binding Source={x:Reference Lb_Loca}, Path=Text, Mode=TwoWay}" Margin="-122,14,0,0" FontSize="16" TextColor="White" WidthRequest="130" HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="btnLoca_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Image Source="moto_icon.png" Margin="4,0,0,5" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="Center"/>
                     </StackLayout>
                 </Shell.TitleView>
@@ -251,7 +259,7 @@
                                                    Margin="0,-8,0,0" Padding="0"  Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center"/>
                                                     
 
-                                                    <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,0" HeightRequest="23" VerticalOptions="Center">
+                                                    <Image x:Name="LoveImg" Source="{Binding loveImg}" HorizontalOptions="EndAndExpand" Margin="5,0,12,4" HeightRequest="23" VerticalOptions="Center">
                                                         <Image.GestureRecognizers>
                                                             <TapGestureRecognizer Tapped="Xe_LoveTap"/>
                                                         </Image.GestureRecognizers>
@@ -273,7 +281,6 @@
         <ShellContent Icon="blog_icon.png"
                       Title="Blog" >
             <ContentPage Shell.NavBarIsVisible="False"  Shell.PresentationMode="Modal">
-                
                 <StackLayout Spacing="0" Orientation="Vertical">
                     <StackLayout>
                         <WebView  VerticalOptions="Start" HeightRequest="1000" Source="https://www.okxe.vn/blog/">
@@ -291,7 +298,11 @@
                     <ToolbarItem Order="Primary" Priority="0" Clicked="NotifyItem_Clicked" IconImageSource="notify_icon.png"></ToolbarItem>
                 </ContentPage.ToolbarItems>
                 <StackLayout Spacing="0" BackgroundColor="#00bcc3">
+                    
                     <StackLayout x:Name="User_infor" BackgroundColor="#00bcc3" Orientation="Horizontal" VerticalOptions="Start" HeightRequest="65" Margin="0,0,0,5" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Account_Clicked"/>
+                        </StackLayout.GestureRecognizers>
                         <Frame HasShadow="False" CornerRadius="80" Padding="0" Margin="18,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" HeightRequest="50" WidthRequest="50">
                             <Image Source="{Binding hinhUser}" Aspect="AspectFit" />
                         </Frame>
@@ -309,7 +320,7 @@
                                         <TapGestureRecognizer Tapped="XeDamua_Tapped"/>
                                     </StackLayout.GestureRecognizers>
                                     <Image Source="cart_color.png" Aspect="AspectFit" HeightRequest="27"/>
-                                    <Label Text="Xe đã mua" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
+                                    <Label Text="Giỏ hàng" VerticalOptions="Center" FontSize="15" TextColor="Black"/>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" Spacing="10">
                                     <StackLayout.GestureRecognizers>

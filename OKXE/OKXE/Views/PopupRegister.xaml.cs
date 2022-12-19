@@ -57,7 +57,7 @@ namespace OKXE.Views
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
             HttpResponseMessage kq;
             kq = await http.PostAsync("http://okxeapi.somee.com/api/User/ThemUser", httcontent);
-            DisplayAlert("Thông báo", "Đăng ký thành công!", "OK");
+            await DisplayAlert("Thông báo", "Đăng ký thành công!", "OK");
             PopupNavigation.PopAsync();
         }
     }

@@ -67,7 +67,6 @@
                                 <Image Source="medium.png" WidthRequest="30" HeightRequest="30"/>
                                 <Label x:Name="kmDachay" TextColor="Black" HorizontalOptions="Center" FontSize="13" FontAttributes="Bold"/>
                             </StackLayout>
-                          
                         </StackLayout>
                     </Grid>
                     <BoxView HeightRequest="7"  Margin="0,0,0,0" Color="#f0f1f3" WidthRequest="500"/>
@@ -97,15 +96,12 @@
                             <Label Text="Xem xe trực tiếp" TextColor="#9b9999" FontSize="15" HorizontalOptions="StartAndExpand"/>
                             <Label Text="Liên hệ người bán" TextColor="Black" FontSize="15" />
                         </StackLayout>
-                        
                     </StackLayout>
                     <StackLayout BackgroundColor="#f8f8f8" Padding="15">
                         <Label Text="Các sản phẩm đăng bán không thuộc sở hữu của Okxe. Mọi thông tin về sản phẩm và các giao dịch thuộc về trách nhiệm của người bán." TextColor="#9b9999" FontSize="15"/>
                         <Image Source="logo_okxe.png" WidthRequest="150" HorizontalOptions="Start" Margin="0,10,0,0"/>
                     </StackLayout>
                 </StackLayout>
-                
-
             </ScrollView>
             <StackLayout Orientation="Horizontal" VerticalOptions="End" HeightRequest="30" BackgroundColor="Azure" Padding="0,10,0,20">
                 <Button WidthRequest="170" HeightRequest="30" ImageSource="telephone.png" HorizontalOptions="StartAndExpand" Margin="20,0,0,-10" Padding="20,0,15,0" TextTransform="None" Clicked="Call_Clicked" Text="Liên hệ ngay" BackgroundColor="White" TextColor="#00bcc3" FontSize="17" BorderWidth="1" BorderColor="#00bcc3" CornerRadius="10"/>

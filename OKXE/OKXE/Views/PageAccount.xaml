@@ -14,11 +14,22 @@
             </StackLayout>
             <Label Text="Thông tin liên hệ" FontAttributes="Bold" Margin="15,5,0,5" TextColor="Black" FontSize="16" />
             <StackLayout Spacing="0" BackgroundColor="White" Padding="20,10,10,10">
-                <Label Text="{Binding phoneUser}" TextColor="Black" FontSize="16" />
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="telephone.png" WidthRequest="20"  Aspect="AspectFit"/>
+                    <Label Text="{Binding phoneUser}" TextColor="Black" FontSize="16" HorizontalOptions="StartAndExpand"/>
+                </StackLayout >
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image Source="mail.png" WidthRequest="20"  Aspect="AspectFit"/>
+                    <Label Text="{Binding emailUser}" TextColor="Black" FontSize="16" VerticalOptions="Start" HorizontalOptions="StartAndExpand"/>
+                </StackLayout >
             </StackLayout>
+            
             <Label Text="Địa chỉ"  FontAttributes="Bold" Margin="15,5,0,5" TextColor="Black" FontSize="16" />
             <StackLayout Spacing="0" BackgroundColor="White" Padding="20,10,15,10">
-                <Label Text="{Binding diaChiUser}" TextColor="Black" FontSize="16" />
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,0">
+                    <Image Source="loca_icon.png" WidthRequest="20"  Aspect="AspectFit"/>
+                    <Label Text="{Binding diaChiUser}" TextColor="Black" FontSize="16" VerticalOptions="Start" HorizontalOptions="StartAndExpand"/>
+                </StackLayout >
             </StackLayout>
             <Button Text="Đăng xuất" TextColor="White" BackgroundColor="Black" VerticalOptions="EndAndExpand" FontSize="18" Margin="20,0,20,25"
                    CornerRadius="8" TextTransform="None" Clicked="Out_clicked"/>
