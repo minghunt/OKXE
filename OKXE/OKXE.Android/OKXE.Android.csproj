@@ -285,7 +285,7 @@
     <AndroidResource Include="Resources\drawable\User.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\1090Adventure.jpg" />
+    <AndroidResource Include="Resources\drawable\Adventure1090.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\AirBlade125Fi.jpg" />
