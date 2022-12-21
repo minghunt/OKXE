@@ -26,7 +26,7 @@ namespace OKXE.Views
         async private void Loggin_clicked(object sender, EventArgs e)
         {
             HttpClient httpClient = new HttpClient();
-            var userList = await httpClient.GetStringAsync("http://okxeapi.somee.com/api/User/LayDSUser");
+            var userList = await httpClient.GetStringAsync("http://apiokxe.somee.com/api/User/LayDSUser");
             var userListConvert = JsonConvert.DeserializeObject<ObservableCollection<User>>(userList);
             listUser = userListConvert;
 
@@ -43,13 +43,13 @@ namespace OKXE.Views
                         Exchange.Data.MyUser= listUser[i];
                         HttpClient httpClientXe = new HttpClient();
 
-                        var xeList = await httpClientXe.GetStringAsync("http://okxeapi.somee.com/api/Xe/LayDSXeTheoUser?username=" + listUser[i].username);
+                        var xeList = await httpClientXe.GetStringAsync("http://apiokxe.somee.com/api/Xe/LayDSXeTheoUser?username=" + listUser[i].username);
                         var xeListConvert = JsonConvert.DeserializeObject<ObservableCollection<Xe>>(xeList);
                         Exchange.Data.Xes = xeListConvert;
                         Exchange.Data.MyCoView.ItemsSource = xeListConvert;
 
                         HttpClient httpClientShop= new HttpClient();
-                        var shopList = await httpClientXe.GetStringAsync("http://okxeapi.somee.com/api/Shop/LayDSShopTheoUser?username=" + listUser[i].username);
+                        var shopList = await httpClientXe.GetStringAsync("http://apiokxe.somee.com/api/Shop/LayDSShopTheoUser?username=" + listUser[i].username);
                         var shopListConvert = JsonConvert.DeserializeObject<ObservableCollection<Shop>>(shopList);
                         Exchange.Data.Shops = shopListConvert;
                         Exchange.Data.MyShop.ItemsSource = shopListConvert;

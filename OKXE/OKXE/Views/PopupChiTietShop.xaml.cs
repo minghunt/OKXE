@@ -63,7 +63,7 @@ namespace OKXE.Views
             string jsonlh = JsonConvert.SerializeObject(S);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
             HttpResponseMessage kq;
-            kq = await http.PostAsync("http://okxeapi.somee.com/api/Shop/CapNhatShop", httcontent);
+            kq = await http.PostAsync("http://apiokxe.somee.com/api/Shop/CapNhatShop", httcontent);
             if (Exchange.Data.Ten.Text == "Việt Nam")
                 Exchange.Data.MyShop.ItemsSource = shops;
             else Exchange.Data.MyShop.ItemsSource = shops.Where(p => p.tenTp.Equals(Exchange.Data.Ten.Text)); 
@@ -106,7 +106,7 @@ namespace OKXE.Views
             string jsonlh = JsonConvert.SerializeObject(xe);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
             HttpResponseMessage kq;
-            kq = await http.PostAsync("http://okxeapi.somee.com/api/Xe/CapNhatXe", httcontent);
+            kq = await http.PostAsync("http://apiokxe.somee.com/api/Xe/CapNhatXe", httcontent);
             Exchange.Data.Xes = Xes;
             
         }
