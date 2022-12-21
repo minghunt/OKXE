@@ -52,6 +52,7 @@ namespace OKXE.Views
                     }
                     else
                     {
+
                         Xes[i].loveImg = "FavouriteRed.png";
                         s.Source = "FavouriteRed.png";
                     }
