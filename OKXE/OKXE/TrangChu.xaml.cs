@@ -108,9 +108,9 @@ namespace OKXE
             await Shell.Current.GoToAsync(nameof(PageNotify));
         }
 
-        private async void MessageItem_Clicked(object sender, EventArgs e)
+        private async void CartItem_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(PageMessage));
+            PopupNavigation.PushAsync(new PopupXeDaMua());
         }
 
         [Obsolete]

@@ -32,7 +32,7 @@
                                         </Grid.RowDefinitions>
                                         <Image
                                             Source="{Binding hinhShop}"
-                                            Aspect="AspectFill"
+                                            Aspect="Fill"
                                             HeightRequest="60"
                                             WidthRequest="60" Margin="0"/>
                                         <Label Text="{Binding tenShop}" Padding="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"

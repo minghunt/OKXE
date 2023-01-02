@@ -8,7 +8,7 @@
         <ShellContent Icon="home_icon.png" Title="Trang Chủ" Route="Home" Shell.TitleColor="#00bcc3">
             <ContentPage Shell.PresentationMode="Modal" Shell.BackgroundColor="#00bcc3">
                 <ContentPage.ToolbarItems>
-                    <ToolbarItem Order="Primary" Priority="1" Clicked="MessageItem_Clicked" IconImageSource="message_icon.png"></ToolbarItem>
+                    <ToolbarItem Order="Primary" Priority="1" Clicked="CartItem_Clicked" IconImageSource="cart_white.png"></ToolbarItem>
                     <ToolbarItem Order="Primary" Priority="0" Clicked="NotifyItem_Clicked" IconImageSource="notify_icon.png"></ToolbarItem>
                 </ContentPage.ToolbarItems>
                 <Shell.TitleView>
